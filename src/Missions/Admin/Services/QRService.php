@@ -11,7 +11,7 @@ class QRService {
             $data = explode("-", $code);
             if($data[2] === 'student'){
                 if($this->studentService->checkByHash($data[3], $data[4])){
-                    return $this->studentService->getStudentNameNeptunbyID($data[3])
+                    return $this->studentService->getStudentNameNeptunbyID($data[3]);
                 }else return false;
             }
         }
