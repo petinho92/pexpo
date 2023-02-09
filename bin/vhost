@@ -1,0 +1,5 @@
+#!/bin/bash
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../";
+DOMAIN=`php ./bin/php/env-loader.php ATOMINO_DOMAIN`;
+echo "generating vhost ${DOMAIN}"
+DOMAIN=${DOMAIN} php bin/php/vhost.php

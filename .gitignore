@@ -1,0 +1,7 @@
+.idea
+etc/atomino.ini
+etc/.env
+vendor
+node_modules
+var/**/*
+**/.DS_store

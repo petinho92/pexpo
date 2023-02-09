@@ -1,0 +1,22 @@
+CREATE TABLE `accommodation` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `star` varchar(5) DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  `hu_type` varchar(50) DEFAULT NULL,
+  `en_type` varchar(50) DEFAULT NULL,
+  `hu_desc` text,
+  `en_desc` text,
+  `hu_services` text,
+  `en_services` text,
+  `telephone` varchar(30) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `website` varchar(100) DEFAULT NULL,
+  `maps` varchar(100) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT NULL,
+  `attachments` json DEFAULT NULL,
+  `created` timestamp NULL DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
