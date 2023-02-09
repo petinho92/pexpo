@@ -15,6 +15,12 @@
   */ abstract class _Content_FINDER extends \Atomino\Carbon\Finder{}
 
 /**
+  * @method \Application\Entity\Eventlog[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
+  * @method \Application\Entity\Eventlog[] page( int $size, int $page = 1, int|bool|null &$count = false )
+  * @method \Application\Entity\Eventlog|null pick()
+  */ abstract class _Eventlog_FINDER extends \Atomino\Carbon\Finder{}
+
+/**
   * @method \Application\Entity\Gallery[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
   * @method \Application\Entity\Gallery[] page( int $size, int $page = 1, int|bool|null &$count = false )
   * @method \Application\Entity\Gallery|null pick()
