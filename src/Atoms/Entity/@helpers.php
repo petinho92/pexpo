@@ -33,6 +33,12 @@
   */ abstract class _Sponsor_FINDER extends \Atomino\Carbon\Finder{}
 
 /**
+  * @method \Application\Entity\Student[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
+  * @method \Application\Entity\Student[] page( int $size, int $page = 1, int|bool|null &$count = false )
+  * @method \Application\Entity\Student|null pick()
+  */ abstract class _Student_FINDER extends \Atomino\Carbon\Finder{}
+
+/**
   * @method \Application\Entity\User[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
   * @method \Application\Entity\User[] page( int $size, int $page = 1, int|bool|null &$count = false )
   * @method \Application\Entity\User|null pick()
