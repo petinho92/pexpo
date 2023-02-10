@@ -1,7 +1,6 @@
 <script>
     import {hotels} from "./data/hotels.ts";
     import 'bulma-extensions/bulma-ribbon/dist/css/bulma-ribbon.min.css';
-    import Footer from 'src/components/Footer.svelte';
     import {_, locale} from 'svelte-i18n';
 </script>
 <section class="section">
