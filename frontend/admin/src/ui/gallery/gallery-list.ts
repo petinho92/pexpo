@@ -2,7 +2,6 @@ import type Entity from "gold-admin/entity-type";
 import FaIcon from "gold-admin/fa-icon";
 import List, {button, buttons, filterComponent, list} from "gold-admin/list/list";
 import GalleryForm from "src/ui/gallery/gallery-form";
-import C_GalleryListFilter from "gallery-list-filter.svelte";
 
 @list(
     "Galleries",
@@ -11,7 +10,6 @@ import C_GalleryListFilter from "gallery-list-filter.svelte";
     GalleryForm
 )
 @button(buttons.new)
-// @filterComponent(C_GalleryListFilter)
 export default class GalleryList extends List{
     cardifyItem(item: Entity): Entity {
         return {

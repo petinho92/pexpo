@@ -4,10 +4,6 @@ import attachmentButton from "gold-admin/form-attachment/form-button";
 import controls from "gold-admin/form-input/controls"
 import Form, {button, buttons, form} from "gold-admin/form/form";
 import type Entity from "gold-admin/entity-type";
-import CustomStringControl from "src/controls/custom-string/control";
-import type {SvelteComponent} from "svelte";
-import {comment} from "postcss";
-import HelperComponent from "content-helper.svelte";
 
 let cat:Array<string> = ["sajtofotok", "eloadas", "kiallitas", "fogadas", "esemeny"];
 

@@ -10,7 +10,9 @@
 	"c": {},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.4",
+		"@tinymce/tinymce-svelte": "^1.0.0",
 		"gold-admin": "github:atomino-framework/gold-admin",
+		"marked": "^4.2.12",
 		"svelma": "^0.4.5",
 		"svelte-portal": "^2.1.1",
 		"svelte-spa-router": "^3.2.0",
