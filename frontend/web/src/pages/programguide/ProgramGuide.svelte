@@ -1,38 +1,44 @@
 <script>
-    import {programguide} from "./data/pguide.ts";
-    import Footer from 'src/components/Footer.svelte';
     import {_} from 'svelte-i18n';
     import {locale} from 'svelte-i18n';
+
+    import asyncFetch from "src/services/asyncFetch.ts";
+
+    const url = "http://expo.localhost:8080/programguide/getguide";
+    const domain = "http://expo.localhost:8080"
+
+    const [programguide, loading, error, get] = asyncFetch(url);
+
 
 </script>
 
 
 <section class="section">
     <div class="container">
-        {#each programguide as pg}
+        {#each $programguide as pg}
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src={pg.thumb} alt={pg.alt}>
+                        <img src={domain.concat(pg.url.concat(pg.picture))} alt={pg.alt}>
                     </figure>
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4>{pg.head}</h4>
+                        <h4>{pg.name}</h4>
                         <p class="ribbon">{pg.date}</p>
                         {#if $locale === 'hu'}
-                            <p>{pg.type}</p>
+                            <p>{pg.hu_type}</p>
                         {/if}
                         {#if $locale === 'en'}
-                            <p>{pg.type_en}</p>
+                            <p>{pg.en_type}</p>
                         {/if}
 
-                        <a href={pg.path} class="card-button">
+                        <a href={domain.concat(pg.url.concat(pg.hu_files))} class="card-button">
                             {$_('programguide.button')}
                         </a>
                         <br>
                         {#if (pg.path_en !== "")}
-                            <a href={pg.path_en} class="card-button">
+                            <a href={domain.concat(pg.url.concat(pg.en_files))} class="card-button">
                                 {$_('programguide.button_en')}
                             </a>
                         {/if}
