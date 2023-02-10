@@ -5,7 +5,6 @@ import controls from "gold-admin/form-input/controls";
 import Form, {button,buttons,form} from "gold-admin/form/form";
 import type Entity from "gold-admin/entity-type";
 import CheckboxesControl from "src/controls/custom-checkboxes/control";
-import CustomStringControl from "src/controls/custom-string/control";
 let hu_cat:Array<string> = ["apartman","szálloda", "panzió", "vendégház"];
 let en_cat:Array<string> = ["apartment", "hotel", "bed and breakfast", "guest house"];
 
@@ -32,11 +31,11 @@ export default class HotelForm extends Form {
         this.addSection("Hungarian properties", FaIcon.s("hotel"))
             .addControl(controls.select("hu_type",).setOptions(hu_cat))
             .addControl(controls.text("hu_desc", "description"))
-            .addControl(new CheckboxesControl("hu_services",).setOptions(["&#127359; parkolás","&#9969; wellness", "&#128246; ingyenes WiFi","&#128054; állatbarát","&#127869; étterem", "&#127864; bár", ]))
+            .addControl(new CheckboxesControl("hu_services",).setOptions(["&#127359; parkolás","&#9969; wellness", "&#128246; ingyenes WiFi","&#128054; állatbarát","&#127836; étterem", "&#127864; bár", ]))
         this.addSection("English properties", FaIcon.s("hotel"))
             .addControl(controls.select("en_type",).setOptions(en_cat))
             .addControl(controls.text("en_desc", "description"))
-            .addControl(new CheckboxesControl("en_services",).setOptions(["&#127359; parking","&#9969; Spa and wellness centre", "&#128246; free WiFi","&#128054; Pets allowed","&#127869; Restaurant", "&#127864; Bar", ]))
+            .addControl(new CheckboxesControl("en_services",).setOptions(["&#127359; parking","&#9969; Spa and wellness centre", "&#128246; free WiFi","&#128054; Pets allowed","&#127836; Restaurant", "&#127864; Bar", ]))
 
     }
 }
