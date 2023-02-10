@@ -36,7 +36,7 @@ export default class HotelForm extends Form {
         this.addSection("English properties", FaIcon.s("hotel"))
             .addControl(controls.select("en_type",).setOptions(en_cat))
             .addControl(controls.text("en_desc", "description"))
-            .addControl(new CheckboxesControl("hu_services",).setOptions(["&#127359; parking","&#9880;; Spa and wellness centre", "&#128246; free WiFi","&#128054; Pets allowed","&#127869; Restaurant", "&#127864; Bar", ]))
+            .addControl(new CheckboxesControl("en_services",).setOptions(["&#127359; parking","&#9880;; Spa and wellness centre", "&#128246; free WiFi","&#128054; Pets allowed","&#127869; Restaurant", "&#127864; Bar", ]))
 
     }
 }
