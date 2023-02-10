@@ -7,8 +7,8 @@ CREATE TABLE `accommodation` (
   `en_type` varchar(50) DEFAULT NULL,
   `hu_desc` text,
   `en_desc` text,
-  `hu_services` text,
-  `en_services` text,
+  `hu_services` json DEFAULT NULL,
+  `en_services` json DEFAULT NULL,
   `telephone` varchar(30) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL,
@@ -17,6 +17,7 @@ CREATE TABLE `accommodation` (
   `attachments` json DEFAULT NULL,
   `created` timestamp NULL DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
+  `tmp` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
