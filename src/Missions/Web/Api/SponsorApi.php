@@ -5,19 +5,23 @@ use Atomino\Carbon\Database\Finder\Filter;
 use Atomino\Mercury\Responder\Api\Api;
 use Atomino\Mercury\Responder\Api\Attributes\Route;
 
-class SponsorApi extends Api{
+class SponsorApi extends Api
+{
 
     #[Route(self::GET, '/getsponsor')]
-    function getSponsor(){
+    function getSponsor()
+    {
         $result = Sponsor::search(Filter::where(Sponsor::active(true)))->collect();
         $array = array();
-        foreach ($result as $data){
-            $array[] = (object) [
-                'id' => $data->id,
-                'name' => $data->name,
-                'website' => $data->website,
-                'logo' => ($data->getAttachmentStorage()->url).($data->picture->first->filename)
-            ];
+        foreach ($result as $data) {
+            if ($data->picture->first->filename !== null) {
+                $array[] = (object)[
+                    'id' => $data->id,
+                    'name' => $data->name,
+                    'website' => $data->website,
+                    'logo' => ($data->getAttachmentStorage()->url) . ($data->picture->first->filename)
+                ];
+            }
         }
         return $array;
     }
