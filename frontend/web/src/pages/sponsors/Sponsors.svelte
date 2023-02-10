@@ -1,7 +1,11 @@
 <script>
-    import {partners} from "./data/sponsors.ts";
-    import Footer from "src/components/Footer.svelte";
     import {_} from "svelte-i18n";
+    import asyncFetch from "src/services/asyncFetch.ts";
+
+    const url = "http://expo.localhost:8080/sponsor/getsponsor";
+
+    const [partners, loading, error, get] = asyncFetch(url);
+
 </script>
 
 
@@ -9,11 +13,11 @@
 <section class="section">
     <div class="container">
 
-        {#each partners as pg}
+        {#each $partners as pg}
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-256x256">
-                        <img src={pg.logo256} alt={pg.name}>
+                        <img src={pg.logo} alt={pg.name}>
                     </figure>
                 </div>
                 <div class="card-content">
@@ -30,6 +34,10 @@
 </section>
 
 <style>
+    .section{
+        margin-top: 0;
+        background: rgba(93, 93, 93, 0.5);
+    }
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
