@@ -55,11 +55,11 @@ class HotelApi extends Gold{
             {
                 return null;
             }
-            protected function export(Entity|Gallery $item): array
+            protected function export(Entity|Accommodation $item): array
             {
                 return parent::export($item);
             }
-            protected function update(Entity|Gallery $item, array $data): int|null
+            protected function update(Entity|Accommodation $item, array $data): int|null
             {
                 return parent::update($item, $data);
             }
