@@ -35,7 +35,7 @@ class GalleryApi extends Api
     {
         return $this->responseCreator(Gallery::search()->collect());
     }
-
+    // TODO: csak az aktív entitásokat adja vissza + aminél van attachments!
 
     #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])')]
     public function getCollectionbyYear(int $year): array
