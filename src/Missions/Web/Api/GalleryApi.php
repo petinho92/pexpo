@@ -10,6 +10,9 @@ use function Atomino\debug;
 class GalleryApi extends Api
 {
 
+
+
+
     /**
      * @return array
      * Collect all galleries entity, extract values into a array, sort in descending order and return ordered array
@@ -17,7 +20,7 @@ class GalleryApi extends Api
     #[Route(self::GET, '/getyears')]
     public function getYears()
     {
-        $tmp = Gallery::search()->collect();
+        $tmp = Gallery::search(Filter::where(Gallery::active(true)))->collect();
         $array = [];
         foreach ($tmp as $item) {
             if (!in_array($item->year, $array, true))
