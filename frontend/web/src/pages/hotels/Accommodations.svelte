@@ -4,7 +4,7 @@
 
     import asyncFetch from "src/services/asyncFetch.ts";
 
-    const url = "http://expo.localhost:8080/hotel/getcollection/gethotels";
+    const url = "/hotel/getcollection/gethotels";
 
     const [hotels, loading, error, get] = asyncFetch(url);
 

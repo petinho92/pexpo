@@ -5,7 +5,6 @@
     import asyncFetch from "src/services/asyncFetch.ts";
 
     const url = "http://expo.localhost:8080/programguide/getguide";
-    const domain = "http://expo.localhost:8080"
 
     const [programguide, loading, error, get] = asyncFetch(url);
 
@@ -19,7 +18,7 @@
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src={domain.concat(pg.url.concat(pg.picture))} alt={pg.alt}>
+                        <img src={pg.url.concat(pg.picture)} alt={pg.alt}>
                     </figure>
                 </div>
                 <div class="card-content">
@@ -33,12 +32,12 @@
                             <p>{pg.en_type}</p>
                         {/if}
 
-                        <a href={domain.concat(pg.url.concat(pg.hu_files))} class="card-button">
+                        <a href={pg.url.concat(pg.hu_files)} class="card-button">
                             {$_('programguide.button')}
                         </a>
                         <br>
                         {#if (pg.path_en !== "")}
-                            <a href={domain.concat(pg.url.concat(pg.en_files))} class="card-button">
+                            <a href={pg.url.concat(pg.en_files)} class="card-button">
                                 {$_('programguide.button_en')}
                             </a>
                         {/if}

@@ -2,7 +2,6 @@
     import Gallery from "../gallery/Gallery.svelte";
 
     export let urlPrefix = '';
-    export let domain = '';
     export let images = [];
 
     let urls = [];

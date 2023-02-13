@@ -37,7 +37,7 @@
                                     {#each $data as album}
                                         {#if year === album.year}
                                             <div class="column is-8-mobile is-narrow">
-                                                <a on:click={()=>open(Popup,{domain: domain, urlPrefix: album.url, images: album.imgs})}>
+                                                <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
                                                     <div class="card card-hover">
 
                                                         <div class="card-header bg">
