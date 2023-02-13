@@ -1,11 +1,17 @@
 <script>
-    import {hotels} from "./data/hotels.ts";
     import 'bulma-extensions/bulma-ribbon/dist/css/bulma-ribbon.min.css';
     import {_, locale} from 'svelte-i18n';
+
+    import asyncFetch from "src/services/asyncFetch.ts";
+
+    const url = "http://expo.localhost:8080/hotel/getcollection/gethotels";
+
+    const [hotels, loading, error, get] = asyncFetch(url);
+
 </script>
 <section class="section">
     <div class="container">
-        {#each hotels as hotel}
+        {#each $hotels as hotel}
             <div class="card">
                 <div class="columns">
                     <div class="card-image column is-two-fifths has-ribbon-left">
@@ -17,24 +23,26 @@
                     <div class="card-content column is-three-fifths has-text-justified">
                         <p class="title is-4">{hotel.name} {hotel.star}</p>
                         {#if $locale === 'hu'}
-                            <p class="subtitle is-7">{hotel.type_hu}</p>
+                            <p class="subtitle is-7">{hotel.hu_type}</p>
                             <p class="subtitle is-5">{$_('accommodations.label.description')}</p>
-                            <p>{@html hotel.description_hu}</p>
+                            <p>{@html hotel.hu_description}</p>
                         {/if}
                         {#if $locale === 'en'}
-                            <p class="subtitle is-7">{hotel.type_en}</p>
+                            <p class="subtitle is-7">{hotel.en_type}</p>
                             <p class="subtitle is-5">{$_('accommodations.label.description')}</p>
-                            <p>{@html hotel.description_en}</p>
+                            <p>{@html hotel.hu_description}</p>
                         {/if}
                         <br>
                         <div class="columns">
                             <div class="column is-two-fifths">
                                 <p class="subtitle is-5">{$_('accommodations.label.services')} </p>
                                 {#if $locale === 'hu'}
-                                    {@html hotel.services_hu}
+                                    {#each hotel.hu_services as service}
+                                        {@html service}<br>
+                                    {/each}
                                 {/if}
                                 {#if $locale === 'en'}
-                                    {@html hotel.services_en}
+                                    {@html hotel.en_services}
                                 {/if}
                             </div>
                             <div class="column is-three-fifths">
@@ -43,7 +51,8 @@
                                 <p>{$_('accommodations.label.email')} <a href="mailto:{hotel.email}">{hotel.email}</a>
                                 </p>
                                 <p>{$_('accommodations.label.place')} {hotel.location}</p>
-                                <p>{$_('accommodations.label.website')} <a href={hotel.website} target="_blank">Link</a></p>
+                                <p>{$_('accommodations.label.website')} <a href={hotel.website} target="_blank">Link</a>
+                                </p>
                                 <p>{$_('accommodations.label.maps')} <a href={hotel.maps} target="_blank">Link</a></p>
                                 <p></p>
                                 <p></p>
