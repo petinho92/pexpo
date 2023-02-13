@@ -60,6 +60,6 @@
 <Editor
         scriptSrc="/~admin/assets/tinymce/js/tinymce/tinymce.min.js"
         {conf}
-        bind:value={$item[field]}
+        bind:value={item[field]}
         on:change={onChange}
 />
