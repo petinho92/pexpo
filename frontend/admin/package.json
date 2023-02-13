@@ -11,6 +11,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.4",
 		"@tinymce/tinymce-svelte": "^1.0.0",
+		"@types/tinymce": "^4.6.5",
 		"gold-admin": "github:atomino-framework/gold-admin",
 		"marked": "^4.2.12",
 		"svelma": "^0.4.5",
