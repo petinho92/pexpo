@@ -33,21 +33,21 @@ class GalleryApi extends Api
     #[Route(self::GET, '/getcollection/getall')]
     public function getCollectionAllImages()
     {
-        return $this->responseCreator(Gallery::search()->collect());
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true)))->collect());
     }
     // TODO: csak az aktív entitásokat adja vissza + aminél van attachments!
 
     #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])')]
     public function getCollectionbyYear(int $year): array
     {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year)))->collect());
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year))->and(Gallery::active(true)))->collect());
 
     }
 
     #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])/:category(sajtofotok|eloadas|kiallitas|fogadas|esemeny)')]
     public function getCollection(int $year, string $category)
     {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year))->and(Gallery::category($category)))->collect());
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year))->and(Gallery::category($category))->and(Gallery::active(true)))->collect());
 
     }
 
@@ -55,6 +55,7 @@ class GalleryApi extends Api
     {
         $array = array();
         foreach ($data as $adat) {
+            if ($adat->picture->first->filename !== null) {
             $array[] = (object)[
                 'year' => $adat->year,
                 'category' => $adat->category,
@@ -63,6 +64,7 @@ class GalleryApi extends Api
                 'imgs' => $adat->picture->files,
                 'thumbnail' => $adat->picture->first->image->crop(200, 400)->png
             ];
+            }
         }
         return $array;
     }
