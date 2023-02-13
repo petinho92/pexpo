@@ -24,8 +24,6 @@ export default class ContentForm extends Form {
             .addControl(controls.select("category",).setOptions(["asd"]))
             .addControl(new CustomEditorControl("content_hu", "Tartalom"))
             .addControl(new CustomEditorControl("content_en", "Content"))
-            // .addControl(controls.text("content_hu", "Tartalom").setStyle("markdown").setLayout("row"))
-            .addControl(controls.text("content_en", "Content").setStyle("markdown").setLayout("row"))
             .addControl(controls.switch("active", "active"))
     }
 }
