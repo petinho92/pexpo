@@ -1,10 +1,11 @@
-<section class="section">
+ <section class="section">
     <div class="container container-panel">
         <div class="columns has-text-centered-desktop is-centered">
             <div class="column has-text-centered is-two-thirds">
                 <div class="is-size-2 has-text-weight-bold mt-5 mb-6">Pollack Expo kiállítói információk</div>
                 <div class="has-text-right">
-                    <a href="/~web/assets/PollackExpo_szolgaltatasaink_2023.pdf" target="_blank" class="printer">🖨 Oldal letöltése</a>
+                    <a href="/~web/assets/PollackExpo_szolgaltatasaink_2023.pdf" target="_blank" class="printer">🖨 Oldal
+                        letöltése</a>
                 </div>
                 <div class="has-text-left is-size-5 mt-5">
                     <div class=" has-text-weight-bold">
@@ -86,7 +87,9 @@
                         </ul>
                     </div>
                     <figure class="image is-fullwidth">
-                        <a target="_blank" href="http://www.pollackexpo.hu/img/standkep.jpg"><img class="image" src="http://www.pollackexpo.hu/img/standkep.jpg" alt="stand"></a>
+                        <a target="_blank" href="http://www.pollackexpo.hu/img/standkep.jpg"><img class="image"
+                                                                                                  src="http://www.pollackexpo.hu/img/standkep.jpg"
+                                                                                                  alt="stand"></a>
                     </figure>
                     <div class="has-text-centered is-size-6">
                         A képen dupla méretű (6×2 = 12 m2) stand látható.
@@ -95,7 +98,8 @@
                         A frízfelirat maximális mérete:
                     </div>
                     <figure class="image picture">
-                        <a target="_blank" href="https://pollackexpo.mik.pte.hu/~web/images/friz.jpg"><img class="picture" src="/~web/images/friz.jpg" alt="Friz felirat"></a>
+                        <a target="_blank" href="https://pollackexpo.mik.pte.hu/~web/images/friz.jpg"><img
+                                class="picture" src="/~web/images/friz.jpg" alt="Friz felirat"></a>
                     </figure>
                     <div class="has-text-weight-bold has-text-centered">
                         Egységes frízfeliratokat nem áll módunkban biztosítani!
@@ -217,18 +221,19 @@
     border: .6em solid #D3AC2B;
   }
 
-  .table{
+  .table {
     background-color: #101522;
     color: white;
     border-radius: 12px;
-    th{
+
+    th {
       color: white;
     }
   }
 
 
   @media screen and (max-width: 1023px) {
-    .columns{
+    .columns {
       alignment: left;
       margin: 0 2px 0 2px;
     }
@@ -255,7 +260,7 @@
     font-weight: bold;
   }
 
-  a :hover{
+  a :hover {
     color: #624a00;
     transition: 1s all;
   }
@@ -268,11 +273,13 @@
     margin-top: 1em;
     font-size: small;
   }
-  .printer{
+
+  .printer {
     padding: 2em;
     background-color: #101522;
   }
-  .printer:hover{
+
+  .printer:hover {
     color: white;
     background-color: #090404;
     transition: 1s all;
