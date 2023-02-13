@@ -44,7 +44,87 @@ export let timeline = [
         year: 2021,
         title_hu: "15 ÉVES A POLLACK EXPO",
 		title_en: "15 YEARS OF THE POLLACK EXPO",
-        description_hu: "A POLLACK EXPO 15 évfordulójára megújul a rendezvény arculata, logója, weboldala.",
-		description_en: "For the 15th anniversary of POLLACK EXPO, the event's image, logo and website were renewed."
-	}
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 7,
+        year: 2022,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 8,
+        year: 2023,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 9,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 10,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 11,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 12,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 13,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 14,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 15,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    },
+    {
+        id: 16,
+        year: 2024,
+        title_hu: "15 ÉVES A POLLACK EXPO",
+        title_en: "15 YEARS OF THE POLLACK EXPO",
+        description_hu: "A PTE Műszaki és Informatikai Kar vezetése és a Pollack Expo főszervezői 2018-ban évben egy kiállítói díjat alapítanak.  A díjjal a szervezők azokat a kiállítókat kívánják díjazni, akik évtizedek óta részt vesznek a Pollack Expón, valamint korábban a Karon megrendezett szaknapokon.",
+        description_en: "The leadership of the Faculty of Engineering and Information Technology of the University of Pécs and the organizers of Pollack Expo established an exhibitors’ award in 2018 honouring exhibitors who had been participating in the Pollack Expo as well as in previous professional days for decades."
+    }
 ];

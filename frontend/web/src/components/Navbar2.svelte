@@ -3,6 +3,7 @@
     import {push} from 'svelte-spa-router';
 
     export let languages;
+    let active;
 
 
 </script>
@@ -17,7 +18,9 @@
                 </a>
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                    data-target="navbarBasicExample"
-                   onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                   onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+                   class:is-active={active} on:click={()=>active = !active}
+                >
                     <span aria-hidden="true" class="nbburger"></span>
                     <span aria-hidden="true" class="nbburger"></span>
                     <span aria-hidden="true" class="nbburger"></span>
@@ -44,7 +47,9 @@
                     </a>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                        data-target="navbarBasicExample"
-                       onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                       onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+                       class:is-active={active} on:click={()=>active = !active}
+                    >
                         <span aria-hidden="true" class="nbburger"></span>
                         <span aria-hidden="true" class="nbburger"></span>
                         <span aria-hidden="true" class="nbburger"></span>
@@ -62,7 +67,9 @@
 
 
                 <div class="navbar-start navbar-wide"
-                     onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                     onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+                     class:is-active={active} on:click={()=>active = !active}
+                >
                     <a class="pte navbar-content ml-6" href="https://pte.hu" target="_blank">
                         <img src="/~web/images/pte.png"
                              class="pte"/>
@@ -245,25 +252,8 @@
         max-width: 95vw;
     }
 
-    .navbar-menu {
-        animation: navAnimOpen .2s ease-in-out;
-    }
 
-    @keyframes navAnimOpen {
-        0% {
-            display: none;
-            opacity: 0;
-            max-height: 0;
-        }
-        1% {
-            display: block;
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-            max-height: 396px;
-        }
-    }
+
 
     @media screen and (max-width: 1200px) {
         .pte-logo {

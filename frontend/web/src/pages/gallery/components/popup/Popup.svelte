@@ -9,7 +9,7 @@
 
     $: if (urlPrefix  !== (null || undefined) && images !== (null || undefined)) {
         for (let i = 0; i < images.length; i++) {
-            urls.push(domain.concat(urlPrefix.concat(images[i])));
+            urls.push(urlPrefix.concat(images[i]));
         }
         console.log(urls);
     }

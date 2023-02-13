@@ -3,9 +3,9 @@
     import asyncGet from "src/services/asyncFetch.ts";
     import Popup from './Popup.svelte';
 
-    const url = "http://expo.localhost:8080/gallery/getcollection/getall";
-    const urlYears = "http://expo.localhost:8080/gallery/getyears";
-    const domain = "http://expo.localhost:8080";
+    const url = "/gallery/getcollection/getall";
+    const urlYears = "/gallery/getyears";
+    const domain = "";
     const {open} = getContext('simple-modal');
 
     const [data, loading, error, get] = asyncGet(url);
