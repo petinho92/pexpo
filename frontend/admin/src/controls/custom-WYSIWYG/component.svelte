@@ -27,7 +27,7 @@
             table: { title: 'Table', items: 'inserttable | cell row column | advtablesort | tableprops deletetable' },
             help: { title: 'Help', items: 'help' }
         },
-        plugins: 'advlist link image table lists save code bbcode fullscreen wordcount',
+        plugins: 'advlist link image table lists save code fullscreen wordcount',
         contextmenu: 'link | cut copy paste pasteastext | styles block | forecolor backcolor | inserttable',
         element_format : 'html',
         content_langs: [
