@@ -10,8 +10,6 @@ use function Atomino\debug;
 class ProgramguideApi extends Api
 {
 
-    //TODO kiszedni lang property keyt és úgy összerakni apit
-
     #[Route(self::GET, '/getguide')]
     public function getProgramGuide()
     {
