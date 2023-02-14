@@ -4,7 +4,6 @@ import attachmentButton from "gold-admin/form-attachment/form-button";
 import controls from "gold-admin/form-input/controls"
 import Form, {button, buttons, form} from "gold-admin/form/form";
 import type Entity from "gold-admin/entity-type";
-import CheckboxesControl from "src/controls/custom-checkboxes/control";
 
 @form(
     FaIcon.s("book"),
