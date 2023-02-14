@@ -2,16 +2,11 @@
 
 use Application\Entity\Gallery;
 use Atomino\Carbon\Database\Finder\Filter;
-use Atomino\Carbon\Entity;
 use Atomino\Mercury\Responder\Api\Api;
 use Atomino\Mercury\Responder\Api\Attributes\Route;
-use function Atomino\debug;
 
 class GalleryApi extends Api
 {
-
-
-
 
     /**
      * @return array
