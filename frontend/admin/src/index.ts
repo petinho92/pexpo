@@ -15,6 +15,7 @@ import GalleryList from "src/ui/gallery/gallery-list";
 import HotelList from "src/ui/hotel/hotel-list";
 import SponsorList from "src/ui/sponsor/sponsor-list";
 import ProgramguideList from "src/ui/programguide/programguide-list";
+import TimelineList from "src/ui/timeline/timeline-list";
 
 window.addEventListener('load', () => {
 
@@ -46,6 +47,9 @@ window.addEventListener('load', () => {
                     },),
                     new MenuItem("Guide", FaIcon.s("book"), () => {
                         listManager.add(new ProgramguideList())
+                    },),
+                    new MenuItem("Timeline", FaIcon.s("stream"), () => {
+                        listManager.add(new TimelineList())
                     },)
                 ], "webmaster"),
                 new MenuItem("Settings", FaIcon.s("cogs"), [
