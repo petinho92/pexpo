@@ -30,10 +30,6 @@
         plugins: 'advlist link image table lists save code fullscreen wordcount',
         contextmenu: 'link | cut copy paste pasteastext | styles block | forecolor backcolor | inserttable',
         element_format : 'html',
-        content_langs: [
-            { title: 'English', code: 'en' },
-            { title: 'Hungarian', code: 'hu' },
-        ],
         skin: "oxide-dark",
         content_css: "dark",
         branding: false,
