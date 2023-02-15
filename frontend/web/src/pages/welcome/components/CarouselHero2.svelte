@@ -1,22 +1,29 @@
 <script>
     import Carousel from 'svelte-carousel'
     import {carouselhero} from "../data/gallery.ts";
+    import fetchData from "../../../services/asyncFetch.ts"
+
+    const url = "/gallery/getcollection/2013/sajtofotok";
+    const [data, loading, error, get] = fetchData(url);
 
 </script>
 <section>
-    <Carousel
-            autoplay
-            arrows={false}
-            autoplayDuration={4000}
-            pauseOnFocus={true}
-            autoplayProgressVisible={true}
-            dots={false}
-            timingFunction="linear"
-    >
-        {#each carouselhero as img}
-            <img src={img.path} alt={img.id}>
-        {/each}
-    </Carousel>
+    {#if !$loading}
+        <Carousel
+                autoplay
+                arrows={false}
+                autoplayDuration={4000}
+                pauseOnFocus={true}
+                autoplayProgressVisible={true}
+                dots={false}
+                timingFunction="linear"
+        >
+
+            {#each $data[0].imgs as img}
+                <img src={$data[0].url.concat(img)} alt={img}>
+            {/each}
+        </Carousel>
+    {/if}
 </section>
 <style>
     @media screen and (min-width: 769px) {
@@ -34,7 +41,8 @@
             object-fit: cover;
         }
     }
-    section{
+
+    section {
         margin-top: -12px;
         background-color: #D3AC2B;
     }
