@@ -505,7 +505,7 @@
 
     .window {
         position: relative;
-        width: 50em;
+        width: 80%;
         max-width: 100%;
         max-height: 100%;
         margin: 2rem auto;
