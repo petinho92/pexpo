@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import Control from "src/controls/custom-string/control";
+    import Control from "src/controls/custom-WYSIWYG/control";
     import type Page from "gold-admin/form/form-page";
 
     export let page: Page;
