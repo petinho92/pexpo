@@ -56,9 +56,7 @@
                             <SwiperSlide>
                                 <div class="swiper-slide">
                                     <a href={partner.website}>
-                                        <figure class="image is-128x128">
-                                            <img class="image-full-size" src="{partner.logo}">
-                                        </figure>
+                                        <img class="image-full-size" src="{partner.logo}">
                                     </a>
                                 </div>
                             </SwiperSlide>
@@ -75,8 +73,8 @@
 {/if}
 
 <style>
-    .image-full-size{
-        height: 100%;
+    .image-full-size {
+        height: 80%;
     }
 
     .clients .clients-slider .swiper-slide img {
