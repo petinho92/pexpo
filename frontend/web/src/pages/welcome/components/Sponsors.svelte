@@ -74,7 +74,7 @@
 
 <style>
     .image-full-size {
-        height: 80%;
+        height: 70%;
     }
 
     .clients .clients-slider .swiper-slide img {
