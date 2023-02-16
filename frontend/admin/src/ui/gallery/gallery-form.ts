@@ -5,7 +5,7 @@ import controls from "gold-admin/form-input/controls"
 import Form, {button, buttons, form} from "gold-admin/form/form";
 import type Entity from "gold-admin/entity-type";
 
-let cat:Array<string> = ["sajtofotok", "eloadas", "kiallitas", "fogadas", "esemeny"];
+let cat:Array<string> = ["sajtofotok", "eloadas", "kiallitas", "fogadas", "esemeny", "slider"];
 
 @form(
     FaIcon.s("image"),
