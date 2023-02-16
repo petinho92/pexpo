@@ -42,7 +42,6 @@
     }
 
     section {
-        margin-top: -12px;
         background-color: #D3AC2B;
     }
 </style>

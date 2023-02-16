@@ -8,8 +8,8 @@
 
 </script>
 
-<div class="columns ">
-    <div class="card-content column is-full">
+<div class="columns mb-0">
+    <div class="card-content column is-full mb-0 p-0">
         <nav class="navbar is-transparent has-centered-logo-alt2 pt-6 pb-4" role="navigation"
              aria-label="main navigation">
             <div class="navbar-brand is-hidden-desktop">
@@ -127,6 +127,8 @@
 
 
 <style>
+
+
     .pte {
         position: relative;
         width: 64px;
