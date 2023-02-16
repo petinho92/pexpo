@@ -11,8 +11,9 @@
     <div class="container container-panel">
         <div class="columns is-centered">
             <div class="column is-two-thirds">
-<!--                TODO: renders all in same font size -->
-                {@html $data}
+                <div class="content my-6">
+                    {@html $data}
+                </div>
             </div>
         </div>
     </div>
@@ -24,7 +25,6 @@
     opacity: 0.9;
     border: .6em solid #D3AC2B;
   }
-
 
   @media screen and (max-width: 1023px) {
     .columns {
