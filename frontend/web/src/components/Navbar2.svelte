@@ -8,7 +8,7 @@
 
 </script>
 
-<div class="columns mb-0">
+<div class="columns m-0">
     <div class="card-content column is-full mb-0 p-0">
         <nav class="navbar is-transparent has-centered-logo-alt2 pt-6 pb-4" role="navigation"
              aria-label="main navigation">
