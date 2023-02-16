@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import Control from "src/controls/custom-string/control";
+    import type Control from "./control";
     import type Page from "gold-admin/form/form-page";
 
     export let page: Page;
@@ -8,6 +8,9 @@
     export let item;
     export let onChange: Function;
     let field = control.field;
+    $: if($item[field] === null){
+        $item[field] = 'empty';
+    }
     import Editor from '@tinymce/tinymce-svelte';
 
     let conf = {
@@ -56,6 +59,6 @@
 <Editor
         scriptSrc="/~admin/assets/tinymce/js/tinymce/tinymce.min.js"
         {conf}
-        bind:value={item[field]}
+        bind:value={$item[field]}
         on:change={onChange}
 />

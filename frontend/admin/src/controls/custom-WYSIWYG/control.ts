@@ -9,17 +9,6 @@ import OptionSetApi from "gold-admin/form-input/option-set-api";
 @layout("column")
 export default class CustomEditorControl extends AbstractControl {
 
-    public options: Array<I_OptionSet> = [];
-    setOptions(options: Array<I_OptionSet>|valueLabelPair|Array<string|any>): this {
-        this.options = convertToOptionSet(options);
-        return this;
-    }
 
-
-    public api: I_OptionSetApi | null = null;
-    setApi(api: I_OptionSetApi | string|any): this {
-        this.api = typeof api === "string" ? api = new OptionSetApi(api) : api;
-        return this;
-    }
 
 }
