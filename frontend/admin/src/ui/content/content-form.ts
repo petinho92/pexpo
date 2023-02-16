@@ -20,8 +20,8 @@ export default class ContentForm extends Form {
     build(item: Entity, options: any) {
         this.addSection("Content properties", FaIcon.s("page"))
             .addControl(controls.string("name", "name"))
-            .addControl(controls.select("page",).setOptions(["services"]))
-            .addControl(controls.select("category",).setOptions(["asd"]))
+            .addControl(controls.select("page",).setOptions(["services","home","none"]))
+            .addControl(controls.select("category",).setOptions(["none", "whatis", "footer"]))
             .addControl(new CustomEditorControl("content_hu", "Tartalom"))
             .addControl(new CustomEditorControl("content_en", "Content"))
             .addControl(controls.switch("active", "active"))
