@@ -9,22 +9,21 @@
 </script>
 
 
-
 <section class="section">
     <div class="container">
 
         {#each $partners as pg}
             <div class="card">
-                <div class="card-image">
-                    <figure class="image is-256x256">
-                        <img src={pg.logo} alt={pg.name}>
-                    </figure>
+                <div class="card-content">
+                    <div class="card-image">
+                        <img class="image-size" src={pg.logo} alt={pg.name}>
+                    </div>
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4 class="is-size-7">{pg.name}</h4>
+                        <h4 class="is-size-6">{pg.name}</h4>
                         <a href={pg.website} class="card-button">
-                            {$_('programguide.button')}</a>
+                            {$_('sponsors.button')}</a>
                     </div>
                 </div>
             </div>
@@ -34,19 +33,17 @@
 </section>
 
 <style>
-    .section{
+    .section {
         margin-top: 0;
         background: rgba(93, 93, 93, 0.5);
     }
+
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-gap: 0.5em;
     }
 
-    .card {
-        height: max-content;
-    }
 
     .card-button {
         display: flex;
@@ -65,9 +62,11 @@
 
     }
 
+    .image-size {
+        height: 200px;
+    }
+
 </style>
-
-
 
 
 <!--<div class="columns is-multiline">-->
