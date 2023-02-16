@@ -1,9 +1,8 @@
 <script>
     import Carousel from 'svelte-carousel'
-    import {carouselhero} from "../data/gallery.ts";
     import fetchData from "../../../services/asyncFetch.ts"
 
-    const url = "/gallery/getcollection/2013/sajtofotok";
+    const url = "/gallery/getslider";
     const [data, loading, error, get] = fetchData(url);
 
 </script>
