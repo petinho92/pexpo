@@ -26,6 +26,7 @@
 
     img{
         display: flex;
+        max-height: calc(100vh - 10rem);
     }
 
     @media screen and (max-height:420px){

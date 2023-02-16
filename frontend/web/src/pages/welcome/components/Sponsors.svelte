@@ -4,6 +4,10 @@
     import "swiper/css/pagination"
     import {partners} from "../data/sponsors.ts";
     import {_} from 'svelte-i18n'
+    import fetchData from "../../../services/asyncFetch.ts"
+
+    const url = "/sponsor/getsponsor";
+    const [data, loading, error, get] = fetchData(url);
 
     import SwiperCore, {Pagination, Autoplay} from 'swiper';
 
@@ -12,19 +16,19 @@
 
 </script>
 
+{#if !$loading}
 
-<section id="clients" class="clients">
+    <section id="clients" class="clients">
 
-    <div class="container">
+        <div class="container">
 
-        <header class="section-header">
-            <h2>{$_('sponsors.title')}</h2>
-        </header>
+            <header class="section-header">
+                <h2>{$_('sponsors.title')}</h2>
+            </header>
 
-        <div class="clients-slider swiper">
-            <div class="swiper-wrapper align-items-center">
-
-                <Swiper slidesPerView="{1}" spaceBetween="{10}" loop="{true}" autoplay='{{
+            <div class="clients-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                    <Swiper slidesPerView="{1}" spaceBetween="{10}" loop="{true}" autoplay='{{
   "delay": 1500,
   "disableOnInteraction": false
 }}' pagination='{{
@@ -48,24 +52,31 @@
     "spaceBetween": 50
   }
 }}' class="mySwiper is-mobile has-text-centered">
-                    {#each partners as partner}
-                        <SwiperSlide>
-                            <div class="swiper-slide"><a href={partner.website}><img src="{partner.logo128}"
-                                                                                     class="img-fluid" alt=""></a>
-                            </div>
-                        </SwiperSlide>
-                    {/each}
-                </Swiper>
+                        {#each $data as partner}
+                            <SwiperSlide>
+                                <div class="swiper-slide">
+                                    <a href={partner.website}>
+                                        <img class="image-full-size" src="{partner.logo}">
+                                    </a>
+                                </div>
+                            </SwiperSlide>
+                        {/each}
+
+                    </Swiper>
 
 
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
-    </div>
-
-</section>
+    </section>
+{/if}
 
 <style>
+    .image-full-size {
+        height: 80%;
+    }
+
     .clients .clients-slider .swiper-slide img {
         opacity: 0.5;
         transition: 0.3s;
@@ -96,6 +107,7 @@
         text-align: center;
         padding-bottom: 40px;
     }
+
     .section-header h2 {
         font-size: 13px;
         letter-spacing: 1px;
@@ -104,6 +116,7 @@
         color: #333D51;
         text-transform: uppercase;
     }
+
     .section-header p {
         margin: 10px 0 0 0;
         padding: 0;
@@ -112,6 +125,7 @@
         font-weight: 700;
         color: #012970;
     }
+
     @media (max-width: 768px) {
         .section-header p {
             font-size: 28px;
@@ -119,7 +133,7 @@
         }
     }
 
-    section{
+    section {
         background-color: #D3AC2B;
     }
 </style>
