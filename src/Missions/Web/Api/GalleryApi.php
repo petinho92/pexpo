@@ -15,7 +15,7 @@ class GalleryApi extends Api
     #[Route(self::GET, '/getyears')]
     public function getYears()
     {
-        $tmp = Gallery::search(Filter::where(Gallery::active(true)))->collect();
+        $tmp = Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->collect();
         $array = [];
         foreach ($tmp as $item) {
             if (!in_array($item->year, $array, true))
@@ -31,9 +31,14 @@ class GalleryApi extends Api
     #[Route(self::GET, '/getcollection/getall')]
     public function getCollectionAllImages()
     {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true)))->collect());
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->collect());
     }
-    // TODO: csak az aktív entitásokat adja vissza + aminél van attachments!
+
+    #[Route(self::GET, 'getslider')]
+    public function getSlider(){
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->and(Gallery::category("slider")))->desc("created")->collect(1));
+    }
+
 
     #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])')]
     public function getCollectionbyYear(int $year): array
