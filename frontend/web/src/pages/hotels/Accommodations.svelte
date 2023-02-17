@@ -30,7 +30,7 @@
                         {#if $locale === 'en'}
                             <p class="subtitle is-7">{hotel.en_type}</p>
                             <p class="subtitle is-5">{$_('accommodations.label.description')}</p>
-                            <p>{@html hotel.hu_description}</p>
+                            <p>{@html hotel.en_description}</p>
                         {/if}
                         <br>
                         <div class="columns">
