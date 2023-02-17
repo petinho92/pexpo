@@ -1,28 +1,45 @@
 <script>
     import fetchData from "../../services/asyncFetch.ts";
+    import {locale} from 'svelte-i18n';
 
-    const url = "/content/get/services/hu";
-    const [data, loading, error, get] = fetchData(url);
+
+    let url;
+
+    $: if($locale === 'en'){
+        url = "/content/get/services/en";
+    }else{
+        url = "/content/get/services/hu";
+    }
+
+    let [data, loading, error, get] = [null, null,null,null];
+
+    $: [data, loading, error, get] = fetchData(url);
+
 
 
 </script>
 
 <section class="section">
-    <div class="container container-panel">
-        <div class="columns is-centered">
-            <div class="column is-two-thirds">
-                <div class="content my-6">
-                    {@html $data}
+    {#if !$loading && $data !== null}
+        <div class="container container-panel">
+            <div class="columns is-centered">
+                <div class="column is-two-thirds">
+                    <div class="content my-6">
+
+                            {@html $data}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {/if}
+
 </section>
 
 <style lang="scss">
   section {
     min-height: 30em;
   }
+
   .container-panel {
     background-color: #333D51;
     opacity: 0.9;
