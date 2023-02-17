@@ -36,7 +36,7 @@
                                 <div class="columns is-multiline is-flex-mobile is-centered mb-6">
                                     {#each $data as album}
                                         {#if year === album.year}
-                                            <div class="column is-8-mobile is-one-fifth-desktop is-narrow">
+                                            <div class="column is-8-mobile is-2-tablet is-2-desktop is-narrow">
                                                 <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
                                                     <div class="card card-hover">
 
