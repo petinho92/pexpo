@@ -57,6 +57,9 @@
 </section>
 
 <style>
+    section {
+        min-height: 30em;
+    }
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
