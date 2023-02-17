@@ -3,6 +3,7 @@ import FaIcon from "gold-admin/fa-icon";
 import List, {button, buttons, filterComponent, list} from "gold-admin/list/list";
 import UserForm from "./user-form";
 import C_UserListFilter from "./user-list-filter.svelte";
+import moment from "moment";
 
 @list(
 	"Users",
@@ -22,8 +23,8 @@ export default class UserList extends List {
 			active: true,
 			subtitle: item.email,
 			properties: [
-				{label: 'updated', value: item.updated},
-				{label: 'guid', value: item.guid},
+				{label: 'created', value: moment(item.created).fromNow()},
+				{label: 'updated', value: moment(item.updated).fromNow()},
 			],
 			avatar: item.avatar,
 			//image: item.avatar,

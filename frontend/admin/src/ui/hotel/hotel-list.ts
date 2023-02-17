@@ -2,6 +2,7 @@ import type Entity from "gold-admin/entity-type";
 import FaIcon from "gold-admin/fa-icon";
 import List, {button, buttons, list} from "gold-admin/list/list";
 import HotelForm from "src/ui/hotel/hotel-form";
+import moment from "moment";
 
 @list(
     "Hotels",
@@ -20,8 +21,8 @@ export default class HotelList extends List{
             icon: item.active === true ? [FaIcon.s("bed").prop("color", "green")] : [FaIcon.s("bed").prop("color", "grey")],
             active: true,
             properties: [
-                {label: 'created', value: item.created},
-                {label: 'updated', value: item.updated},
+                {label: 'created', value: moment(item.created).fromNow()},
+                {label: 'updated', value: moment(item.updated).fromNow()},
             ],
             avatar: item.picture,
         }

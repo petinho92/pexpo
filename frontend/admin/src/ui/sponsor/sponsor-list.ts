@@ -2,6 +2,7 @@ import type Entity from "gold-admin/entity-type";
 import FaIcon from "gold-admin/fa-icon";
 import List, {button,buttons,list} from "gold-admin/list/list";
 import SponsorForm from "src/ui/sponsor/sponsor-form";
+import moment from "moment";
 
 @list(
     "Sponsors",
@@ -19,8 +20,8 @@ export default class SponsorList extends List{
             icon: item.active === true ? [FaIcon.s("certificate").prop("color", "green")] : [FaIcon.s("certificate").prop("color", "grey")],
             active: true,
             properties: [
-                {label: 'created', value: item.created},
-                {label: 'updated', value: item.updated},
+                {label: 'created', value: moment(item.created).fromNow()},
+                {label: 'updated', value: moment(item.updated).fromNow()},
             ],
             avatar: item.picture,
         }
