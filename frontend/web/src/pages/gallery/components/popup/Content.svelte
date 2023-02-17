@@ -20,7 +20,7 @@
     <div class="has-text-centered">
 
 
-        {#if $data !== (null || undefined)}
+        {#if $data !== null && $data !== undefined}
             {#each $years as year}
                 <div class="columns is-centered">
                     <div class="column">
@@ -35,7 +35,7 @@
                             <div class="card-content">
                                 <div class="columns is-multiline is-flex-mobile is-centered mb-6">
                                     {#each $data as album}
-                                        {#if year === album.year}
+                                        {#if year === album.year && album.imgs[0] !== undefined}
                                             <div class="column is-8-mobile is-2-tablet is-2-desktop is-narrow">
                                                 <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
                                                     <div class="card card-hover">
