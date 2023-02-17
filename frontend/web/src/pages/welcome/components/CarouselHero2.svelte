@@ -7,7 +7,7 @@
 
 </script>
 <section>
-    {#if !$loading}
+    {#if !$loading && $data[0] !== undefined }
         <Carousel
                 autoplay
                 arrows={false}
