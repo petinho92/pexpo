@@ -4,9 +4,11 @@
 
     import asyncFetch from "src/services/asyncFetch.ts";
 
-    const url = "http://expo.localhost:8080/programguide/getguide";
+    const url = "/programguide/getguide";
 
     const [programguide, loading, error, get] = asyncFetch(url);
+
+    //TODO: az első feltöltött fájl lesz a magyar, ha először az angolt töltöm fel akkor fordítva kerül eltárolásra
 
 
 </script>
@@ -36,7 +38,7 @@
                             {$_('programguide.button')}
                         </a>
                         <br>
-                        {#if (pg.path_en !== "")}
+                        {#if (pg.en_files !== null)}
                             <a href={pg.url.concat(pg.en_files)} class="card-button">
                                 {$_('programguide.button_en')}
                             </a>
