@@ -16,7 +16,7 @@
 
 </script>
 
-{#if !$loading}
+{#if !$loading && $data[0] !== undefined}
 
     <section id="clients" class="clients">
 
