@@ -36,18 +36,18 @@
                                 <div class="columns is-multiline is-flex-mobile is-centered mb-6">
                                     {#each $data as album}
                                         {#if year === album.year}
-                                            <div class="column is-8-mobile is-narrow">
+                                            <div class="column is-8-mobile is-one-fifth-desktop is-narrow">
                                                 <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
                                                     <div class="card card-hover">
 
-                                                        <div class="card-header bg">
+                                                        <div class="card-header bg card-header-size">
                                                             <div class="card-header-title is-centered">
                                                                 <h2 class="has-text-white">{album.alt}</h2>
                                                             </div>
                                                         </div>
                                                         <div class="card-image">
-                                                            <figure class="image">
-                                                                <img src="{album.thumbnail}">
+                                                            <figure class="image ">
+                                                                <img class="image-size" src="{album.thumbnail}">
                                                             </figure>
                                                         </div>
                                                     </div>
@@ -104,6 +104,14 @@
     .card-bg{
       margin-top: 0;
       margin-bottom: 0;
+    }
+
+    .card-header-size{
+      height: 80px;
+    }
+
+    .image-size{
+      max-height: 400px;
     }
 
 
