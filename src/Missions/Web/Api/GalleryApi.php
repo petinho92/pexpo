@@ -4,6 +4,7 @@ use Application\Entity\Gallery;
 use Atomino\Carbon\Database\Finder\Filter;
 use Atomino\Mercury\Responder\Api\Api;
 use Atomino\Mercury\Responder\Api\Attributes\Route;
+use function Atomino\debug;
 
 class GalleryApi extends Api
 {
@@ -18,8 +19,12 @@ class GalleryApi extends Api
         $tmp = Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->collect();
         $array = [];
         foreach ($tmp as $item) {
-            if (!in_array($item->year, $array, true))
-                $array[] = $item->year;
+
+            if (!in_array($item->year, $array, true)) {
+                if ($item->picture->files) {
+                    $array[] = $item->year;
+                }
+            }
         }
         rsort($array);
         return $array;
@@ -35,7 +40,8 @@ class GalleryApi extends Api
     }
 
     #[Route(self::GET, 'getslider')]
-    public function getSlider(){
+    public function getSlider()
+    {
         return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->and(Gallery::category("slider")))->desc("created")->collect(1));
     }
 
@@ -59,14 +65,14 @@ class GalleryApi extends Api
         $array = array();
         foreach ($data as $adat) {
             if ($adat->picture->first->filename !== null) {
-            $array[] = (object)[
-                'year' => $adat->year,
-                'category' => $adat->category,
-                'alt' => $adat->alt,
-                'url' => $adat->getAttachmentStorage()->url,
-                'imgs' => $adat->picture->files,
-                'thumbnail' => $adat->picture->first->image->crop(200, 400)->png
-            ];
+                $array[] = (object)[
+                    'year' => $adat->year,
+                    'category' => $adat->category,
+                    'alt' => $adat->alt,
+                    'url' => $adat->getAttachmentStorage()->url,
+                    'imgs' => $adat->picture->files,
+                    'thumbnail' => $adat->picture->first->image->crop(200, 400)->png
+                ];
             }
         }
         return $array;
