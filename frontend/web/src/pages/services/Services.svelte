@@ -20,6 +20,9 @@
 </section>
 
 <style lang="scss">
+  section {
+    min-height: 30em;
+  }
   .container-panel {
     background-color: #333D51;
     opacity: 0.9;
