@@ -11,7 +11,7 @@ use Atomino\Gold\ListApi;
 use Atomino\Gold\ListSorting;
 use Atomino\Gold\ListView;
 
-#[Goldify(Accommodation::class, User::ROLE_WEBMASTER)]
+#[Goldify(Accommodation::class, User::ROLE_MARKETING)]
 class HotelApi extends Gold{
     protected function listApi(): ListApi
     {
