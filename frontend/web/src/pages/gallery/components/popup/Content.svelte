@@ -72,6 +72,7 @@
 
 <style lang="scss">
     section {
+      min-height: 30em;
     }
 
     .bg {
