@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
                 new MenuItem("Site", FaIcon.s("pager"), [
                     new MenuItem("Contents", FaIcon.s("file"), () => {
                         listManager.add(new ContentList())
-                    }),
+                    },"webmaster"),
                     new MenuItem("Gallery", FaIcon.s("images"), () => {
                         listManager.add(new GalleryList())
                     },),
@@ -44,14 +44,14 @@ window.addEventListener('load', () => {
                     },),
                     new MenuItem("Sponsor", FaIcon.s("dollar-sign"), () => {
                         listManager.add(new SponsorList())
-                    },),
+                    },"webmaster"),
                     new MenuItem("Guide", FaIcon.s("book"), () => {
                         listManager.add(new ProgramguideList())
-                    },),
+                    },"webmaster"),
                     new MenuItem("Timeline", FaIcon.s("stream"), () => {
                         listManager.add(new TimelineList())
-                    },)
-                ], "webmaster"),
+                    },"webmaster")
+                ], "marketing"),
                 new MenuItem("Settings", FaIcon.s("cogs"), [
                     new MenuItem("Users", FaIcon.s("users"), () => {
                         listManager.add(new UserList())
