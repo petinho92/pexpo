@@ -19,7 +19,7 @@ export default class UserList extends List {
 			click: () => this.open(item.id),
 			id: item.id,
 			title: item.name,
-			icon: item.group === "admin" ? [FaIcon.s("user").prop("color", "orange")] : [FaIcon.s("user").prop("color", "gray")],
+			icon: item.group === "supersaiyan" ? [FaIcon.s("user").prop("color", "orange")] : [FaIcon.s("user").prop("color", "gray")],
 			active: true,
 			subtitle: item.email,
 			properties: [
@@ -27,11 +27,6 @@ export default class UserList extends List {
 				{label: 'updated', value: moment(item.updated).fromNow()},
 			],
 			avatar: item.avatar,
-			//image: item.avatar,
-			// buttons: [
-			// 	{action:()=>alert('pressed'), label:"Press me!"},
-			// 	{action:()=>alert('pressed'), label:FaIcon.s("user")}
-			// ]
 		}
 	}
 }
