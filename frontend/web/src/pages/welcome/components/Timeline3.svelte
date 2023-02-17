@@ -1,40 +1,52 @@
 <script>
     import {timeline} from "../data/timeline.ts";
     import {_, locale} from "svelte-i18n";
-</script>
-<section class="section">
-    <div class="row">
-        <div class="main-timeline">
+    import fetchData from "../../../services/asyncFetch.ts"
 
-            {#if $locale === 'hu'}
-                {#each [...timeline].reverse() as tl}
-                    <div class="timeline">
-                        <div class="timeline-content">
-                            <div class="timeline-year">{tl.year}</div>
-                            <h3 class="title">{tl.title_hu}</h3>
-                            <p class="description">
-                                {@html tl.description_hu}
-                            </p>
-                        </div>
-                    </div>
-                {/each}
-            {/if}
-            {#if $locale === 'en'}
-                {#each [...timeline].reverse() as tl}
-                    <div class="timeline">
-                        <div class="timeline-content">
-                            <div class="timeline-year">{tl.year}</div>
-                            <h3 class="title">{tl.title_en}</h3>
-                            <p class="description">
-                                {@html tl.description_en}
-                            </p>
-                        </div>
-                    </div>
-                {/each}
-            {/if}
+    const url = "/timeline/get/all";
+    const [data, loading, error, get] = fetchData(url);
+
+    // TODO: 2010 előtti évet nem enged felvenni
+</script>
+{#if !$loading && $data[0] !== undefined}
+    <section class="section">
+        <div class="row">
+            <div class="main-timeline">
+
+                {#if $locale === 'hu'}
+                    {#each $data as tl}
+                        {#if tl.hu_title !== null && tl.hu_desc !== null}
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <div class="timeline-year">{tl.year}</div>
+                                    <h3 class="title">{tl.hu_title}</h3>
+                                    <p class="description">
+                                        {tl.hu_desc}
+                                    </p>
+                                </div>
+                            </div>
+                        {/if}
+                    {/each}
+                {/if}
+                {#if $locale === 'en'}
+                    {#each $data as tl}
+                        {#if tl.en_title !== null && tl.en_desc !== null}
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <div class="timeline-year">{tl.year}</div>
+                                    <h3 class="title">{tl.en_title}</h3>
+                                    <p class="description">
+                                        {tl.en_desc}
+                                    </p>
+                                </div>
+                            </div>
+                        {/if}
+                    {/each}
+                {/if}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+{/if}
 <style>
 
     section {
