@@ -13,8 +13,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Validator("name", NotBlank::class)]
 #[Validator("page", NotBlank::class)]
 #[Validator("category", NotBlank::class)]
-#[Validator("content_hu", NotBlank::class)]
-#[Validator("content_en", NotBlank::class)]
+//#[Validator("content_hu", NotBlank::class)]
+//#[Validator("content_en", NotBlank::class)]
 #[Modelify(\Application\Database\DefaultConnection::class, 'content', true)]
 class Content extends _Content{
 
