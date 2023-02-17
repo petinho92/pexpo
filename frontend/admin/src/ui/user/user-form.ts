@@ -19,9 +19,9 @@ import CustomStringControl from "src/controls/custom-string/control";
 export default class UserForm extends Form {
 	build(item: Entity, options: any) {
 		this.addSection("User properties", FaIcon.s("user"))
-			.addControl(controls.string("email", "e-mail"))
-			.addControl(controls.string("name", "name"))
-			.addControl(controls.password("password", "password"))
+			.addControl(controls.string("email", "e-mail").setRole("webmaster"))
+			.addControl(controls.string("name", "name").setRole("webmaster"))
+			.addControl(controls.password("password", "password").setRole("webmaster"))
 			.addControl(controls.select("group",).setOptions(options.groups).setRole("admin"))
 
 	}
