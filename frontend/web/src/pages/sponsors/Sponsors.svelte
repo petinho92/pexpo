@@ -37,6 +37,7 @@
 <style>
     .section {
         margin-top: 0;
+        min-height: 30em;
         background: rgba(93, 93, 93, 0.5);
     }
 
