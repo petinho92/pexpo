@@ -13,20 +13,22 @@
     <div class="container">
 
         {#each $partners as pg}
-            <div class="card has-text-centered">
-                <div class="card-content">
-                    <div class="card-image">
-                        <img class="image-size" src={pg.logo} alt={pg.name}>
+            {#if pg.logo !== null}
+                <div class="card has-text-centered">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img class="image-size" src={pg.logo} alt={pg.name}>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h4 class="is-size-6">{pg.name.toUpperCase()}</h4>
+                            <a href={pg.website} class="card-button">
+                                {$_('sponsors.button')}</a>
+                        </div>
                     </div>
                 </div>
-                <div class="card-content">
-                    <div class="content">
-                        <h4 class="is-size-6">{pg.name}</h4>
-                        <a href={pg.website} class="card-button">
-                            {$_('sponsors.button')}</a>
-                    </div>
-                </div>
-            </div>
+            {/if}
         {/each}
     </div>
 
