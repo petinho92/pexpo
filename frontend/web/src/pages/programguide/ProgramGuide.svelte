@@ -9,49 +9,58 @@
     const [programguide, loading, error, get] = asyncFetch(url);
 
 
-
-
 </script>
 
 
 <section class="section">
-    <div class="container">
-        {#each $programguide as pg}
-            {#if pg.picture !== null && pg.hu_files !== null}
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src={pg.url.concat(pg.picture)} alt={pg.alt}>
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <h4>{pg.name}</h4>
-                            <p class="ribbon">{pg.date}</p>
-                            {#if $locale === 'hu'}
-                                <p>{pg.hu_type}</p>
-                            {/if}
-                            {#if $locale === 'en'}
-                                <p>{pg.en_type}</p>
-                            {/if}
-
-                            <a href={pg.url.concat(pg.hu_files)} class="card-button">
-                                {$_('programguide.button')}
-                            </a>
-                            <br>
-                            {#if (pg.en_files !== null)}
-                                <a href={pg.url.concat(pg.en_files)} class="card-button">
-                                    {$_('programguide.button_en')}
-                                </a>
-                            {/if}
+    {#if !$loading}
+        <div class="container">
+            {#each $programguide as pg}
+                {#if pg.picture !== null && pg.hu_files !== null}
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src={pg.url.concat(pg.picture)} alt={pg.alt}>
+                            </figure>
                         </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4>{pg.name}</h4>
+                                <p class="ribbon">{pg.date}</p>
+                                {#if $locale === 'hu'}
+                                    <p>{pg.hu_type}</p>
+                                {/if}
+                                {#if $locale === 'en'}
+                                    <p>{pg.en_type}</p>
+                                {/if}
+
+                                <a href={pg.url.concat(pg.hu_files)} class="card-button">
+                                    {$_('programguide.button')}
+                                </a>
+                                <br>
+                                {#if (pg.en_files !== null)}
+                                    <a href={pg.url.concat(pg.en_files)} class="card-button">
+                                        {$_('programguide.button_en')}
+                                    </a>
+                                {/if}
+                            </div>
 
 
+                        </div>
                     </div>
-                </div>
-            {/if}
-        {/each}
-    </div>
+                {/if}
+            {/each}
+        </div>
+    {:else if $loading}
+        <div class="has-text-centered is-size-5">
+            <h1>Loading...</h1>
+        </div>
+    {/if}
+    {#if !$loading && $programguide.length === 0}
+        <div class="has-text-centered is-size-5">
+            <h1>{$_('error.nodata')}</h1>
+        </div>
+    {/if}
 
 </section>
 
@@ -59,6 +68,7 @@
     section {
         min-height: 30em;
     }
+
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
