@@ -14,7 +14,7 @@ class SponsorApi extends Api
         $result = Sponsor::search(Filter::where(Sponsor::active(true)))->collect();
         $array = array();
         foreach ($result as $data) {
-            if ($data->picture->first->filename !== null) {
+            if ($data->picture->files) {
                 $array[] = (object)[
                     'id' => $data->id,
                     'name' => $data->name,
