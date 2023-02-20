@@ -10,27 +10,40 @@
 
 
 <section class="section">
-    <div class="container">
+    {#if !$loading}
 
-        {#each $partners as pg}
-            {#if pg.logo !== null}
-                <div class="card has-text-centered">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img class="image-size" src={pg.logo} alt={pg.name}>
+        <div class="container">
+
+            {#each $partners as pg}
+                {#if pg.logo !== null}
+                    <div class="card has-text-centered">
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img class="image-size" src={pg.logo} alt={pg.name}>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4 class="is-size-6">{pg.name.toUpperCase()}</h4>
+                                <a href={pg.website} class="card-button">
+                                    {$_('sponsors.button')}</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <h4 class="is-size-6">{pg.name.toUpperCase()}</h4>
-                            <a href={pg.website} class="card-button">
-                                {$_('sponsors.button')}</a>
-                        </div>
-                    </div>
-                </div>
-            {/if}
-        {/each}
-    </div>
+                {/if}
+            {/each}
+
+        </div>
+    {:else if $loading}
+        <div class="has-text-centered is-size-5">
+            <h1>Loading...</h1>
+        </div>
+    {/if}
+    {#if !$loading && $partners.length === 0}
+        <div class="has-text-centered is-size-5">
+            <h1>{$_('error.nodata')}</h1>
+        </div>
+    {/if}
 
 </section>
 
