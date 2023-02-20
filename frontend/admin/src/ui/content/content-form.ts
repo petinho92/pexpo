@@ -22,8 +22,9 @@ export default class ContentForm extends Form {
             .addControl(controls.string("name", "name"))
             .addControl(controls.select("page",).setOptions(["services","home","none"]).setRole("admin"))
             .addControl(controls.select("category",).setOptions(["none", "whatis", "footer"]).setRole("admin"))
+            .addControl(controls.switch("active", "active"))
             .addControl(new CustomEditorControl("content_hu", "Tartalom"))
             .addControl(new CustomEditorControl("content_en", "Content"))
-            .addControl(controls.switch("active", "active"))
+
     }
 }
