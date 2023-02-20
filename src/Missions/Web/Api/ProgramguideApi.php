@@ -13,7 +13,7 @@ class ProgramguideApi extends Api
     #[Route(self::GET, '/getguide')]
     public function getProgramGuide()
     {
-        $result = Programguide::search(Filter::where(Programguide::active(true)))->collect();
+        $result = Programguide::search(Filter::where(Programguide::active(true)))->desc(Programguide::date)->collect();
         $array = array();
         foreach ($result as $data) {
             if ($data->picture->files) {
