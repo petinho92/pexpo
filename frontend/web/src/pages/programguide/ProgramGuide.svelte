@@ -17,7 +17,7 @@
 <section class="section">
     <div class="container">
         {#each $programguide as pg}
-            {#if pg.picture !== null}
+            {#if pg.picture !== null && pg.hu_files !== null}
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-4by3">
