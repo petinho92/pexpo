@@ -1,6 +1,6 @@
 <script>
     import fetchData from "../../services/asyncFetch.ts";
-    import {locale} from 'svelte-i18n';
+    import {_,locale} from 'svelte-i18n';
 
 
     let url;
@@ -20,7 +20,7 @@
 </script>
 
 <section class="section">
-    {#if !$loading && $data !== null}
+    {#if !$loading && $data !== null && $data !== ""}
         <div class="container container-panel">
             <div class="columns is-centered">
                 <div class="column is-two-thirds">
@@ -31,8 +31,16 @@
                 </div>
             </div>
         </div>
+    {:else if $loading}
+        <div class="has-text-centered is-size-5">
+            <h1>Loading...</h1>
+        </div>
     {/if}
-
+    {#if !$loading && ($data === null || $data === "")}
+        <div class="has-text-centered is-size-5">
+            <h1>{$_('error.nodata')}</h1>
+        </div>
+    {/if}
 </section>
 
 <style lang="scss">
