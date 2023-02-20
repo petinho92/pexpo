@@ -19,7 +19,8 @@ export default class ProgramguideForm extends Form {
     build(item: Entity, options: any) {
         this.addSection("Programguide properties", FaIcon.s("book"))
             .addControl(controls.string("name", "name"))
-            .addControl(controls.string("date", "dates"))
+            .addControl(controls.number("year", "year").setMin(1970).setMax(2050))
+            .addControl(controls.string("date", "date"))
             .addControl(controls.select("hu_type",).setOptions(["Szakmai Kiállítás és konferencia Programfüzet"]))
             .addControl(controls.select("en_type",).setOptions(["Trade Exhibition and Conference Programme"]))
             .addControl(controls.switch("active", "active"))
