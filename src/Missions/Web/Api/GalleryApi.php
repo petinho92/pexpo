@@ -19,7 +19,6 @@ class GalleryApi extends Api
         $tmp = Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->collect();
         $array = [];
         foreach ($tmp as $item) {
-
             if (!in_array($item->year, $array, true)) {
                 if ($item->picture->files) {
                     $array[] = $item->year;
@@ -64,7 +63,7 @@ class GalleryApi extends Api
     {
         $array = array();
         foreach ($data as $adat) {
-            if ($adat->picture->first->filename !== null) {
+            if ($adat->picture->files) {
                 $array[] = (object)[
                     'year' => $adat->year,
                     'category' => $adat->category,
