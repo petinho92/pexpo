@@ -12,7 +12,6 @@
     const [data, loading, error, get] = asyncGet(url);
     const [years, loading2, error2, get2] = asyncGet(urlYears);
 
-    $:console.log($data)
 
 </script>
 
