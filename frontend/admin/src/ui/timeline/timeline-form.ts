@@ -19,7 +19,7 @@ export default class TimelineForm extends Form{
     this.addSection("Timeline properties", FaIcon.s("list-alt"))
         .addControl(controls.string("hu_title", "Cím"))
         .addControl(controls.string("en_title", "Title"))
-        .addControl(controls.number("year", "year").setMin(2010).setMax(2050))
+        .addControl(controls.number("year", "year").setMin(1970).setMax(2050))
         .addControl(controls.text("hu_desc", "Leírás"))
         .addControl(controls.text("en_desc", "Description"))
         .addControl(controls.switch("active", "active"))
