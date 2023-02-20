@@ -7,6 +7,7 @@ use Atomino\Carbon\Plugins\Attachment\Attachmentable;
 use Atomino\Carbon\Plugins\Attachment\AttachmentCollection;
 use Atomino\Carbon\Plugins\Created\Created;
 use Atomino\Carbon\Plugins\Updated\Updated;
+use Atomino\Carbon\Validation\UniqueEntity;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 
@@ -19,7 +20,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Validator("date", NotBlank::class)]
 #[Validator("hu_type", NotBlank::class)]
 #[Validator("en_type", NotBlank::class)]
-
+#[Validator(null, UniqueEntity::class, ['fields'=>['year']])]
 #[Modelify(\Application\Database\DefaultConnection::class, 'programguide', true)]
 class Programguide extends _Programguide{
 
