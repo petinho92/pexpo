@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Created]
 #[Updated]
 #[Attachmentable()]
-#[AttachmentCollection(field: 'picture', mimetype: "/image\/.*/")]
+#[AttachmentCollection(field: 'picture', maxCount: 50, mimetype: "/image\/.*/")]
 #[Validator('name', NotBlank::class)]
 #[Validator('category', NotBlank::class)]
 #[Validator('alt', NotBlank::class)]
