@@ -19,8 +19,6 @@ class TimelineApi extends Api{
                 'en_title' => $data->en_title,
                 'hu_desc' => $data->hu_desc,
                 'en_desc' => $data->en_desc,
-
-
             ];
         }
         return $array;
@@ -45,13 +43,11 @@ class TimelineApi extends Api{
     #[Route(self::GET, '/get/:lang')]
     function getTimelineByLang(string $lang){
         $result = Timeline::search(Filter::where(Timeline::active(true))->collect());
-
         foreach ($result as $item){
             if($lang == 'hu') return ['year' => $item->year, 'hu_title' => $item->hu_title, 'hu_desc' => $item->hu_desc];
             else if($lang == 'en') return ['year' => $item->year, 'en_title' => $item->en_title, 'en_desc' => $item->en_desc];
             else return null;
         }
-
     }
 
 
