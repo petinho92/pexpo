@@ -20,7 +20,7 @@ class ContentApi extends Gold
             public function views(): array
             {
                 return [
-                    new ListView("Everybody", fn() => null),
+                    new ListView("All", fn() => null),
                 ];
             }
 
@@ -28,6 +28,7 @@ class ContentApi extends Gold
             {
                 return [
                     new ListSorting("name", fn($asc) => $asc ? [[Content::name, "asc"]] : [[Content::name, "desc"]]),
+                    new ListSorting("created", fn($asc) => $asc ? [[Content::created, "asc"]] : [[Content::created, "desc"]]),
                 ];
             }
 
