@@ -2,16 +2,17 @@
     import {getContext} from 'svelte';
     import asyncGet from "src/services/asyncFetch.ts";
     import Popup from './Popup.svelte';
+    import {_} from 'svelte-i18n';
+
 
     const url = "/gallery/";
     const urlYears = "/gallery/getyears";
-    const domain = "";
     const {open} = getContext('simple-modal');
 
     const [data, loading, error, get] = asyncGet(url);
     const [years, loading2, error2, get2] = asyncGet(urlYears);
-    $: console.log(years);
 
+    $:console.log($data)
 
 </script>
 
@@ -64,59 +65,61 @@
                 </div>
 
             {/each}
-
+        {:else if $loading}
+            <h1>Loading...</h1>
+        {/if}
+        {#if !$loading && $data.length === 0}
+            <h1>{$_('error.nodata')}</h1>
         {/if}
     </div>
 
 </section>
 
 <style lang="scss">
-    section {
-      min-height: 30em;
-    }
+  section {
+    min-height: 30em;
+  }
 
-    .bg {
-        background: linear-gradient(to top, #2c3e50, #333D51);
-    }
-
-
-    h1 {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: bold;
-        color: #0a0a0a;
-        font-size: 30px;
-    }
-
-    h2 {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: bold;
-        color: #0a0a0a;
-        font-size: 20px;
-    }
-
-    .card-hover:hover {
-        transform: scale(1.05);
-        transition: transform .5s;
-    }
-
-    .card-header {
-        box-shadow: 0 0.3em 0.25em, inset 0 0.3em 0.25em;
-    }
-    .card-bg{
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    .card-header-size{
-      height: 80px;
-    }
-
-    .image-size{
-      max-height: 400px;
-    }
+  .bg {
+    background: linear-gradient(to top, #2c3e50, #333D51);
+  }
 
 
+  h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #0a0a0a;
+    font-size: 30px;
+  }
 
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #0a0a0a;
+    font-size: 20px;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.05);
+    transition: transform .5s;
+  }
+
+  .card-header {
+    box-shadow: 0 0.3em 0.25em, inset 0 0.3em 0.25em;
+  }
+
+  .card-bg {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-header-size {
+    height: 80px;
+  }
+
+  .image-size {
+    max-height: 400px;
+  }
 
 
 </style>

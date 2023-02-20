@@ -62,6 +62,9 @@
   "contact.type.korny" : "MÉLYÉPÍTÉS ÉS KÖRNYEZETVÉDELEM SZEKCIÓ",
   "contact.type.villinf" : "VILLAMOS ÉS MŰSZAKI INFORMATIKA SZEKCIÓ",
 
+  "error.nodata": "Bocsánat, ehhez az oldalhoz nincs adat feltöltve",
+
+
   "expo.card.title": "Hogy mi a POLLACK EXPO?",
   "expo.card.description": "<p>Évente megrendezendő szakkiállítás? <b>Több ennél!</b></p><p>Nemzetközi és országos konferenciák helyszíne? <b>Több ennél!</b></p><p>Üzletkötési és továbbképzési lehetőség mérnökök számára? <b>Több ennél!</b></p><p>Állásbörze egyetemi hallgatók számára? <b>Több ennél!</b></p><p>Egy műszaki egyetemi kar legnagyobb presztízsű rendezvénye? <b>Ennél is több!</b></p>",
   "expo.card.foottitle": "A POLLACK EXPO, az egyetem, az ipar és mérnöktársadalom találkozóhelye - TRADÍCIÓ, INNOVÁCIÓ, KOOPERÁCIÓ - POLLACK EXPO",

@@ -60,6 +60,8 @@
   "contact.type.korny" : "CIVIL ENGINEERING AND ENVIRONMENT SECTION ",
   "contact.type.villinf" : "ELECTRICAL AND TECHNICAL INFORMATICS SECTION ",
 
+  "error.nodata": "Sorry, there is no data to this page",
+
   "expo.card.title": "What is POLLACK EXPO?",
   "expo.card.description": "<p>An annual trade exhibition? <b>More than that!</b></p><p>A venue for international and national conferences? <b>More than that!</b></p><p>Networking and training opportunity for engineers? <b>More than that!</b></p><p>Job fair for university students? <b>More than that!</b></p><p>The most prestigious event of an engineering faculty <b>More than that!</b></p>",
   "expo.card.foottitle": "POLLACK EXPO is the meeting place for university, industry and engineers. - TRADITION, INNOVATION, COOPERATION - POLLACK EXPO",
