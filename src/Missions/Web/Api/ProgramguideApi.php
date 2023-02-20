@@ -10,7 +10,7 @@ use function Atomino\debug;
 class ProgramguideApi extends Api
 {
 
-    #[Route(self::GET, '/getguide')]
+    #[Route(self::GET, '/')]
     public function getProgramGuide()
     {
         $result = Programguide::search(Filter::where(Programguide::active(true)))->desc(Programguide::date)->collect();

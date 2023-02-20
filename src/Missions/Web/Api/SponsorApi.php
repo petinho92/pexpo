@@ -8,7 +8,7 @@ use Atomino\Mercury\Responder\Api\Attributes\Route;
 class SponsorApi extends Api
 {
 
-    #[Route(self::GET, '/getsponsor')]
+    #[Route(self::GET, '/')]
     function getSponsor()
     {
         $result = Sponsor::search(Filter::where(Sponsor::active(true)))->collect();

@@ -8,7 +8,7 @@ use Atomino\Mercury\Responder\Api\Attributes\Route;
 class HotelApi extends Api
 {
 
-    #[Route(self::GET, '/getcollection/gethotels')]
+    #[Route(self::GET, '/')]
     public function getHotels()
     {
         $result = Accommodation::search(Filter::where(Accommodation::active(true)))->collect();

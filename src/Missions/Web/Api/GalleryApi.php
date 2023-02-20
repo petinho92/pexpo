@@ -32,31 +32,16 @@ class GalleryApi extends Api
     /**
      * @return array
      */
-    #[Route(self::GET, '/getcollection/getall')]
+    #[Route(self::GET, '/')]
     public function getCollectionAllImages()
     {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->collect());
+        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->desc(Gallery::year)->asc(Gallery::alt)->collect());
     }
 
     #[Route(self::GET, 'getslider')]
     public function getSlider()
     {
         return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->and(Gallery::category("slider")))->desc("created")->collect(1));
-    }
-
-
-    #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])')]
-    public function getCollectionbyYear(int $year): array
-    {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year))->and(Gallery::active(true)))->collect());
-
-    }
-
-    #[Route(self::GET, '/getcollection/:year([2][0][1-5][0-9])/:category(sajtofotok|eloadas|kiallitas|fogadas|esemeny)')]
-    public function getCollection(int $year, string $category)
-    {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::year($year))->and(Gallery::category($category))->and(Gallery::active(true)))->collect());
-
     }
 
     protected function responseCreator($data)

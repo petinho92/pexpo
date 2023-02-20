@@ -8,7 +8,7 @@ use Atomino\Mercury\Responder\Api\Attributes\Route;
 class ContentApi extends Api
 {
 
-    #[Route(self::GET, '/get/:page')]
+    #[Route(self::GET, '/:page')]
     public function getpage(string $page)
     {
         $tmp = Content::search(Filter::where(Content::page($page))->and(Content::active(true)))->collect();
@@ -23,7 +23,7 @@ class ContentApi extends Api
         return $array;
     }
 
-    #[Route(self::GET, '/get/:page/:lang')]
+    #[Route(self::GET, '/:page/:lang')]
     public function getContentByLang(string $page, string $lang)
     {
         $tmp = Content::search(Filter::where(Content::page($page))->and(Content::active(true)))->collect();
@@ -33,16 +33,4 @@ class ContentApi extends Api
                 else return null;
         }
     }
-
-    #[Route(self::GET, '/get/:page/:category/:lang')]
-    public function getContentByLangContentPage(string $page, string $category, string $lang)
-    {
-        $tmp = Content::search(Filter::where(Content::page($page))->and(Content::category($category))->and(Content::active(true)));
-        foreach ($tmp as $content) {
-            if ($lang == "hu") return $content->content_hu;
-            else if ($lang == "en") return $content->content_en;
-            else return null;
-        }
-    }
-
 }
