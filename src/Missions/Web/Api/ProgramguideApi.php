@@ -16,18 +16,19 @@ class ProgramguideApi extends Api
         $result = Programguide::search(Filter::where(Programguide::active(true)))->collect();
         $array = array();
         foreach ($result as $data) {
-            $asd = $data->getAttachmentStorage()->url;
-            $array[] = (object)[
-                'id' => $data->id,
-                'name' => $data->name,
-                'hu_type' => $data->hu_type,
-                'en_type' => $data->en_type,
-                'date' => $data->date,
-                'url' => $data->getAttachmentStorage()->url,
-                'picture' => $data->picture->first->filename,
-                'hu_files' => $data->files->files[0],
-                'en_files' => $data->files->files[1]
-            ];
+            if ($data->picture->files) {
+                $array[] = (object)[
+                    'id' => $data->id,
+                    'name' => $data->name,
+                    'hu_type' => $data->hu_type,
+                    'en_type' => $data->en_type,
+                    'date' => $data->date,
+                    'url' => $data->getAttachmentStorage()->url,
+                    'picture' => $data->picture->first->filename,
+                    'hu_files' => $data->files->files[0],
+                    'en_files' => $data->files->files[1]
+                ];
+            }
         }
         return $array;
     }
