@@ -2,11 +2,10 @@
     import {Swiper, SwiperSlide} from "swiper/svelte";
     import 'swiper/css';
     import "swiper/css/pagination"
-    import {partners} from "../data/sponsors.ts";
     import {_} from 'svelte-i18n'
     import fetchData from "../../../services/asyncFetch.ts"
 
-    const url = "/sponsor/getsponsor";
+    const url = "/sponsor/";
     const [data, loading, error, get] = fetchData(url);
 
     import SwiperCore, {Pagination, Autoplay} from 'swiper';

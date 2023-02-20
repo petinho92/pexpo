@@ -1,12 +1,10 @@
 <script>
-    import {timeline} from "../data/timeline.ts";
     import {_, locale} from "svelte-i18n";
     import fetchData from "../../../services/asyncFetch.ts"
 
-    const url = "/timeline/get/all";
+    const url = "/timeline/";
     const [data, loading, error, get] = fetchData(url);
 
-    // TODO: 2010 előtti évet nem enged felvenni
 </script>
 {#if !$loading && $data[0] !== undefined}
     <section class="section">

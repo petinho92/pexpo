@@ -4,12 +4,11 @@
 
     import asyncFetch from "src/services/asyncFetch.ts";
 
-    const url = "/programguide/getguide";
+    const url = "/programguide/";
 
     const [programguide, loading, error, get] = asyncFetch(url);
 
-    //TODO: az első feltöltött fájl lesz a magyar, ha először az angolt töltöm fel akkor fordítva kerül eltárolásra
-    //TODO: nem sorrendben jönnek vissza az adatok
+
 
 
 </script>

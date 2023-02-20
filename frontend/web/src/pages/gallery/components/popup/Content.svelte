@@ -3,7 +3,7 @@
     import asyncGet from "src/services/asyncFetch.ts";
     import Popup from './Popup.svelte';
 
-    const url = "/gallery/getcollection/getall";
+    const url = "/gallery/";
     const urlYears = "/gallery/getyears";
     const domain = "";
     const {open} = getContext('simple-modal');

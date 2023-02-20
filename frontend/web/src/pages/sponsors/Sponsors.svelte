@@ -2,7 +2,7 @@
     import {_} from "svelte-i18n";
     import asyncFetch from "src/services/asyncFetch.ts";
 
-    const url = "/sponsor/getsponsor";
+    const url = "/sponsor/";
 
     const [partners, loading, error, get] = asyncFetch(url);
 

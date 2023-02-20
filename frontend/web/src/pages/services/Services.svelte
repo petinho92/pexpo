@@ -6,9 +6,9 @@
     let url;
 
     $: if($locale === 'en'){
-        url = "/content/get/services/en";
+        url = "/content/services/en";
     }else{
-        url = "/content/get/services/hu";
+        url = "/content/services/hu";
     }
 
     let [data, loading, error, get] = [null, null,null,null];
