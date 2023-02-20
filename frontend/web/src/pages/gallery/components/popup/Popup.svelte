@@ -10,7 +10,6 @@
         for (let i = 0; i < images.length; i++) {
             urls.push(urlPrefix.concat(images[i]));
         }
-        console.log(urls);
     }
 
 
