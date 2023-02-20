@@ -21,7 +21,7 @@ export default class GalleryForm extends Form {
         this.addSection("Gallery properties", FaIcon.s("file-image"))
             .addControl(controls.string("name", "name"))
             .addControl(controls.string("alt", "alt"))
-            .addControl(controls.number("year", "year").setMin(2010).setMax(2050))
+            .addControl(controls.number("year", "year").setMin(2000).setMax(2050))
             .addControl(controls.select("category",).setOptions(cat))
             .addControl(controls.switch("active", "active"))
     }
