@@ -18,12 +18,10 @@
                     <h4>{$_('menu.sitemap')}</h4>
                     <ul>
                         <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/')}>{$_('menu.home')}</a></li>
-<!--                        <li><i class="fas fa-chevron-right"></i> <a href='/~web/files/attendence_rules.pdf'>{$_('menu.attendencerules')}</a></li>-->
                         <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/programguide')}>{$_('menu.programguide')}</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a href='/~web/files/PollackEXPO_2022_standok_A3.pdf'>{$_('menu.stands')}</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/sponsors')}>{$_('menu.sponsors')}</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/accommodation')}>{$_('menu.accommodation')}</a></li>
-<!--                        <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/')}>{$_('menu.stand')}</a></li>-->
                     </ul>
                 </div>
 
@@ -44,7 +42,6 @@
                     <p>
                         {@html $_('footer_address')}
                         <strong>{$_('accommodations.label.telephone')} </strong><a class="link-tel" href="tel:+3672503650">+36 72 503 650 / 23866</a><br>
-<!--                        <strong>Email: </strong><a class="link-mail" href="mailto:expo@mik.pte.hu">expo@mik.pte.hu</a><br>-->
                     </p>
 
                     <div class="social-links">
@@ -70,7 +67,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-chevron-circle-up"></i></a>
 
 <style>
-    
+
     @media screen and (max-width: 768px) {
         .mlr-6{
             margin: 0 10px 0 10px;
