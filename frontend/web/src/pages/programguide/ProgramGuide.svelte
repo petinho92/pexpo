@@ -34,12 +34,12 @@
                                     <p>{pg.en_type}</p>
                                 {/if}
 
-                                <a href={pg.url.concat(pg.hu_files)} class="card-button">
+                                <a href={pg.url.concat(pg.hu_files)} target="_blank" class="card-button">
                                     {$_('programguide.button')}
                                 </a>
                                 <br>
                                 {#if (pg.en_files !== null)}
-                                    <a href={pg.url.concat(pg.en_files)} class="card-button">
+                                    <a href={pg.url.concat(pg.en_files)} target="_blank" class="card-button">
                                         {$_('programguide.button_en')}
                                     </a>
                                 {/if}
