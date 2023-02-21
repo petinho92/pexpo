@@ -8,7 +8,7 @@
 
 <!-- Full-width images with number text -->
     <div class="numbertext">{slideNo} / {totalSlides}</div>
-    <img src={image}>
+    <img class="px-5" src={image}>
 
 
 
@@ -17,7 +17,7 @@
     .numbertext {
         color: #f2f2f2;
         font-size: .9rem;
-        padding: 8px 12px;
+        padding: 8px 30px;
         text-shadow: 1px 1px black;
         position: absolute;
         top: 0;
