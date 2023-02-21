@@ -15,8 +15,6 @@
 
     import Cookie from "./components/Cookie.svelte";
     import Navbar2 from "./components/Navbar2.svelte";
-    import {onMount} from "svelte";
-    import Popup from "src/components/popup/Popup.svelte";
     import Footer from "src/components/Footer.svelte";
 
 
