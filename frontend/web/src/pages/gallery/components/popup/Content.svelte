@@ -36,7 +36,7 @@
                                 <div class="columns is-multiline is-flex-mobile is-centered mb-6">
                                     {#each $data as album}
                                         {#if year === album.year && album.imgs[0] !== undefined}
-                                            <div class="column is-8-mobile is-2-tablet is-2-desktop is-narrow">
+                                            <div class="column is-8-mobile is-3-tablet max-column-size is-narrow">
                                                 <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
                                                     <div class="card card-hover">
 
@@ -117,8 +117,13 @@
   }
 
   .image-size {
-    max-height: 400px;
+    max-height: 420px;
   }
 
+  @media screen and (min-width: 1024px){
+    .max-column-size{
+      width: 15em;
+    }
+  }
 
 </style>
