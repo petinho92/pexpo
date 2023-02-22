@@ -41,7 +41,16 @@ class GalleryApi extends Api
     #[Route(self::GET, 'getslider')]
     public function getSlider()
     {
-        return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->and(Gallery::category("slider")))->desc("created")->collect(1));
+        $converted = array();
+        $tmp = Gallery::search(Filter::where(Gallery::active(true))->and(Gallery::category("slider")))->desc("created")->collect(1);
+        foreach ($tmp as $value) {
+            $endof = $value->picture->count();
+            for ($i = 0; $i < $endof; $i++) {
+                $converted[] = $value->picture[$i]->image->crop(1920, 1280)->png;
+            }
+        }
+        return $converted;
+
     }
 
     protected function responseCreator($data)
