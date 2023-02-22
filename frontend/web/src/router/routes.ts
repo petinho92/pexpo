@@ -50,13 +50,14 @@ routes.set('/gallery', wrap({
     component: GalleryPage,
     userData: {hu: 'Galéria', en: 'Gallery'}
 }));
-routes.set('/accomondation', wrap({
+routes.set('/accommodation', wrap({
     component: Accommodations,
-    userData: {hu: 'Szálláslehetőség', en: 'Accomondation'}
+    userData: {hu: 'Szálláslehetőségek', en: 'Accommodation'}
+
 }));
 routes.set('/student', wrap({
     component: StudentRegistration,
-    userData: {hu: 'Registráció', en: 'Registration'}
+    userData: {hu: 'Regisztráció', en: 'Registration'}
 }));
 
 export default routes;
