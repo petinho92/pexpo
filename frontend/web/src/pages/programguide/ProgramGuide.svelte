@@ -16,7 +16,7 @@
     {#if !$loading}
         <div class="container">
             {#each $programguide as pg}
-                {#if pg.picture !== null && pg.hu_files !== null}
+                {#if pg.picture !== null && (pg.hu_files !== null || pg.stand !== null)}
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
@@ -34,22 +34,24 @@
                                     <p>{pg.en_type}</p>
                                 {/if}
 
-                                {#if pg.stand !== null }
+                                {#if pg.hu_files !== null }
                                     <a href={pg.url.concat(pg.hu_files)} target="_blank" class="card-button">
                                         {$_('programguide.button')}
                                     </a>
+                                    <br>
+
                                 {/if}
-                                <br>
                                 {#if pg.en_files !== null}
                                     <a href={pg.url.concat(pg.en_files)} target="_blank" class="card-button">
                                         {$_('programguide.button_en')}
                                     </a>
+                                    <br>
                                 {/if}
-                                <br>
                                 {#if pg.stand !== null}
                                     <a href={pg.url.concat(pg.stand)} target="_blank" class="card-button">
-                                        {$_('programguide.button_en')}
+                                        {$_('programguide.button_stand')}
                                     </a>
+                                    <br>
                                 {/if}
                             </div>
 
