@@ -13,7 +13,7 @@ import type Entity from "gold-admin/entity-type";
 @button(buttons.save)
 @button(buttons.reload)
 @button(buttons.delete)
-@button(attachmentButton(new AttachmentApi("/api/programguide/attachment"), {"picture": "Picture", "files": "Files"}))
+@button(attachmentButton(new AttachmentApi("/api/programguide/attachment"), {"picture": "Picture", "hu_pg": "Magyar programfüzet", "en_pg": "Angol programfüzet", "stand": "Stand"}))
 
 export default class ProgramguideForm extends Form {
     build(item: Entity, options: any) {
