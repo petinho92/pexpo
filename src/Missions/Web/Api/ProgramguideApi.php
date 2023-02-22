@@ -24,9 +24,10 @@ class ProgramguideApi extends Api
                     'en_type' => $data->en_type,
                     'date' => $data->date,
                     'url' => $data->getAttachmentStorage()->url,
-                    'picture' => $data->picture->first->filename,
-                    'hu_files' => $data->files->files[0],
-                    'en_files' => $data->files->files[1]
+                    'picture' => $data->picture->first->image->crop(277, 208)->png,
+                    'hu_files' => $data->hu_pg->first->filename,
+                    'en_files' => $data->en_pg->first->filename,
+                    'stand' => $data->stand->first->filename
                 ];
             }
         }
