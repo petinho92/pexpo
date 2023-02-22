@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img src={pg.url.concat(pg.picture)} alt={pg.alt}>
+                                <img src={pg.picture} alt={pg.alt}>
                             </figure>
                         </div>
                         <div class="card-content">
@@ -34,12 +34,20 @@
                                     <p>{pg.en_type}</p>
                                 {/if}
 
-                                <a href={pg.url.concat(pg.hu_files)} target="_blank" class="card-button">
-                                    {$_('programguide.button')}
-                                </a>
+                                {#if pg.stand !== null }
+                                    <a href={pg.url.concat(pg.hu_files)} target="_blank" class="card-button">
+                                        {$_('programguide.button')}
+                                    </a>
+                                {/if}
                                 <br>
-                                {#if (pg.en_files !== null)}
+                                {#if pg.en_files !== null}
                                     <a href={pg.url.concat(pg.en_files)} target="_blank" class="card-button">
+                                        {$_('programguide.button_en')}
+                                    </a>
+                                {/if}
+                                <br>
+                                {#if pg.stand !== null}
+                                    <a href={pg.url.concat(pg.stand)} target="_blank" class="card-button">
                                         {$_('programguide.button_en')}
                                     </a>
                                 {/if}
