@@ -78,10 +78,6 @@
                     <a class="navbar-item nbi" on:click={() => push('/programguide')}>
                         {$_('menu.programguide')}
                     </a>
-                    <a class="navbar-item nbi" href='/~web/files/PollackEXPO_2022_standok_A3.pdf'>
-                        {$_('menu.stands')}
-                    </a>
-
                     <a class="navbar-item nbi" on:click={() => push('/sponsors')}>
                         {$_('menu.sponsors')}
                     </a>
