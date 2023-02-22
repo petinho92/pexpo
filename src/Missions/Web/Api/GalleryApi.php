@@ -32,13 +32,13 @@ class GalleryApi extends Api
     /**
      * @return array
      */
-    #[Route(self::GET, '/')]
+    #[Route(self::GET, '/old')]
     public function getCollectionAllImages()
     {
         return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->desc(Gallery::year)->asc(Gallery::alt)->collect());
     }
 
-    #[Route(self::GET, '/crop')]
+    #[Route(self::GET, '/')]
     public function getCropCollection()
     {
         $array = array();
