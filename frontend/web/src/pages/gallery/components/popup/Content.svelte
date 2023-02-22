@@ -37,7 +37,7 @@
                                     {#each $data as album}
                                         {#if year === album.year && album.imgs[0] !== undefined}
                                             <div class="column is-8-mobile is-3-tablet max-column-size is-narrow">
-                                                <a on:click={()=>open(Popup,{urlPrefix: album.url, images: album.imgs})}>
+                                                <a on:click={()=>open(Popup,{ images: album.imgs})}>
                                                     <div class="card card-hover">
 
                                                         <div class="card-header bg card-header-size">

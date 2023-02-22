@@ -1,24 +1,16 @@
 <script>
     import Gallery from "../gallery/Gallery.svelte";
 
-    export let urlPrefix = '';
     export let images = [];
 
-    let urls = [];
-
-    $: if (urlPrefix  !== (null || undefined) && images !== (null || undefined)) {
-        for (let i = 0; i < images.length; i++) {
-            urls.push(urlPrefix.concat(images[i]));
-        }
-    }
 
 
 </script>
 
 
-{#if urls !== (null || undefined)}
+{#if images !== null && images !== undefined}
     <div>
-        <Gallery images={urls}/>
+        <Gallery images={images}/>
     </div>
 {/if}
 
