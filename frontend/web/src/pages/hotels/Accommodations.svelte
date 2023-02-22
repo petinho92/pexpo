@@ -8,7 +8,6 @@
 
     const [hotels, loading, error, get] = asyncFetch(url);
 
-    //TODO: mindíg lesz valami a picture fieldben még akkor is ha nincs fájl, olyankor például a fájl mappa neve ahova a fájl kerülne
 
 </script>
 <section class="section">
