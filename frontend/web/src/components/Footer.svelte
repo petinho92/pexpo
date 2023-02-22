@@ -1,39 +1,39 @@
 <script>
     import {push} from "svelte-spa-router";
-    import {_} from 'svelte-i18n';
+    import {_, locale} from 'svelte-i18n';
+    import {routes} from "src/router/routes.ts";
+
 </script>
 
 <footer id="footer">
     <div class="footer-top">
         <div class="container">
-            <div class="columns">
-                <div class="column is-one-quarter mlr-6">
+            <div class="columns is-centered">
+                <div class="column is-one-quarter mx-6">
                     <img src="/~web/images/pollackexpo_logo2.png" class="footerlogo">
                     <p class="has-text-justified mt-4">
                         {@html $_('footer_pr_text')}
                     </p>
                 </div>
 
-                <div class="column is-one-quarter footer-links mlr-6">
+                <div class="column is-one-quarter footer-links mx-6">
                     <h4>{$_('menu.sitemap')}</h4>
                     <ul>
-                        <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/')}>{$_('menu.home')}</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/programguide')}>{$_('menu.programguide')}</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href='/~web/files/PollackEXPO_2022_standok_A3.pdf'>{$_('menu.stands')}</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/sponsors')}>{$_('menu.sponsors')}</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a on:click={() => push('/accommodation')}>{$_('menu.accommodation')}</a></li>
-                    </ul>
-                </div>
+                        {#each [...routes] as [key, value]}
+                            {#if value.userData !== undefined}
+                                {#if $locale === 'hu'}
+                                    <li><i class="fas fa-chevron-right"></i> <a
+                                            on:click={() => push(key)}>{value.userData.hu}</a>
+                                    </li>
+                                {/if}
+                                {#if $locale === 'en'}
+                                    <li><i class="fas fa-chevron-right"></i> <a
+                                            on:click={() => push(key)}>{value.userData.en}</a>
+                                    </li>
+                                {/if}
 
-                <div class="column is-one-quarter footer-links mlr-6">
-                    <h4>{$_('menu.sitemap')}</h4>
-                    <ul>
-
-                        <li><i class="fas fa-chevron-right"></i> <a class="" on:click={() => push('/gallery')}>{$_('menu.gallery')}</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a>{$_('menu.registration.registration')}</a></li>
-
-                        <li><i class="fas fa-chevron-right ml-4"></i> <a on:click={() => push('http://www.pollackexpo.hu/belepes/')}>{$_('menu.registration.partners')}</a></li>
-                        <li><i class="fas fa-chevron-right ml-4"></i> <a on:click={() => push('/student')}>{$_('menu.registration.student')}</a></li>
+                            {/if}
+                        {/each}
                     </ul>
                 </div>
 
@@ -41,13 +41,16 @@
                     <h4>{$_('menu.contact')}</h4>
                     <p>
                         {@html $_('footer_address')}
-                        <strong>{$_('accommodations.label.telephone')} </strong><a class="link-tel" href="tel:+3672503650">+36 72 503 650 / 23866</a><br>
+                        <strong>{$_('accommodations.label.telephone')} </strong><a class="link-tel"
+                                                                                   href="tel:+3672503650">+36 72 503 650
+                        / 23866</a><br>
                     </p>
 
                     <div class="social-links">
                         <a href="https://www.facebook.com/ptemik" class="facebook"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/pte_mik/" class="instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/user/pollack1962" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/user/pollack1962" class="youtube"><i
+                                class="fab fa-youtube"></i></a>
                         <a href="https://mik.pte.hu/" class="globe"><i class="fas fa-globe"></i></a>
                     </div>
 
@@ -64,15 +67,17 @@
     </div>
 </footer><!-- End  Footer -->
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-chevron-circle-up"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="fas fa-chevron-circle-up"></i></a>
 
 <style>
 
     @media screen and (max-width: 768px) {
-        .mlr-6{
+        .mlr-6 {
             margin: 0 10px 0 10px;
         }
-        .footerlogo{
+
+        .footerlogo {
             width: 80%;
             height: 80%;
             display: block;
@@ -81,46 +86,54 @@
         }
     }
 
-    .link-mail{
+    .link-mail {
         color: #D3AC2B;
     }
 
-    .link-tel{
+    .link-tel {
         color: #D3AC2B;
     }
-    .social-links{
+
+    .social-links {
         margin-top: 10px;
     }
 
-    strong{
+    strong {
         color: #F4F3EA;
     }
 
-    #footer .footer-top .social-links .facebook:hover{
+    #footer .footer-top .social-links .facebook:hover {
         background-color: #4267B2;
     }
-    #footer .footer-top .social-links .youtube:hover{
+
+    #footer .footer-top .social-links .youtube:hover {
         background-color: red;
     }
-    #footer .footer-top .social-links .instagram:hover{
+
+    #footer .footer-top .social-links .instagram:hover {
         background-color: #833AB4;
     }
-    #footer .footer-top .social-links .globe:hover{
+
+    #footer .footer-top .social-links .globe:hover {
         background-color: #006699;
     }
+
     #footer {
         background: #101522;
         padding: 0 0 25px 0;
         color: #F4F3EA;
         font-size: 14px;
     }
+
     #footer .footer-top {
         background: #040919;
         padding: 60px 0 30px 0;
     }
+
     #footer .footer-top .footer-info {
         margin-bottom: 30px;
     }
+
     #footer .footer-top .footer-info h3 {
         font-size: 26px;
         margin: 0 0 20px 0;
@@ -130,10 +143,12 @@
         font-weight: 700;
         color: #F4F3EA;
     }
+
     #footer .footer-top .footer-info img {
         height: 40px;
         margin-bottom: 10px;
     }
+
     #footer .footer-top .footer-info p {
         font-size: 14px;
         line-height: 24px;
@@ -141,6 +156,7 @@
         font-family: "Raleway", sans-serif;
         color: #F4F3EA;
     }
+
     #footer .footer-top .social-links a {
         display: inline-block;
         background: #222636;
@@ -155,6 +171,7 @@
         align-items: center;
         justify-content: center;
     }
+
     #footer .footer-top .social-links a i {
         line-height: 0;
         font-size: 16px;
@@ -170,9 +187,11 @@
         border-bottom: 2px solid #D3AC2B;
         margin-bottom: 10px;
     }
+
     #footer .footer-top .footer-links {
         margin-bottom: 30px;
     }
+
     #footer .footer-top .footer-links ul {
         list-style: none;
         padding: 0;
@@ -180,40 +199,50 @@
         /*chevron color*/
         color: #D3AC2B;
     }
+
     #footer .footer-top .footer-links ul i {
         padding-right: 5px;
         color: #f82249;
         font-size: 18px;
     }
+
     #footer .footer-top .footer-links ul li {
         border-bottom: 1px solid #262c44;
         padding: 10px 0;
     }
+
     #footer .footer-top .footer-links ul li:first-child {
         padding-top: 0;
     }
+
     #footer .footer-top .footer-links ul a {
         /*link color*/
         color: #F4F3EA;
         text-decoration: none;
     }
+
     #footer .footer-top .footer-links ul a:hover {
         color: #D3AC2B;
     }
+
     #footer .footer-top .footer-contact {
         margin-bottom: 30px;
     }
+
     #footer .footer-top .footer-contact p {
         line-height: 26px;
     }
+
     #footer .footer-top .footer-newsletter {
         margin-bottom: 30px;
     }
+
     #footer .footer-top .footer-newsletter input[type=email] {
         border: 0;
         padding: 6px 8px;
         width: 65%;
     }
+
     #footer .footer-top .footer-newsletter input[type=submit] {
         background: #f82249;
         border: 0;
@@ -224,9 +253,11 @@
         transition: 0.3s;
         cursor: pointer;
     }
+
     #footer .footer-top .footer-newsletter input[type=submit]:hover {
         background: #e0072f;
     }
+
     #footer .copyright {
         text-align: center;
         padding-top: 30px;
@@ -245,18 +276,21 @@
         border-radius: 50px;
         transition: all 0.4s;
     }
+
     .back-to-top i {
         font-size: 28px;
         color: #fff;
         line-height: 0;
     }
+
     .back-to-top:hover {
         background: #f94a6a;
         color: #fff;
     }
+
     .back-to-top.active {
         visibility: visible;
         opacity: 1;
     }
 
-    </style>
+</style>
