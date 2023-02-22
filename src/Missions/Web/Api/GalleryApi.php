@@ -38,6 +38,43 @@ class GalleryApi extends Api
         return $this->responseCreator(Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->desc(Gallery::year)->asc(Gallery::alt)->collect());
     }
 
+    #[Route(self::GET, '/crop')]
+    public function getCropCollection()
+    {
+        $array = array();
+        $tmp = Gallery::search(Filter::where(Gallery::active(true))->andNot(Gallery::category("slider")))->desc(Gallery::year)->asc(Gallery::alt)->collect();
+        foreach ($tmp as $index => $item) {
+            if ($item->picture->files) {
+                $endof = $item->picture->count();
+                $array[] = (object)[
+                    'year' => $item->year,
+                    'alt' => $item->alt,
+                    'thumbnail' => $item->picture->first->image->crop(200, 400)->png,
+                    'imgs' => $this->crop($endof, $item)
+                ];
+            }
+        }
+        return $array;
+    }
+
+    protected function crop($count, $item)
+    {
+        $converted = array();
+        for ($i = 0; $i < $count; $i++) {
+            //portrait orientation
+            if ($item->picture[$i]->height > $item->picture[$i]->width) {
+                $converted[] = $item->picture[$i]->image->crop(800,1200)->png;
+            }
+            //landscape orientation
+            elseif ($item->picture[$i]->height < $item->picture[$i]->width) {
+                $converted[] = $item->picture[$i]->image->crop(1200, 800)->png;
+            }else {
+                $converted[] = $item->picture[$i]->image->crop(1200,1200)->png;
+            }
+        }
+        return $converted;
+    }
+
     #[Route(self::GET, 'getslider')]
     public function getSlider()
     {
@@ -46,11 +83,10 @@ class GalleryApi extends Api
         foreach ($tmp as $value) {
             $endof = $value->picture->count();
             for ($i = 0; $i < $endof; $i++) {
-                $converted[] = $value->picture[$i]->image->crop(1920, 1280)->png;
+                    $converted[] = $value->picture[$i]->image->crop(1920, 1280)->png;
+                }
             }
-        }
         return $converted;
-
     }
 
     protected function responseCreator($data)
