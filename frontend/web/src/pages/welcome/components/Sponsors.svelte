@@ -73,7 +73,12 @@
 
 <style>
     .image-full-size {
-        height: 70%;
+        height: 60%;
+        filter: grayscale(100%);
+    }
+    .image-full-size:hover {
+        filter: grayscale(0%);
+        transition: 1s all;
     }
 
     .clients .clients-slider .swiper-slide img {
