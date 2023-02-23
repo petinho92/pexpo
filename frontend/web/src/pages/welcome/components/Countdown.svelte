@@ -4,34 +4,42 @@
 </script>
 
 <section class="section bgcolor">
-<!--    <Countdown from="2022-02-24 09:30:00" dateFormat="YYYY-MM-DD H:m:s" zone="Europe/Budapest" let:remaining>-->
+    <Countdown from="2023-03-24 09:30:00" dateFormat="YYYY-MM-DD H:m:s" zone="Europe/Budapest" let:remaining>
         <div class="container">
-<!--            <h1 id="headline">{$_('countdown.text')}</h1>-->
-            <h1 id="headline">{$_('countdown.end')}</h1>
-            <h2>(2022-02-24 09:30)</h2>
-            <!--{#if remaining.done === false}-->
-            <!--    <div id="countdown">-->
-            <!--        <ul>-->
-            <!--            {#if remaining.months > 0}-->
-            <!--                <li><span id="months">{remaining.months}</span>{$_('countdown.month')}</li>-->
-            <!--            {/if}-->
-            <!--            <li><span id="days">{remaining.days}</span>{$_('countdown.day')}</li>-->
-            <!--            <li><span id="hours">{remaining.hours} </span>{$_('countdown.hour')}</li>-->
-            <!--            <li><span id="minutes">{remaining.minutes}</span>{$_('countdown.minute')}</li>-->
-            <!--            <li><span id="seconds">{remaining.seconds}</span>{$_('countdown.second')}</li>-->
-            <!--        </ul>-->
-            <!--    </div>-->
-            <!--{:else}-->
-            <!--    <div id="content" class="emoji">-->
-            <!--        <span>🥳</span>-->
-            <!--        <span>🎉</span>-->
-            <!--        <span>🎂</span>-->
-            <!--    </div>-->
-            <!--{/if}-->
+            <h1 class="has-text-weight-bold" id="headline">{$_('countdown.text')}</h1>
+<!--            <h1 id="headline">{$_('countdown.end')}</h1>-->
+            <span class="is-size-3">2023.04.13-14.</span>
+            {#if remaining.done === false}
+                <div id="countdown" class="clock">
+                    <ul>
+                        {#if remaining.months > 0}
+                            <li><span id="months">{remaining.months}</span>{$_('countdown.month')}</li>
+                        {/if}
+                        <li><span class="is-size-4" id="days">{remaining.days}</span><span class="is-size-5">{$_('countdown.day')}</span></li>
+                        <li><span class="is-size-4" id="hours">{remaining.hours} </span><span class="is-size-5">{$_('countdown.hour')}</span></li>
+                        <li><span class="is-size-4" id="minutes">{remaining.minutes}</span><span class="is-size-5">{$_('countdown.minute')}</span></li>
+                        <li><span class="is-size-4" id="seconds">{remaining.seconds}</span><span class="is-size-5">{$_('countdown.second')}</span></li>
+                    </ul>
+                </div>
+            {:else}
+                <div id="content" class="emoji">
+                    <span>🥳</span>
+                    <span>🎉</span>
+                    <span>🎂</span>
+                </div>
+            {/if}
         </div>
-<!--    </Countdown>-->
+    </Countdown>
 </section>
 <style>
+
+    .clock{
+        box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+        border-radius: 5px;
+        backdrop-filter: blur(14px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
     .container {
         color: #333;
         margin: 0 auto;
@@ -39,10 +47,10 @@
     }
 
     h1 {
-        font-weight: normal;
         letter-spacing: .125rem;
         text-transform: uppercase;
         font-size: xx-large;
+        text-shadow: 2px 2px 8px rgba(129, 124, 124, 0.9);
     }
 
     li {
