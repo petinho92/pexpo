@@ -36,5 +36,5 @@
 
 <Cookie/>
 <Navbar2 languages={languages}/>
-<Router {routes}/>
+<Router {routes} restoreScrollState={true}/>
 <Footer/>
