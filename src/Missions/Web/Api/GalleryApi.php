@@ -100,7 +100,7 @@ class GalleryApi extends Api
                     'alt' => $adat->alt,
                     'url' => $adat->getAttachmentStorage()->url,
                     'imgs' => $adat->picture->files,
-                    'thumbnail' => $adat->picture->first->image->crop(200, 400)->png
+                    'thumbnail' => $adat->picture->first->image->crop(300, 420)->png
                 ];
             }
         }
