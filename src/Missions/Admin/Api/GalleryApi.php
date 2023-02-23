@@ -76,5 +76,4 @@ class GalleryApi extends Gold{
             }
         };
     }
-
 }
