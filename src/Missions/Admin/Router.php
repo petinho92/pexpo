@@ -2,6 +2,7 @@
 
 
 use Application\Missions\Admin\Api\AuthApi;
+use Application\Missions\Admin\Api\ConfigApi;
 use Application\Missions\Admin\Api\ContentApi;
 use Application\Missions\Admin\Api\DashboardApi;
 use Application\Missions\Admin\Api\GalleryApi;
@@ -22,9 +23,10 @@ class Router extends \Atomino\Mercury\Router\Router {
 		$this(path: '/api/auth/**')?->pipe(AuthApi::class);
 		$this(path: '/api/dashboard/**')?->pipe(DashboardApi::class);
 		$this(path: '/api/user/**')?->pipe(UserApi::class);
-		$this(path: '/api/content/**')?->pipe(ContentApi::class);
-		$this(path: '/api/gallery/**')?->pipe(GalleryApi::class);
-		$this(path: '/api/hotel/**')?->pipe(HotelApi::class);
+        $this(path: '/api/config/**')?->pipe(ConfigApi::class);
+        $this(path: '/api/content/**')?->pipe(ContentApi::class);
+        $this(path: '/api/gallery/**')?->pipe(GalleryApi::class);
+        $this(path: '/api/hotel/**')?->pipe(HotelApi::class);
         $this(path: '/api/sponsor/**')?->pipe(SponsorApi::class);
         $this(path: '/api/programguide/**')?->pipe(ProgramGuideApi::class);
         $this(path: '/api/timeline/**')?->pipe(TimelineApi::class);
