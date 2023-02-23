@@ -16,7 +16,6 @@ import HotelList from "src/ui/hotel/hotel-list";
 import SponsorList from "src/ui/sponsor/sponsor-list";
 import ProgramguideList from "src/ui/programguide/programguide-list";
 import TimelineList from "src/ui/timeline/timeline-list";
-import SocialPage from "src/ui/config/social-page";
 
 window.addEventListener('load', () => {
 
@@ -56,9 +55,6 @@ window.addEventListener('load', () => {
                 new MenuItem("Settings", FaIcon.s("cogs"), [
                     new MenuItem("Users", FaIcon.s("users"), () => {
                         listManager.add(new UserList())
-                    }, "webmaster"),
-                    new MenuItem("Config", FaIcon.s("toolbox"), () => {
-                        pageManager.add(new SocialPage())
                     }, "webmaster"),
                 ],"webmaster"),
 
