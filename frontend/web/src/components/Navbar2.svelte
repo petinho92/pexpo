@@ -1,6 +1,8 @@
 <script>
-    import {_} from 'svelte-i18n';
+    import {_, locale} from 'svelte-i18n';
     import {push} from 'svelte-spa-router';
+    import {routes} from "src/router/routes.ts";
+
 
     export let languages;
     let active;
@@ -75,40 +77,47 @@
                              class="pte"/>
                     </a>
 
-                    <a class="navbar-item nbi" on:click={() => push('/programguide')}>
-                        {$_('menu.programguide')}
-                    </a>
-                    <a class="navbar-item nbi" on:click={() => push('/sponsors')}>
-                        {$_('menu.sponsors')}
-                    </a>
-                    <a class="navbar-item nbi" on:click={() => push('/services')}>
-                        {$_('menu.services')}
-                    </a>
-                    <a class="navbar-item nbi" on:click={() => push('/accommodation')}>
-                        {$_('menu.accommodation')}
-                    </a>
+                    {#each [...routes] as [key, value]}
+                        {#if value.userData !== undefined && value.userData.active && key !== "/student"}
+                            {#if $locale === 'hu'}
+                                <a class="navbar-item nbi" on:click={() => push(key)}>
+                                    {value.userData.hu}
+                                </a>
+                            {/if}
+                            {#if $locale === 'en'}
+                                <a class="navbar-item nbi" on:click={() => push(key)}>
+                                    {value.userData.en}
+                                </a>
+                            {/if}
+                        {/if}
+                        {#if value.userData !== undefined && key === "/student" && value.userData.active}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link nbi">
+                                    {$_('menu.registration.registration')}
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <hr class="navbar-divider">
+                                    <a class="navbar-item dditem" href="http://www.pollackexpo.hu/belepes/"
+                                       target="_blank">
+                                        {$_('menu.registration.partners')}
+                                    </a>
+                                    {#if $locale === 'hu'}
+                                        <a class="navbar-item dditem" on:click={() => push(key)}>
+                                            {value.userData.hu}
+                                        </a>
+                                    {/if}
+                                    {#if $locale === 'en'}
+                                        <a class="navbar-item dditem" on:click={() => push(key)}>
+                                            {value.userData.en}
+                                        </a>
+                                    {/if}
+
+                                </div>
+                            </div>
+                        {/if}
+                    {/each}
 
 
-                    <a class="navbar-item nbi" on:click={() => push('/gallery')}>
-                        {$_('menu.gallery')}
-                    </a>
-
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link nbi">
-                            {$_('menu.registration.registration')}
-                        </a>
-                        <div class="navbar-dropdown">
-                            <hr class="navbar-divider">
-                            <a class="navbar-item dditem" href="http://www.pollackexpo.hu/belepes/" target="_blank">
-                                {$_('menu.registration.partners')}
-                            </a>
-                            <a class="navbar-item dditem" on:click={() => push('/student')}>
-                                {$_('menu.registration.student')}
-                            </a>
-
-                        </div>
-                    </div>
                     <div class="navbar-content">
 
                     </div>
@@ -249,8 +258,6 @@
     .navbar-menu {
         max-width: 95vw;
     }
-
-
 
 
     @media screen and (max-width: 1200px) {
