@@ -20,7 +20,8 @@ class ConfigApi extends Api
     public function saveConfig(){
         $input = $this->data->all();
         $first = Config::search()->asc("id")->collect();
-        $first !==null ? $config = Config::pick($first[0]->id) : $config = Config::create();
+        debug($first);
+        $first !==null && $first[0]->id !==null ? $config = Config::pick($first[0]->id) : $config = Config::create();
         $config->counter = $input;
         $config->save();
     }
