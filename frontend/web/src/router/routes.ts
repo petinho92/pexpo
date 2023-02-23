@@ -28,36 +28,36 @@ export const routes = new Map();
 
 routes.set('/', wrap({
     component: Welcome,
-    userData: {hu: 'Kezdőlap', en: 'Welcome'}
+    userData: {hu: 'Kezdőlap', en: 'Welcome', active:true}
 }));
 routes.set('/programs', wrap({
     component: Program,
-    userData: {hu: 'Programok', en: 'Programs'}
+    userData: {hu: 'Programok', en: 'Programs', active:false}
 }));
 routes.set('/programguide', wrap({
     component: ProgramGuide,
-    userData: {hu: 'Programfüzet', en: 'Programguide'}
+    userData: {hu: 'Programfüzet', en: 'Programguide', active:true}
 }));
 routes.set('/sponsors', wrap({
     component: Sponsors,
-    userData: {hu: 'Szopnzorok', en: 'Sponsors'}
+    userData: {hu: 'Szponzorok', en: 'Sponsors', active:true}
 }));
 routes.set('/services', wrap({
     component: Services,
-    userData: {hu: 'Szolgáltatások', en: 'Services'}
+    userData: {hu: 'Szolgáltatások', en: 'Services', active:true}
 }));
 routes.set('/gallery', wrap({
     component: GalleryPage,
-    userData: {hu: 'Galéria', en: 'Gallery'}
+    userData: {hu: 'Galéria', en: 'Gallery', active:true}
 }));
 routes.set('/accommodation', wrap({
     component: Accommodations,
-    userData: {hu: 'Szálláslehetőségek', en: 'Accommodation'}
+    userData: {hu: 'Szálláslehetőségek', en: 'Accommodation', active:true}
 
 }));
 routes.set('/student', wrap({
     component: StudentRegistration,
-    userData: {hu: 'Regisztráció', en: 'Registration'}
+    userData: {hu: 'Hallgatóknak', en: 'Student', active:true}
 }));
 
 export default routes;
