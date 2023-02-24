@@ -20,6 +20,7 @@ export default class ProgramguideList extends List{
             icon: item.active === true ? [FaIcon.s("book").prop("color", "green")] : [FaIcon.s("book").prop("color", "gray")],
             active: true,
             properties: [
+                {label: 'year', value: item.year},
                 {label: 'created', value: moment(item.created).fromNow()},
                 {label: 'updated', value: moment(item.updated).fromNow()},
             ],
