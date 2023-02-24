@@ -33,24 +33,26 @@
                                 {/if}
 
                             {/if}
-                            {#if value.userData !== undefined && value.userData.active && key === '/student'}
+                            {#if value.userData !== undefined && key === '/student'}
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="#">
                                         {$_('menu.registration.registration')}
                                     </a>
                                 </li>
                                 <li><i class="fas fa-chevron-right ml-4"></i> <a
-                                        href="http://www.pollackexpo.hu/belepes/">{$_('menu.registration.partners')}</a>
+                                        href="http://www.pollackexpo.hu/belepes/" target="_blank">{$_('menu.registration.partners')}</a>
                                 </li>
-                                {#if $locale === 'hu'}
-                                    <li><i class="fas fa-chevron-right ml-4"></i> <a
-                                            on:click={() => push(key)}>{value.userData.hu}</a>
-                                    </li>
-                                {/if}
-                                {#if $locale === 'en'}
-                                    <li><i class="fas fa-chevron-right ml-4"></i> <a
-                                            on:click={() => push(key)}>{value.userData.en}</a>
-                                    </li>
+                                {#if value.userData.active}
+                                    {#if $locale === 'hu'}
+                                        <li><i class="fas fa-chevron-right ml-4"></i> <a
+                                                on:click={() => push(key)}>{value.userData.hu}</a>
+                                        </li>
+                                    {/if}
+                                    {#if $locale === 'en'}
+                                        <li><i class="fas fa-chevron-right ml-4"></i> <a
+                                                on:click={() => push(key)}>{value.userData.en}</a>
+                                        </li>
+                                    {/if}
                                 {/if}
                             {/if}
                         {/each}
