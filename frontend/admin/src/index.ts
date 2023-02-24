@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
                 new MenuItem("Settings", FaIcon.s("cogs"), [
                     new MenuItem("Users", FaIcon.s("users"), () => {
                         listManager.add(new UserList())
-                    }, "webmaster"),
+                    }, "admin"),
                     new MenuItem("Config", FaIcon.s("toolbox"), () => {
                         pageManager.add(new SocialPage())
                     }, "webmaster"),
