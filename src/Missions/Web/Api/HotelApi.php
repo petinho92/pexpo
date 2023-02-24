@@ -30,10 +30,12 @@ class HotelApi extends Api
                     'telephone' => $data->telephone,
                     'website' => $data->website,
                     'maps' => $data->maps,
+                    'discount' => ($data->discount>0)?'true':'false',
                     'picture' => $data->picture->first->image->crop(520,400)->png
                 ];
             }
         }
         return $array;
     }
+
 }
