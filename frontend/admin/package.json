@@ -10,9 +10,12 @@
 	"c": {},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.4",
+		"@imask/svelte": "^6.4.3",
 		"@tinymce/tinymce-svelte": "^1.0.0",
 		"@types/tinymce": "^4.6.5",
+		"bulma-calendar": "^6.1.18",
 		"gold-admin": "github:atomino-framework/gold-admin",
+		"imask": "^6.4.3",
 		"marked": "^4.2.12",
 		"moment": "^2.29.4",
 		"svelma": "^0.4.5",
