@@ -11,7 +11,7 @@ class HotelApi extends Api
     #[Route(self::GET, '/')]
     public function getHotels()
     {
-        $result = Accommodation::search(Filter::where(Accommodation::active(true)))->collect();
+        $result = Accommodation::search(Filter::where(Accommodation::active(true)))->desc(Accommodation::discount)->asc(Accommodation::name)->collect();
         $array = array();
         foreach ($result as $data) {
             if ($data->picture->files) {
