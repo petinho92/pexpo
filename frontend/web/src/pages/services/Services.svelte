@@ -46,6 +46,8 @@
 <style lang="scss">
   section {
     min-height: 30em;
+    background: #F5F5F5;
+
   }
 
   .container-panel {

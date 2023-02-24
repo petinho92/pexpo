@@ -80,6 +80,8 @@
   section {
     min-height: 30em;
     padding-top: 3rem;
+    background: #F5F5F5;
+
   }
 
   .bg {
