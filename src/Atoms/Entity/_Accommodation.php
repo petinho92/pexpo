@@ -16,6 +16,7 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison attachments($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison created($isin = null)
  * @property-read \DateTime|null $created
+ * @method static \Atomino\Carbon\Database\Finder\Comparison discount($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison email($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison en_desc($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison en_services($isin = null)
@@ -48,6 +49,7 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Field("active", \Atomino\Carbon\Field\BoolField::class)]
 #[Field("attachments", \Atomino\Carbon\Field\JsonField::class)]
 #[Field("created", \Atomino\Carbon\Field\DateTimeField::class)]
+#[Field("discount", \Atomino\Carbon\Field\IntField::class)]
 #[Validator("email", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>100])]
 #[Field("email", \Atomino\Carbon\Field\StringField::class)]
 #[Validator("en_desc", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>65535])]
@@ -90,6 +92,8 @@ abstract class _Accommodation extends Entity implements \Atomino\Bundle\Attachme
 	const created = 'created';
 	protected \DateTime|null $created = null;
 	protected function getCreated():\DateTime|null{ return $this->created;}
+	const discount = 'discount';
+	public int|null $discount = null;
 	const email = 'email';
 	public string|null $email = null;
 	const en_desc = 'en_desc';
