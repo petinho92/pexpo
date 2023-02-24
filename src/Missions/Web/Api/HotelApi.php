@@ -30,7 +30,7 @@ class HotelApi extends Api
                     'telephone' => $data->telephone,
                     'website' => $data->website,
                     'maps' => $data->maps,
-                    'picture' => ($data->getAttachmentStorage()->url) . ($data->picture->first->filename)
+                    'picture' => $data->picture->first->image->crop(520,400)->png
                 ];
             }
         }
