@@ -30,10 +30,6 @@ routes.set('/', wrap({
     component: Welcome,
     userData: {hu: 'Kezdőlap', en: 'Welcome', active:true}
 }));
-routes.set('/programs', wrap({
-    component: Program,
-    userData: {hu: 'Programok', en: 'Programs', active:false}
-}));
 routes.set('/programguide', wrap({
     component: ProgramGuide,
     userData: {hu: 'Programfüzet', en: 'Programguide', active:true}
@@ -57,7 +53,7 @@ routes.set('/accommodation', wrap({
 }));
 routes.set('/student', wrap({
     component: StudentRegistration,
-    userData: {hu: 'Hallgatóknak', en: 'Student', active:true}
+    userData: {hu: 'Hallgatóknak', en: 'Student', active:false}
 }));
 
 export default routes;

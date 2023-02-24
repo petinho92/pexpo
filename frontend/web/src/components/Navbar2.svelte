@@ -90,7 +90,7 @@
                                 </a>
                             {/if}
                         {/if}
-                        {#if value.userData !== undefined && key === "/student" && value.userData.active}
+                        {#if value.userData !== undefined && key === "/student"}
                             <div class="navbar-item has-dropdown is-hoverable">
                                 <a class="navbar-link nbi">
                                     {$_('menu.registration.registration')}
@@ -101,15 +101,17 @@
                                        target="_blank">
                                         {$_('menu.registration.partners')}
                                     </a>
-                                    {#if $locale === 'hu'}
-                                        <a class="navbar-item dditem" on:click={() => push(key)}>
-                                            {value.userData.hu}
-                                        </a>
-                                    {/if}
-                                    {#if $locale === 'en'}
-                                        <a class="navbar-item dditem" on:click={() => push(key)}>
-                                            {value.userData.en}
-                                        </a>
+                                    {#if value.userData.active}
+                                        {#if $locale === 'hu'}
+                                            <a class="navbar-item dditem" on:click={() => push(key)}>
+                                                {value.userData.hu}
+                                            </a>
+                                        {/if}
+                                        {#if $locale === 'en'}
+                                            <a class="navbar-item dditem" on:click={() => push(key)}>
+                                                {value.userData.en}
+                                            </a>
+                                        {/if}
                                     {/if}
 
                                 </div>

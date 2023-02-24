@@ -51,7 +51,7 @@
     .section {
         margin-top: 0;
         min-height: 30em;
-        background: rgba(93, 93, 93, 0.5);
+        background: #F5F5F5;
     }
 
     .container {
@@ -77,6 +77,7 @@
         color: #fff;
 
     }
+
 
     .image-size {
         height: 200px;
