@@ -22,6 +22,7 @@ export default class HotelForm extends Form {
         this.addSection("Hotel general properties", FaIcon.s("hotel"))
             .addControl(controls.string("name", "name"))
             .addControl(controls.select("star",).setOptions(['⭐⭐⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐','⭐⭐','⭐']))
+            .addControl(controls.number("discount", "discount(%)").setMin(0).setMax(100))
             .addControl(controls.string("telephone", "telephone"))
             .addControl(controls.string("email", "email"))
             .addControl(controls.string("website", "website"))
