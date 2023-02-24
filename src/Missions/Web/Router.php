@@ -1,5 +1,6 @@
 <?php namespace Application\Missions\Web;
 
+use Application\Missions\Web\Api\ConfigApi;
 use Application\Missions\Web\Api\HotelApi;
 use Application\Missions\Web\Api\ContentApi;
 use Application\Missions\Web\Api\GalleryApi;
@@ -21,6 +22,7 @@ class Router extends \Atomino\Mercury\Router\Router {
         $this(method: 'GET', path: '/sponsor/**')?->pipe(Cache::class)->pipe(SponsorApi::class);
         $this(method: 'GET', path: '/programguide/**')?->pipe(Cache::class)->pipe(ProgramguideApi::class);
         $this(method: 'GET', path: '/timeline/**')?->pipe(Cache::class)->pipe(TimelineApi::class);
+        $this(method: 'GET', path: '/config/**')?->pipe(Cache::class)->pipe(ConfigApi::class);
 		$this()?->pipe(Page\Error404::class);
 	}
 
