@@ -10,7 +10,6 @@
 
     function handleClick(){
         $agreed = true;
-        console.log("agreed = true");
         close();
         localStorage.setItem("allowedCookie", 'true');
     }
