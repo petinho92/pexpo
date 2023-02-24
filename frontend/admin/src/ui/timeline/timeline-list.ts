@@ -7,7 +7,7 @@ import moment from "moment";
 
 @list(
     "Timelines",
-    FaIcon.r("list-alt"),
+    FaIcon.s("stream"),
     "/api/timeline/list",
     TimelineForm
 )
