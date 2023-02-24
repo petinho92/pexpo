@@ -13,7 +13,6 @@ import CustomEditorControl from "src/controls/custom-WYSIWYG/control";
     (item, id) => id === null ? "new content" : item.name
 )
 @button(buttons.save)
-@button(buttons.delete)
 @button(buttons.reload)
 @button(attachmentButton(new AttachmentApi("/api/content/attachment"), {"picture": "Picture", "files": "Files"}))
 export default class ContentForm extends Form {
