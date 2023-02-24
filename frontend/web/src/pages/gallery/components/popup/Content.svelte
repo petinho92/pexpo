@@ -28,7 +28,7 @@
 
                             <div class="card-header mb-3 ">
                                 <div class="card-header-title is-centered my-3">
-                                    <h1>{year}</h1>
+                                    <span class="year-font">{year}</span>
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
 
                                                         <div class="card-header bg card-header-size">
                                                             <div class="card-header-title is-centered">
-                                                                <h2 class="has-text-white">{album.alt}</h2>
+                                                                <span class="card-font has-text-white">{album.alt}</span>
                                                             </div>
                                                         </div>
                                                         <div class="card-image">
@@ -68,7 +68,9 @@
             <h1>Loading...</h1>
         {/if}
         {#if !$loading && $data.length === 0}
-            <h1>{$_('error.nodata')}</h1>
+            <div class="has-text-centered is-size-5">
+                <h1>{$_('error.nodata')}</h1>
+            </div>
         {/if}
     </div>
 
@@ -77,6 +79,7 @@
 <style lang="scss">
   section {
     min-height: 30em;
+    padding-top: 3rem;
   }
 
   .bg {
@@ -84,14 +87,14 @@
   }
 
 
-  h1 {
+  .year-font {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: bold;
     color: #0a0a0a;
     font-size: 30px;
   }
 
-  h2 {
+  .card-font {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: bold;
     color: #0a0a0a;
@@ -120,8 +123,8 @@
     max-height: 420px;
   }
 
-  @media screen and (min-width: 1024px){
-    .max-column-size{
+  @media screen and (min-width: 1024px) {
+    .max-column-size {
       width: 15em;
     }
   }
