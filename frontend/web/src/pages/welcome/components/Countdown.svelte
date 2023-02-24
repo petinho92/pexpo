@@ -4,7 +4,7 @@
 </script>
 
 <section class="section bgcolor">
-    <Countdown from="2023-03-24 09:30:00" dateFormat="YYYY-MM-DD H:m:s" zone="Europe/Budapest" let:remaining>
+    <Countdown from="2023-04-13 09:30:00" dateFormat="YYYY-MM-DD H:m:s" zone="Europe/Budapest" let:remaining>
         <div class="container">
             <h1 class="has-text-weight-bold" id="headline">{$_('countdown.text')}</h1>
 <!--            <h1 id="headline">{$_('countdown.end')}</h1>-->
@@ -13,7 +13,7 @@
                 <div id="countdown" class="clock">
                     <ul>
                         {#if remaining.months > 0}
-                            <li><span id="months">{remaining.months}</span>{$_('countdown.month')}</li>
+                            <li><span class="is-size-4" id="months">{remaining.months}</span><span class="is-size-5">{$_('countdown.month')}</span></li>
                         {/if}
                         <li><span class="is-size-4" id="days">{remaining.days}</span><span class="is-size-5">{$_('countdown.day')}</span></li>
                         <li><span class="is-size-4" id="hours">{remaining.hours} </span><span class="is-size-5">{$_('countdown.hour')}</span></li>
