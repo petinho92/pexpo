@@ -18,13 +18,13 @@
                 {#if hotel.picture !== null}
                     <div class="card">
                         <div class="columns">
-                            <div class="card-image column is-two-fifths has-ribbon-left">
+                            <div class="card-image column is-three-fifths has-ribbon-left">
                                 <figure class="image is-4by3">
                                     <img src={hotel.picture} alt={hotel.name}>
                                     <p class="ribbon is-small">{hotel.location}</p>
                                 </figure>
                             </div>
-                            <div class="card-content column is-three-fifths has-text-justified">
+                            <div class="card-content column is-one-fifths has-text-justified">
                                 <p class="title is-4">{hotel.name} {hotel.star}</p>
                                 {#if $locale === 'hu'}
                                     <p class="subtitle is-7">{hotel.hu_type}</p>
