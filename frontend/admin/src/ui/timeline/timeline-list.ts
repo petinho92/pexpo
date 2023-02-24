@@ -6,7 +6,7 @@ import moment from "moment";
 
 
 @list(
-    "Programguides",
+    "Timelines",
     FaIcon.r("list-alt"),
     "/api/timeline/list",
     TimelineForm
