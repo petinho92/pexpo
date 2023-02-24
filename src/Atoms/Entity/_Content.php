@@ -18,13 +18,22 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison category($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison content_en($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison content_hu($isin = null)
+ * @method static \Atomino\Carbon\Database\Finder\Comparison created($isin = null)
+ * @property-read \DateTime|null $created
  * @method static \Atomino\Carbon\Database\Finder\Comparison id($isin = null)
  * @property-read int|null $id
  * @method static \Atomino\Carbon\Database\Finder\Comparison name($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison page($isin = null)
+ * @method static \Atomino\Carbon\Database\Finder\Comparison updated($isin = null)
+ * @property-read \DateTime|null $updated
  * @method static \Application\Atoms\EntityHelper\_Content_FINDER search( Filter $filter = null )
  */
 #[RequiredField('id', \Atomino\Carbon\Field\IntField::class)]
+#[Immutable("created", true)]
+#[Protect("created", true, false)]
+#[RequiredField("created", \Atomino\Carbon\Field\DateTimeField::class)]
+#[Protect("updated", true, false)]
+#[RequiredField("updated", \Atomino\Carbon\Field\DateTimeField::class)]
 #[Immutable( 'attachments', true )]
 #[Protect( 'attachments', false, false )]
 #[RequiredField( 'attachments', \Atomino\Carbon\Field\JsonField::class )]
@@ -36,6 +45,7 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Field("content_en", \Atomino\Carbon\Field\StringField::class)]
 #[Validator("content_hu", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>4294967295])]
 #[Field("content_hu", \Atomino\Carbon\Field\StringField::class)]
+#[Field("created", \Atomino\Carbon\Field\DateTimeField::class)]
 #[Field("id", \Atomino\Carbon\Field\IntField::class)]
 #[Protect("id", true, false)]
 #[Immutable("id",false)]
@@ -43,8 +53,11 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Field("name", \Atomino\Carbon\Field\StringField::class)]
 #[Validator("page", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>100])]
 #[Field("page", \Atomino\Carbon\Field\StringField::class)]
+#[Field("updated", \Atomino\Carbon\Field\DateTimeField::class)]
 abstract class _Content extends Entity implements \Atomino\Bundle\Attachment\AttachmentableInterface{
 	static null|Model $model = null;
+	use \Atomino\Carbon\Plugins\Created\CreatedTrait;
+	use \Atomino\Carbon\Plugins\Updated\UpdatedTrait;
 	use \Atomino\Carbon\Plugins\Attachment\AttachmentableTrait;
 	protected final function __getPicture(){return $this->getAttachmentCollection("picture");}
 	protected final function __getFiles(){return $this->getAttachmentCollection("files");}
@@ -58,6 +71,9 @@ abstract class _Content extends Entity implements \Atomino\Bundle\Attachment\Att
 	public string|null $content_en = null;
 	const content_hu = 'content_hu';
 	public string|null $content_hu = null;
+	const created = 'created';
+	protected \DateTime|null $created = null;
+	protected function getCreated():\DateTime|null{ return $this->created;}
 	const id = 'id';
 	protected int|null $id = null;
 	protected function getId():int|null{ return $this->id;}
@@ -65,6 +81,9 @@ abstract class _Content extends Entity implements \Atomino\Bundle\Attachment\Att
 	public string|null $name = null;
 	const page = 'page';
 	public string|null $page = null;
+	const updated = 'updated';
+	protected \DateTime|null $updated = null;
+	protected function getUpdated():\DateTime|null{ return $this->updated;}
 }
 
 

@@ -12,7 +12,9 @@ use Atomino\Carbon\Attributes\RequiredField;
 
 /**
  * @property-read \Atomino\Bundle\Attachment\Collection $picture
- * @property-read \Atomino\Bundle\Attachment\Collection $files
+ * @property-read \Atomino\Bundle\Attachment\Collection $hu_pg
+ * @property-read \Atomino\Bundle\Attachment\Collection $en_pg
+ * @property-read \Atomino\Bundle\Attachment\Collection $stand
  * @method static \Atomino\Carbon\Database\Finder\Comparison active($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison attachments($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison created($isin = null)
@@ -25,6 +27,7 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison name($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison updated($isin = null)
  * @property-read \DateTime|null $updated
+ * @method static \Atomino\Carbon\Database\Finder\Comparison year($isin = null)
  * @method static \Application\Atoms\EntityHelper\_Programguide_FINDER search( Filter $filter = null )
  */
 #[RequiredField('id', \Atomino\Carbon\Field\IntField::class)]
@@ -51,13 +54,16 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Validator("name", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>20])]
 #[Field("name", \Atomino\Carbon\Field\StringField::class)]
 #[Field("updated", \Atomino\Carbon\Field\DateTimeField::class)]
+#[Field("year", \Atomino\Carbon\Field\IntField::class)]
 abstract class _Programguide extends Entity implements \Atomino\Bundle\Attachment\AttachmentableInterface{
 	static null|Model $model = null;
 	use \Atomino\Carbon\Plugins\Created\CreatedTrait;
 	use \Atomino\Carbon\Plugins\Updated\UpdatedTrait;
 	use \Atomino\Carbon\Plugins\Attachment\AttachmentableTrait;
 	protected final function __getPicture(){return $this->getAttachmentCollection("picture");}
-	protected final function __getFiles(){return $this->getAttachmentCollection("files");}
+	protected final function __getHu_pg(){return $this->getAttachmentCollection("hu_pg");}
+	protected final function __getEn_pg(){return $this->getAttachmentCollection("en_pg");}
+	protected final function __getStand(){return $this->getAttachmentCollection("stand");}
 	const active = 'active';
 	public bool|null $active = null;
 	const attachments = 'attachments';
@@ -79,6 +85,8 @@ abstract class _Programguide extends Entity implements \Atomino\Bundle\Attachmen
 	const updated = 'updated';
 	protected \DateTime|null $updated = null;
 	protected function getUpdated():\DateTime|null{ return $this->updated;}
+	const year = 'year';
+	public int|null $year = null;
 }
 
 

@@ -9,6 +9,12 @@
   */ abstract class _Accommodation_FINDER extends \Atomino\Carbon\Finder{}
 
 /**
+  * @method \Application\Entity\Config[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
+  * @method \Application\Entity\Config[] page( int $size, int $page = 1, int|bool|null &$count = false )
+  * @method \Application\Entity\Config|null pick()
+  */ abstract class _Config_FINDER extends \Atomino\Carbon\Finder{}
+
+/**
   * @method \Application\Entity\Content[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
   * @method \Application\Entity\Content[] page( int $size, int $page = 1, int|bool|null &$count = false )
   * @method \Application\Entity\Content|null pick()
@@ -43,6 +49,12 @@
   * @method \Application\Entity\Student[] page( int $size, int $page = 1, int|bool|null &$count = false )
   * @method \Application\Entity\Student|null pick()
   */ abstract class _Student_FINDER extends \Atomino\Carbon\Finder{}
+
+/**
+  * @method \Application\Entity\Timeline[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
+  * @method \Application\Entity\Timeline[] page( int $size, int $page = 1, int|bool|null &$count = false )
+  * @method \Application\Entity\Timeline|null pick()
+  */ abstract class _Timeline_FINDER extends \Atomino\Carbon\Finder{}
 
 /**
   * @method \Application\Entity\User[] collect( int|null $limit = null, int|null $offset = null, int|bool|null &$count = false)
