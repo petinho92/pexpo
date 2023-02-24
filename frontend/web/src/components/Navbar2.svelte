@@ -42,19 +42,10 @@
 
                 </div>
 
-                <div class="navbar-brand imagee">
-                    <a class="navbar-item is-hidden-touch hover15" on:click={ () => push("/")}>
+                <div class="navbar-brand imagee is-hidden-touch">
+                    <a class="navbar-item  hover15" on:click={ () => push("/")}>
                         <figure><img src="/~web/images/pollackexpo_logo2.png" class="imageee" width="394" height="67">
                         </figure>
-                    </a>
-                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                       data-target="navbarBasicExample"
-                       onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
-                       class:is-active={active} on:click={()=>active = !active}
-                    >
-                        <span aria-hidden="true" class="nbburger"></span>
-                        <span aria-hidden="true" class="nbburger"></span>
-                        <span aria-hidden="true" class="nbburger"></span>
                     </a>
                 </div>
 
@@ -72,7 +63,7 @@
                      onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
                      class:is-active={active} on:click={()=>active = !active}
                 >
-                    <a class="pte navbar-content ml-6" href="https://pte.hu" target="_blank">
+                    <a class="pte navbar-content ml-6 is-hidden-touch" href="https://pte.hu" target="_blank">
                         <img src="/~web/images/pte.png"
                              class="pte"/>
                     </a>
