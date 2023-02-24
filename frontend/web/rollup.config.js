@@ -18,7 +18,7 @@ export default {
 	input: rollup.entry,
 	output: {
 		file: rollup.out.path + '/' + rollup.out.js,
-		sourcemap: true,
+		sourcemap: !production,
 		format: 'iife',
 		name: 'app',
 	},
