@@ -41,8 +41,10 @@
                 </div>
             </Countdown>
         {:else}
+
             <div class="content has-text-centered">
                 <h1>{$_('countdown.end')}</h1>
+                <span class="is-size-3">{$data.counter.event_date}</span>
             </div>
 
         {/if}
