@@ -21,6 +21,7 @@ export default class HotelList extends List{
             icon: item.active === true ? [FaIcon.s("bed").prop("color", "green")] : [FaIcon.s("bed").prop("color", "grey")],
             active: true,
             properties: [
+                {label: 'discount', value: item.discount+" %"},
                 {label: 'created', value: moment(item.created).fromNow()},
                 {label: 'updated', value: moment(item.updated).fromNow()},
             ],
