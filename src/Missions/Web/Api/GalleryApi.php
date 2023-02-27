@@ -48,6 +48,8 @@ class GalleryApi extends Api
                 $endof = $item->picture->count();
                 $array[] = (object)[
                     'year' => $item->year,
+                    'hu_title' => $item->hu_title,
+                    'en_title' => $item->en_title,
                     'alt' => $item->alt,
                     'thumbnail' => $item->picture->first->image->crop(200, 400)->png,
                     'imgs' => $this->crop($endof, $item)
@@ -98,6 +100,8 @@ class GalleryApi extends Api
                     'year' => $adat->year,
                     'category' => $adat->category,
                     'alt' => $adat->alt,
+                    'hu_title' => $adat->hu_title,
+                    'en_title' => $adat->en_title,
                     'url' => $adat->getAttachmentStorage()->url,
                     'imgs' => $adat->picture->files,
                     'thumbnail' => $adat->picture->first->image->crop(300, 420)->png
