@@ -28,6 +28,7 @@ class HotelApi extends Gold{
            {
                return [
                    new ListSorting("name", fn($asc) => $asc ? [[Accommodation::name, "asc"]] : [[Accommodation::name, "desc"]]),
+                   new ListSorting("discount", fn($asc) => $asc ? [[Accommodation::discount, "asc"]] : [[Accommodation::discount, "desc"]]),
                ];
            }
            public function export(Entity|Accommodation $item): array
