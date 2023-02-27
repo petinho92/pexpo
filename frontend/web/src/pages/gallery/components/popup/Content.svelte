@@ -2,7 +2,7 @@
     import {getContext} from 'svelte';
     import asyncGet from "src/services/asyncFetch.ts";
     import Popup from './Popup.svelte';
-    import {_} from 'svelte-i18n';
+    import {_, locale} from 'svelte-i18n';
 
 
     const url = "/gallery/";
@@ -42,12 +42,17 @@
 
                                                         <div class="card-header bg card-header-size">
                                                             <div class="card-header-title is-centered">
-                                                                <span class="card-font has-text-white">{album.alt}</span>
+                                                                {#if $locale === 'hu'}
+                                                                    <span class="card-font has-text-white">{album.hu_title}</span>
+                                                                {/if}
+                                                                {#if $locale === 'en'}
+                                                                    <span class="card-font has-text-white">{album.en_title}</span>
+                                                                {/if}
                                                             </div>
                                                         </div>
                                                         <div class="card-image">
                                                             <figure class="image ">
-                                                                <img class="image-size" src="{album.thumbnail}">
+                                                                <img class="image-size" src="{album.thumbnail}" alt="{album.alt}">
                                                             </figure>
                                                         </div>
                                                     </div>

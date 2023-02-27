@@ -19,14 +19,17 @@
                     <div class="card has-text-centered">
 
                         <div class="card-image">
-                            <figure class="image is-5by4">
+                            <figure class="image is-5by4 m-4">
                                 <img src={pg.logo} alt={pg.name}>
 
                             </figure>
                         </div>
                         <div class="card-content">
-                            <div class="content">
+                            <div class="content sponsor-name">
                                 <h4 class="is-size-6">{pg.name.toUpperCase()}</h4>
+
+                            </div>
+                            <div class="content">
                                 <a href={pg.website} class="card-button">
                                     {$_('sponsors.button')}</a>
                             </div>
@@ -79,30 +82,11 @@
         color: #fff;
 
     }
-
-
-    .image-size {
-        height: 200px;
+    .sponsor-name{
+        min-height: 60px;
     }
+
+
 
 </style>
 
-
-<!--<div class="columns is-multiline">-->
-<!--    {#each partners as partner}-->
-<!--    <div class="column is-one-quarter-desktop is-half-tablet">-->
-<!--        <div class="card">-->
-<!--            <div class="card-image">-->
-<!--                <figure class="image is-256x256">-->
-<!--                    <img src={partner.logo256} alt={partner.name}>-->
-<!--                </figure>-->
-<!--            </div>-->
-<!--            <footer class="card-footer">-->
-<!--                <a class="card-footer-item" href={partner.website}>-->
-<!--                    {partner.name}-->
-<!--                </a>-->
-<!--            </footer>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    {/each}-->
-<!--</div>-->

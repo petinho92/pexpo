@@ -19,6 +19,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Validator('location', NotBlank::class)]
 #[Validator('hu_type', NotBlank::class)]
 #[Validator('en_type', NotBlank::class)]
+#[Validator('discount', NotBlank::class)]
 #[Validator('hu_desc', NotBlank::class)]
 #[Validator('en_desc', NotBlank::class)]
 #[Validator('telephone', NotBlank::class)]

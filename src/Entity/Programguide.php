@@ -20,6 +20,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[AttachmentCollection(field: "stand", maxCount: 1, mimetype: "/application\/pdf/")]
 #[Validator("name", NotBlank::class)]
 #[Validator("date", NotBlank::class)]
+#[Validator('year', NotBlank::class)]
 #[Validator("hu_type", NotBlank::class)]
 #[Validator("en_type", NotBlank::class)]
 #[Validator(null, UniqueEntity::class, ['fields'=>['year']])]
