@@ -18,9 +18,10 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison category($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison created($isin = null)
  * @property-read \DateTime|null $created
+ * @method static \Atomino\Carbon\Database\Finder\Comparison en_title($isin = null)
+ * @method static \Atomino\Carbon\Database\Finder\Comparison hu_title($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison id($isin = null)
  * @property-read int|null $id
- * @method static \Atomino\Carbon\Database\Finder\Comparison name($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison updated($isin = null)
  * @property-read \DateTime|null $updated
  * @method static \Atomino\Carbon\Database\Finder\Comparison year($isin = null)
@@ -42,11 +43,13 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Validator("category", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>100])]
 #[Field("category", \Atomino\Carbon\Field\StringField::class)]
 #[Field("created", \Atomino\Carbon\Field\DateTimeField::class)]
+#[Validator("en_title", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>100])]
+#[Field("en_title", \Atomino\Carbon\Field\StringField::class)]
+#[Validator("hu_title", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>100])]
+#[Field("hu_title", \Atomino\Carbon\Field\StringField::class)]
 #[Field("id", \Atomino\Carbon\Field\IntField::class)]
 #[Protect("id", true, false)]
 #[Immutable("id",false)]
-#[Validator("name", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>200])]
-#[Field("name", \Atomino\Carbon\Field\StringField::class)]
 #[Field("updated", \Atomino\Carbon\Field\DateTimeField::class)]
 #[Field("year", \Atomino\Carbon\Field\IntField::class)]
 abstract class _Gallery extends Entity implements \Atomino\Bundle\Attachment\AttachmentableInterface{
@@ -66,11 +69,13 @@ abstract class _Gallery extends Entity implements \Atomino\Bundle\Attachment\Att
 	const created = 'created';
 	protected \DateTime|null $created = null;
 	protected function getCreated():\DateTime|null{ return $this->created;}
+	const en_title = 'en_title';
+	public string|null $en_title = null;
+	const hu_title = 'hu_title';
+	public string|null $hu_title = null;
 	const id = 'id';
 	protected int|null $id = null;
 	protected function getId():int|null{ return $this->id;}
-	const name = 'name';
-	public string|null $name = null;
 	const updated = 'updated';
 	protected \DateTime|null $updated = null;
 	protected function getUpdated():\DateTime|null{ return $this->updated;}
