@@ -6,7 +6,7 @@ import type Entity from "gold-admin/entity-type";
 @form(
     FaIcon.s("list-alt"),
     "/api/timeline/item",
-    (item, id) => id === null ? "new timeline" : item.name
+    (item, id) => id === null ? "new timeline" : item.year+" timeline"
 )
 @button(buttons.save)
 @button(buttons.reload)
