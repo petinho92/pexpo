@@ -17,7 +17,7 @@
                             <div class="timeline">
                                 <div class="timeline-content">
                                     <div class="timeline-year">{tl.year}</div>
-                                    <h3 class="title">{tl.hu_title}</h3>
+                                    <h3 class="title">{tl.hu_title.toUpperCase()}</h3>
                                     <p class="description">
                                         {tl.hu_desc}
                                     </p>
@@ -32,7 +32,7 @@
                             <div class="timeline">
                                 <div class="timeline-content">
                                     <div class="timeline-year">{tl.year}</div>
-                                    <h3 class="title">{tl.en_title}</h3>
+                                    <h3 class="title">{tl.en_title.toUpperCase()}</h3>
                                     <p class="description">
                                         {tl.en_desc}
                                     </p>
