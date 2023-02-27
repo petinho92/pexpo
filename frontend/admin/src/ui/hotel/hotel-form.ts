@@ -32,11 +32,11 @@ export default class HotelForm extends Form {
         this.addSection("Hungarian properties", FaIcon.s("hotel"))
             .addControl(controls.select("hu_type",).setOptions(hu_cat))
             .addControl(controls.text("hu_desc", "description"))
-            .addControl(new CheckboxesControl("hu_services",).setOptions(["&#127359; parkolás","&#9969; wellness", "&#128246; ingyenes WiFi","&#128054; állatbarát","&#127836; étterem", "&#127864; bár", ]))
+            .addControl(new CheckboxesControl("hu_services",).setOptions(["&#127359; parkolás","&#9969; wellness", "&#128246; ingyenes WiFi","&#128054; állatbarát","&#127836; étterem", "&#127864; bár", "&#127946; medence", "&#128685; nemdohányzó szobák", "&#128106; családi szobák", "&#9855; akadálymentesített", "&#128748; reptéri transzfer", "&#127479; éjjel-nappali recepció", "&#128718; szobaszervíz", "&#129374; reggeli" ]))
         this.addSection("English properties", FaIcon.s("hotel"))
             .addControl(controls.select("en_type",).setOptions(en_cat))
             .addControl(controls.text("en_desc", "description"))
-            .addControl(new CheckboxesControl("en_services",).setOptions(["&#127359; parking","&#9969; Spa and wellness centre", "&#128246; free WiFi","&#128054; Pets allowed","&#127836; Restaurant", "&#127864; Bar", ]))
+            .addControl(new CheckboxesControl("en_services",).setOptions(["&#127359; parking","&#9969; Spa and wellness centre", "&#128246; free WiFi","&#128054; pets allowed","&#127836; restaurant", "&#127864; bar", "&#127946; pool", "&#128685; non-smoking rooms", "&#128106; family rooms", "&#9855; facilities for disabled guest", "&#128748; airport transfer", "&#127479; 24-hour front desk", "&#128718; room service", "&#129374; breakfast"]))
 
     }
 }
