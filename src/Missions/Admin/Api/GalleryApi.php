@@ -34,7 +34,7 @@ class GalleryApi extends Gold{
             public function sortings(): array
             {
                 return [
-                    new ListSorting("name", fn($asc) => $asc ? [[Gallery::name, "asc"]] : [[Gallery::name, "desc"]]),
+                    new ListSorting("name", fn($asc) => $asc ? [[Gallery::hu_title, "asc"]] : [[Gallery::hu_title, "desc"]]),
                     new ListSorting("year", fn($asc) => $asc ? [[Gallery::year, "asc"]] : [[Gallery::year, "desc"]]),
                 ];
             }
@@ -48,12 +48,12 @@ class GalleryApi extends Gold{
 
             public function searchFilter(array $filter): Filter|null
             {
-                return Filter::where(isset($filter['name']) && $filter['name'] ? Gallery::name()->instring($filter['name']) : null);
+                return Filter::where(isset($filter['hu_title']) && $filter['hu_title'] ? Gallery::hu_title()->instring($filter['hu_title']) : null);
             }
 
             public function quickSearchFilter(string $search): Filter
             {
-                return Filter::where(Gallery::name()->instring($search))
+                return Filter::where(Gallery::hu_title()->instring($search))
                     ->or(Gallery::id($search));
             }
         };
