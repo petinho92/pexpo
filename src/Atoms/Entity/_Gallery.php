@@ -22,6 +22,7 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison hu_title($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison id($isin = null)
  * @property-read int|null $id
+ * @method static \Atomino\Carbon\Database\Finder\Comparison name($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison updated($isin = null)
  * @property-read \DateTime|null $updated
  * @method static \Atomino\Carbon\Database\Finder\Comparison year($isin = null)
@@ -50,6 +51,8 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Field("id", \Atomino\Carbon\Field\IntField::class)]
 #[Protect("id", true, false)]
 #[Immutable("id",false)]
+#[Validator("name", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>200])]
+#[Field("name", \Atomino\Carbon\Field\StringField::class)]
 #[Field("updated", \Atomino\Carbon\Field\DateTimeField::class)]
 #[Field("year", \Atomino\Carbon\Field\IntField::class)]
 abstract class _Gallery extends Entity implements \Atomino\Bundle\Attachment\AttachmentableInterface{
@@ -76,6 +79,8 @@ abstract class _Gallery extends Entity implements \Atomino\Bundle\Attachment\Att
 	const id = 'id';
 	protected int|null $id = null;
 	protected function getId():int|null{ return $this->id;}
+	const name = 'name';
+	public string|null $name = null;
 	const updated = 'updated';
 	protected \DateTime|null $updated = null;
 	protected function getUpdated():\DateTime|null{ return $this->updated;}
