@@ -10,7 +10,7 @@ let cat:Array<string> = ["sajtofotok", "eloadas", "kiallitas", "fogadas", "eseme
 @form(
     FaIcon.s("image"),
     "/api/gallery/item",
-    (item, id) => id === null ? "new gallery" : item.name
+    (item, id) => id === null ? "new gallery" : item.hu_title
 )
 @button(buttons.save)
 @button(buttons.delete)
@@ -19,7 +19,8 @@ let cat:Array<string> = ["sajtofotok", "eloadas", "kiallitas", "fogadas", "eseme
 export default class GalleryForm extends Form {
     build(item: Entity, options: any) {
         this.addSection("Gallery properties", FaIcon.s("file-image"))
-            .addControl(controls.string("name", "name"))
+            .addControl(controls.string("hu_title", "galéria neve"))
+            .addControl(controls.string("en_title", "gallery name"))
             .addControl(controls.string("alt", "alt"))
             .addControl(controls.number("year", "year").setMin(2000).setMax(2050))
             .addControl(controls.select("category",).setOptions(cat))
