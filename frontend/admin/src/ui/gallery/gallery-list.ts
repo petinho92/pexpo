@@ -21,6 +21,8 @@ export default class GalleryList extends List{
             icon: item.active === true ? [FaIcon.s("image").prop("color", "green")] : [FaIcon.s("image").prop("color", "grey")],
             subtitle: item.year + " " + item.category,
             properties: [
+                {label: 'year', value: item.year},
+                {label: 'category', value: item.category},
                 {label: 'created', value: moment(item.created).fromNow()},
                 {label: 'updated', value: moment(item.updated).fromNow()}
             ],

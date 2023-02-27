@@ -19,9 +19,9 @@ export default class ContentList extends List {
             id: item.id,
             title: item.name,
             properties: [
+                {label: 'page', value: item.page},
                 {label: 'created', value: moment(item.created, "YYYY-MM-DD").fromNow()},
                 {label: 'updated', value: moment(item.updated, "YYYY-MM-DD").fromNow()},
-                {label: 'page', value: item.page},
             ],
             icon: item.active === true ? [FaIcon.s("pager").prop("color", "green")] : [FaIcon.s("pager").prop("color", "grey")],
             active: true,

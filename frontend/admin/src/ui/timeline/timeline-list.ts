@@ -21,6 +21,7 @@ export default class TimelineList extends List{
             icon: item.active === true ? [FaIcon.s("list-alt").prop("color", "green")] : [FaIcon.s("list-alt").prop("color", "gray")],
             active: true,
             properties: [
+                {label: 'year', value: item.year},
                 {label: 'created', value: moment(item.created).fromNow()},
                 {label: 'updated', value: moment(item.updated).fromNow()},
             ],
