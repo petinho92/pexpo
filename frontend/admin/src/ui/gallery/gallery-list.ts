@@ -16,7 +16,7 @@ export default class GalleryList extends List{
         return {
             click: () => this.open(item.id),
             id: item.id,
-            title: item.name,
+            title: item.hu_title,
             active: true,
             icon: item.active === true ? [FaIcon.s("image").prop("color", "green")] : [FaIcon.s("image").prop("color", "grey")],
             subtitle: item.year + " " + item.category,
