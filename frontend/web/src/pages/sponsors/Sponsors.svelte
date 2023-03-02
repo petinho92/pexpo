@@ -83,7 +83,7 @@
 
     }
     .sponsor-name{
-        min-height: 60px;
+        min-height: 80px;
     }
 
 
