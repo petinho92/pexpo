@@ -229,7 +229,9 @@
             transition: color 1s;
         }
         .navbar-menu {
-            max-width: 95vw;
+            max-width: 100vw;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
         .padding-desktop{
             padding-top: 3rem !important;
