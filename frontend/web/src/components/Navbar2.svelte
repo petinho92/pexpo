@@ -12,7 +12,7 @@
 
 <div class="columns m-0">
     <div class="card-content column is-full mb-0 p-0">
-        <nav class="navbar is-transparent has-centered-logo-alt2 pt-6 pb-4 pl-2" role="navigation"
+        <nav class="navbar is-transparent has-centered-logo-alt2 padding-desktop" role="navigation"
              aria-label="main navigation">
             <div class="navbar-brand is-hidden-desktop">
                 <a class="navbar-item" on:click={ () => push("/")}>
@@ -228,6 +228,13 @@
             color: #D3AC2B;
             transition: color 1s;
         }
+        .navbar-menu {
+            max-width: 95vw;
+        }
+        .padding-desktop{
+            padding-top: 3rem !important;
+            padding-bottom: 1rem !important;
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -248,9 +255,7 @@
         height: 120px;
     }
 
-    .navbar-menu {
-        max-width: 95vw;
-    }
+
 
 
     @media screen and (max-width: 1200px) {
