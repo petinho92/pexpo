@@ -22,22 +22,16 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        height: 85vh;
+
     }
 
     .h3title{
         font-size: 20px;
     }
-    @media screen and (max-width: 768px){
-        .parallax{
-            height: 115vh;
-        }
-    }
 
-    @media screen and (min-width: 1023px){
-        .parallax{
-            height: 85vh;
-        }
-    }
+
+
 
 
     .center-content{
