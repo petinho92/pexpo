@@ -1,10 +1,10 @@
 <script>
     import {_} from 'svelte-i18n';
 </script>
-<div class="parallax">
+<div class="parallax center-content">
 
-    <div class="container mt-100">
-        <div class="card">
+    <div class="container ">
+        <div class="card ">
             <div class="card-content has-text-justified">
                 <h1 class="h1title">{$_('expo.card.title')}</h1>
                 {@html $_('expo.card.description')}
@@ -39,8 +39,11 @@
         }
     }
 
-    .mt-100{
-        padding-top: 37.5vh;
+
+    .center-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .card{
         border-top: 3px solid #D3AC2B;
