@@ -17,7 +17,8 @@ export function hirundinidae(input: StudentFormData){
         //  active = false;
         if(response.ok){
             console.log("response ok");
-            return active.set(true);
+            //ideiglenes
+            return active.set(false);
         }
     })
 }
