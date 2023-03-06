@@ -4,7 +4,8 @@ import {active} from "./store";
 
 
 export function hirundinidae(input: StudentFormData){
-    fetch('/post/studentPost', {
+    console.log(input)
+    fetch('/student/save', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -15,6 +16,7 @@ export function hirundinidae(input: StudentFormData){
         handleFetch(response);
         //  active = false;
         if(response.ok){
+            console.log("response ok");
             return active.set(true);
         }
     })
