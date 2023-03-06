@@ -7,6 +7,11 @@
         counter_date: "",
         event_date: ""
     }
+    let registration = {
+        active: false,
+        start_date: "",
+        end_date: ""
+    }
     let okay = false
 
     let data = [];
@@ -15,20 +20,22 @@
         const response = await fetch("/api/config/get");
         data = await response.json();
         counter = data.counter;
+        registration = data.registration;
     }
-
     getData();
-
+    $: console.log(registration)
     function handleFormData() {
+        let data = {counter1: counter, registration1: registration};
+        $: console.log(data)
         fetch('/api/config/save', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(counter)
+            body: JSON.stringify(data)
         }).then(function (response) {
-            if(response.ok){
+            if (response.ok) {
                 okay = true;
             }
         })
@@ -97,20 +104,46 @@
             </label>
 
             <br>
-            <!--            <input type="text" pattern="(20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9])" placeholder="YYYY-MM-DD HH:MM:SS" class="masked" data-valid-example="2023-04-13 09:30:00"/>-->
             <label class="label is-small has-text-primary-dark">Megnyitó időpontja (YYYY-MM-DD HH:MM:SS)</label><input
                 use:imask={options} bind:value={counter.counter_date}>
             <label class="label is-small has-text-primary-dark">Esemény időpontja (YYYY.MM.DD-DD.)</label><input
                 bind:value={counter.event_date}>
-            {#if okay}
-                <label class="label is-small has-background-success has-text-white">Sikeresen frissítve</label>
-            {/if}
         </div>
     </div>
     <br>
-    <button on:click={handleFormData}>Frissítés</button>
+
 </div>
 
+<div class="column p-1 is-full">
+    <div class="card p-0">
+        <header class="card-header  has-background-black">
+            <p class="card-header-title mb-0 is-size-7 p-2 pl-3">
+                <span class="mr-2"><i class="fas fa-clock"></i></span>
+                Student registration
+            </p>
+        </header>
+        <div class="content py-2 px-3">
+            <label class="label is-small has-text-primary-dark">Aktív:</label>
+            <label class="switch">
+                <input type="checkbox" bind:checked={registration.active}/>
+                <span class="slider round"></span>
+            </label>
+
+            <br>
+            <label class="label is-small has-text-primary-dark">Hallgatói regisztráció kezdete (YYYY-MM-DD
+                HH:MM:SS)</label><input
+                use:imask={options} bind:value={registration.start_date}>
+            <label class="label is-small has-text-primary-dark">Hallgatói regisztráció vége (YYYY-MM-DD
+                HH:MM:SS)</label><input
+                use:imask={options} bind:value={registration.end_date}>
+        </div>
+    </div>
+    <br>
+</div>
+{#if okay}
+    <label class="label is-small has-background-success has-text-white">Sikeresen frissítve</label>
+{/if}
+<button on:click={handleFormData}>Frissítés</button>
 <style lang="scss">
   :root {
     --percentage: 0.6;
