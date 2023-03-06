@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
+   sodipodi:docname="registrationbg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.70199214"
+     inkscape:cx="405.98745"
+     inkscape:cy="339.03513"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#475570;fill-opacity:1;stroke-width:0.264999;paint-order:markers stroke fill"
+       id="rect9138"
+       width="226.88564"
+       height="307.90961"
+       x="-10.956703"
+       y="-5.74189" />
+    <rect
+       style="opacity:1;fill:#d3ac2b;fill-opacity:1;stroke-width:0.264999;paint-order:markers stroke fill"
+       id="rect4169"
+       width="100"
+       height="180"
+       x="34.618908"
+       y="-220.14217"
+       transform="rotate(47.204568)" />
+    <rect
+       style="opacity:1;fill:#333d51;fill-opacity:1;stroke-width:0.264999;paint-order:markers stroke fill"
+       id="rect7853"
+       width="100"
+       height="260"
+       x="151.54124"
+       y="-159.28477"
+       transform="rotate(47.192566)" />
+    <rect
+       style="opacity:1;fill:#d3ac2b;fill-opacity:1;stroke-width:0.264999;paint-order:markers stroke fill"
+       id="rect8649"
+       width="100"
+       height="140"
+       x="262.62891"
+       y="14.793893"
+       transform="rotate(47.228158)" />
+    <rect
+       style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke-width:0.264999;paint-order:markers stroke fill"
+       id="rect9920"
+       width="260.039"
+       height="235.11568"
+       x="-234.78545"
+       y="-11.577171"
+       transform="rotate(-42.692157)" />
+  </g>
+</svg>
