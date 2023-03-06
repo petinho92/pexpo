@@ -18,45 +18,30 @@
                     {#if remaining.done === false}
                         <div class="main">
                             <div class="countdown">
+                                {#if remaining.months > 0}
+                                    <div class="numberbox">
+                                        <span class="date-label">{$_('countdown.month')}</span>
+                                        <span class="number months">{remaining.months}</span>
+                                    </div>
+                                {/if}
                                 <div class="numberbox">
-                                    <span class="date-label">Months</span>
-                                    <span class="number months">{remaining.months}</span>
-                                </div>
-                                <div class="numberbox">
-                                    <span class="date-label">Days</span>
+                                    <span class="date-label">{$_('countdown.day')}</span>
                                     <span class="number days">{remaining.days}</span>
                                 </div>
                                 <div class="numberbox">
-                                    <span class="date-label">Hours</span>
+                                    <span class="date-label">{$_('countdown.hour')}</span>
                                     <span class="number hours">{remaining.hours}</span>
                                 </div>
                                 <div class="numberbox">
-                                    <span class="date-label">Minutes</span>
+                                    <span class="date-label">{$_('countdown.minute')}</span>
                                     <span class="number minutes">{remaining.minutes}</span>
                                 </div>
                                 <div class="numberbox">
-                                    <span class="date-label">Seconds</span>
+                                    <span class="date-label">{$_('countdown.second')}</span>
                                     <span class="number seconds">{remaining.seconds}</span>
                                 </div>
                             </div>
                         </div>
-
-                        <!--                        <div id="countdown" class="clock">-->
-                        <!--                            <ul>-->
-                        <!--                                {#if remaining.months > 0}-->
-                        <!--                                    <li><span class="is-size-4" id="months">{remaining.months}</span><span-->
-                        <!--                                            class="is-size-5">{$_('countdown.month')}</span></li>-->
-                        <!--                                {/if}-->
-                        <!--                                <li><span class="is-size-4" id="days">{remaining.days}</span><span-->
-                        <!--                                        class="is-size-5">{$_('countdown.day')}</span></li>-->
-                        <!--                                <li><span class="is-size-4" id="hours">{remaining.hours} </span><span-->
-                        <!--                                        class="is-size-5">{$_('countdown.hour')}</span></li>-->
-                        <!--                                <li><span class="is-size-4" id="minutes">{remaining.minutes}</span><span-->
-                        <!--                                        class="is-size-5">{$_('countdown.minute')}</span></li>-->
-                        <!--                                <li><span class="is-size-4" id="seconds">{remaining.seconds}</span><span-->
-                        <!--                                        class="is-size-5">{$_('countdown.second')}</span></li>-->
-                        <!--                            </ul>-->
-                        <!--                        </div>-->
                     {:else}
                         <div id="content" class="emoji">
                             <span>🥳</span>
@@ -77,12 +62,13 @@
     </section>
 {/if}
 <style>
-    .countdown{
+    .countdown {
         display: flex;
         justify-content: center;
         gap: 10px;
     }
-    .countdown > div{
+
+    .countdown > div {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
@@ -90,9 +76,10 @@
         justify-content: right;
         align-items: center;
         margin-top: 50px;
-        box-shadow: 1px 1px 15px rgba(0,0,0,0.25);
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
     }
+
     .number {
         padding: 5px 0 5px 0;
         background-color: #3e4a62;
@@ -105,14 +92,15 @@
         height: 100%;
         width: 85px;
     }
-    .date-label{
+
+    .date-label {
         padding: 5px 0 5px 0;
         max-width: 5px;
         margin-right: .5em;
         font-weight: 500;
     }
 
-    .numberbox{
+    .numberbox {
         text-align: right;
         text-orientation: upright;
         writing-mode: vertical-rl;
@@ -120,20 +108,22 @@
         width: 120px;
     }
 
-    @media screen and (max-width:600px){
+    @media screen and (max-width: 600px) {
         .numberbox {
             text-align: right;
             text-orientation: inherit;
             writing-mode: horizontal-tb;
             background-color: whitesmoke;
         }
-        .countdown{
+
+        .countdown {
             flex-direction: column;
             align-items: center;
             gap: 10px;
             margin-top: 30px;
         }
-        .countdown > div{
+
+        .countdown > div {
             background-color: whitesmoke;
             width: 250px;
             height: 60px;
@@ -142,10 +132,12 @@
             justify-content: space-between;
             padding: 20px;
         }
-        div span:last-of-type{
+
+        div span:last-of-type {
             font-size: 24px;
             text-transform: uppercase;
         }
+
         .number {
             font-size: 34px;
             margin-left: 0;
@@ -154,6 +146,7 @@
             color: black;
         }
     }
+
     .container {
         color: #333;
         margin: 0 auto;
@@ -166,6 +159,7 @@
         font-size: xx-large;
         text-shadow: 2px 2px 8px rgba(129, 124, 124, 0.9);
     }
+
     .bgcolor {
         background-color: #D3AC2B;
     }
