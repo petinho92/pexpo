@@ -16,13 +16,13 @@ class RegistrationApi extends Api{
     public function studentPost()
     {
         try {
-            $student = $this->studentService->create($this->data->all());
-        } catch (ValidationError $error){
+           $this->studentService->create($this->data->all());
+        } catch (ValidationError $error) {
             $this->setStatusCode(422);
             return $error->getMessages();
         }
         return array(
-          'statusCode' => http_response_code(200),
+            'statusCode' => http_response_code(200),
         );
     }
 }
