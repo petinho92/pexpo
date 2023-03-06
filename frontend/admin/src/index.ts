@@ -16,7 +16,7 @@ import HotelList from "src/ui/hotel/hotel-list";
 import SponsorList from "src/ui/sponsor/sponsor-list";
 import ProgramguideList from "src/ui/programguide/programguide-list";
 import TimelineList from "src/ui/timeline/timeline-list";
-import SocialPage from "src/ui/config/social-page";
+import ConfigPage from "src/ui/config/config-page";
 
 window.addEventListener('load', () => {
 
@@ -24,8 +24,6 @@ window.addEventListener('load', () => {
         let listManager = new ListManager();
         let authApi = new AuthApi("/api/auth", () => {
             pageManager.add(new DashboardPage());
-            // listManager.add(new UserList());
-            // listManager.add(new ContentList());
         });
 
         function menu(user: I_User | null) {
@@ -58,7 +56,7 @@ window.addEventListener('load', () => {
                         listManager.add(new UserList())
                     }, "admin"),
                     new MenuItem("Config", FaIcon.s("toolbox"), () => {
-                        pageManager.add(new SocialPage())
+                        pageManager.add(new ConfigPage())
                     }, "webmaster"),
                 ],"webmaster"),
 
