@@ -106,6 +106,7 @@
         writing-mode: vertical-rl;
         background-color: whitesmoke;
         width: 120px;
+        height: 180px;
     }
 
     @media screen and (max-width: 600px) {
