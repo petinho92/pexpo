@@ -5,6 +5,8 @@ use Application\Missions\Web\Api\HotelApi;
 use Application\Missions\Web\Api\ContentApi;
 use Application\Missions\Web\Api\GalleryApi;
 use Application\Missions\Web\Api\ProgramguideApi;
+
+use Application\Missions\Web\Api\registration\RegistrationApi;
 use Application\Missions\Web\Api\SponsorApi;
 use Application\Missions\Web\Api\TimelineApi;
 use Atomino\Bundle\Authenticate\SessionAuthenticator;
@@ -23,6 +25,7 @@ class Router extends \Atomino\Mercury\Router\Router {
         $this(method: 'GET', path: '/programguide/**')?->pipe(Cache::class)->pipe(ProgramguideApi::class);
         $this(method: 'GET', path: '/timeline/**')?->pipe(Cache::class)->pipe(TimelineApi::class);
         $this(method: 'GET', path: '/config/**')?->pipe(Cache::class)->pipe(ConfigApi::class);
+        $this(method: 'POST', path: '/student/**')?->pipe(Cache::class)->pipe(RegistrationApi::class);
 		$this()?->pipe(Page\Error404::class);
 	}
 
