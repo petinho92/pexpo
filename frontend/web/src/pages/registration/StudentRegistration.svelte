@@ -2,7 +2,7 @@
     import {_} from "svelte-i18n";
     import {Button} from 'svelma';
     import StudentFormData from "./data/studentFormData.ts";
-    import {majors_hu, majors_en} from "./data/getMajor.ts";
+    import {majors} from "./data/getMajor.ts";
     import fetchData from "src/services/asyncFetch";
     import {hirundinidae} from "src/services/hirundinidae.ts";
     import ModalCard from "./components/ModalCard.svelte";
@@ -49,26 +49,26 @@
                         bind:value={formData.neptun} iconTag="fas fa-laptop-code"/>
 
 
-            <InputField placeholder="+36301234567" label={$_('form.common.mobile')} needIcon={true} require={false}
-                        bind:value={formData.mobile}
-                        iconTag="fas fa-mobile"/>
-            {#if $locale === "hu"}
-                <SelectField label="Szak " collection={majors_hu} require={true} optionIdentifier="name"
-                             labelIdentifier="name" bind:value={selectedMajor}
-                             placeHolder={$_('form.common.selectFirstElement')}/>
-                <SelectField label="Szemester" collection={semesters_hu} require={true} optionIdentifier="name"
-                             labelIdentifier="name" bind:value={selectedSemester}
-                             placeHolder={$_('form.common.selectFirstElement')}/>
-            {/if}
+<!--            <InputField placeholder="+36301234567" label={$_('form.common.mobile')} needIcon={true} require={false}-->
+<!--                        bind:value={formData.mobile}-->
+<!--                        iconTag="fas fa-mobile"/>-->
+<!--            {#if $locale === "hu"}-->
+<!--                <SelectField label="Szak " collection={majors_hu} require={true} optionIdentifier="name"-->
+<!--                             labelIdentifier="name" bind:value={selectedMajor}-->
+<!--                             placeHolder={$_('form.common.selectFirstElement')}/>-->
+<!--                <SelectField label="Szemester" collection={semesters_hu} require={true} optionIdentifier="name"-->
+<!--                             labelIdentifier="name" bind:value={selectedSemester}-->
+<!--                             placeHolder={$_('form.common.selectFirstElement')}/>-->
+<!--            {/if}-->
 
-            {#if $locale === "en"}
-                <SelectField label="Major " collection={majors_en} require={true} optionIdentifier="name"
-                             labelIdentifier="name" bind:value={selectedMajor}
-                             placeHolder={$_('form.common.selectFirstElement')}/>
-                <SelectField label="Semester" collection={semesters_en} require={true} optionIdentifier="name"
-                             labelIdentifier="name" bind:value={selectedSemester}
-                             placeHolder={$_('form.common.selectFirstElement')}/>
-            {/if}
+<!--            {#if $locale === "en"}-->
+<!--                <SelectField label="Major " collection={majors_en} require={true} optionIdentifier="name"-->
+<!--                             labelIdentifier="name" bind:value={selectedMajor}-->
+<!--                             placeHolder={$_('form.common.selectFirstElement')}/>-->
+<!--                <SelectField label="Semester" collection={semesters_en} require={true} optionIdentifier="name"-->
+<!--                             labelIdentifier="name" bind:value={selectedSemester}-->
+<!--                             placeHolder={$_('form.common.selectFirstElement')}/>-->
+<!--            {/if}-->
 
 
             <br>
