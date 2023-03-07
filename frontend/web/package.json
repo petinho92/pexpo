@@ -13,6 +13,7 @@
 		"svelma": "^0.4.5",
 		"svelte-carousel": "^1.0.22",
 		"svelte-countdown": "^1.1.2",
+		"svelte-forms-lib": "^2.0.1",
 		"svelte-gestures": "^1.4.1",
 		"svelte-i18n": "^3.6.0",
 		"svelte-portal": "^2.1.1",
@@ -21,7 +22,8 @@
 		"svelte-swiper": "^1.0.1",
 		"svelte-tabs": "^1.1.0",
 		"svelte-youtube": "0.0.2",
-		"swiper": "^8.0.6"
+		"swiper": "^8.0.6",
+		"yup": "^1.0.2"
 	},
 	"devDependencies": {
 		"@fullhuman/postcss-purgecss": "^5.0.0",
