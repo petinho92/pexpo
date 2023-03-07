@@ -1,13 +1,17 @@
 <script>
     import {createForm} from "svelte-forms-lib";
     import * as yup from "yup";
-    import {majors_hu, majors_en} from "src/pages/registration/data/getMajor";
-    import {locale} from "svelte-i18n";
+    import {majors} from "src/pages/registration/data/getMajor";
+    import {programs1, programs2} from "src/pages/registration/data/getPrograms.ts";
+    import {_, locale} from "svelte-i18n";
+
+    let interested1 = []
 
     const {form, errors, state, handleChange, handleSubmit} = createForm({
         initialValues: {
             name: "",
-            email: ""
+            email: "",
+            interested1: interested1
         },
         validationSchema: yup.object().shape({
             major: yup
@@ -18,11 +22,15 @@
                 .number().min(1).max(20).required(),
             name: yup.string().required(),
             neptun: yup.string().required(),
+            neptun2: yup.string().required().test(
+                'neptunsNotMatch',
+                'Mismatch',
+                function (item) {
+                    return this.parent.neptun === this.parent.neptun2
+                }),
             gender: yup.string().required(),
-            email: yup
-                .string()
-                .email()
-                .required()
+            email: yup.string().email().required(),
+            interested1: yup.array().required()
         }),
         onSubmit: values => {
             alert(JSON.stringify(values));
@@ -35,51 +43,63 @@
         <div class="row">
             <h4>Personal information</h4>
             <div class="input-group input-group-icon">
-                <input id="name" name="name" type="text" placeholder="Full Name" on:change={handleChange}
+                <input class:input-error={$errors.name} id="name" name="name" type="text" placeholder="Full Name"
+                       on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.name}/>
                 <div class="input-icon"><i class="fa fa-user"></i></div>
                 {#if $errors.name}
-                    <small>{errors.name}</small>
+                    <small>{$_('form.common.required')}</small>
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                <input id="email" name="email" type="email" placeholder="Email Adress" on:change={handleChange}
+                <input class:input-error={$errors.email} id="email" name="email" type="email" placeholder="Email Adress"
+                       on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.email}/>
                 <div class="input-icon"><i class="fa fa-envelope"></i></div>
                 {#if $errors.email}
-                    <small>{errors.email}</small>
+                    <small>{$_('form.common.required')}</small>
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                <input id="neptun" name="neptun" type="text" placeholder="Neptun code" on:change={handleChange}
+                <input class:input-error={$errors.neptun} id="neptun" name="neptun" type="text"
+                       placeholder="Neptun code" on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.neptun}/>
                 <div class="input-icon"><i class="fas fa-id-badge"></i></div>
                 {#if $errors.neptun}
-                    <small>{errors.neptun}</small>
+                    <small>{$_('form.common.required')}</small>
+                {/if}
+
+            </div>
+            <div class="input-group input-group-icon">
+                <input class:input-error={$errors.neptun2} id="neptun2" name="neptun2" type="text"
+                       placeholder="Neptun code confirm" on:change={handleChange}
+                       on:blur={handleChange}
+                       bind:value={$form.neptun2}/>
+                <div class="input-icon"><i class="fas fa-id-badge"></i></div>
+                {#if $errors.neptun2 && !$errors.neptun2.includes('Mismatch')}
+                    <small>{$_('form.common.required')}</small>
+                {/if}
+                {#if $errors.neptun2.includes('Mismatch')}
+                    <small>{$_('form.common.mismatch')}</small>
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                {#if $locale === 'hu'}
-                    <select class="col-full" id="major_hu" name="major" on:change={handleChange}
-                            on:blur={handleChange}
-                            bind:value={$form.major}>
-                        {#each majors_hu as major}
-                            <option>{major.name}</option>
-                        {/each}
-                    </select>
-                {/if}
-                {#if $locale === 'en'}
-                <select class="col-full" id="major_en" name="major" on:change={handleChange}
+                <select class="col-full" id="major_hu" name="major" on:change={handleChange}
                         on:blur={handleChange}
                         bind:value={$form.major}>
-                    {#each majors_en as major}
-                        <option>{major.name}</option>
+                    {#each majors as major}
+                        {#if $locale === 'hu'}
+                            <option>{major.name_hu}</option>
+                        {/if}
+                        {#if $locale === 'en' && major.name_en}
+                            <option value={major.name_hu}>{major.name_en}</option>
+                        {/if}
                     {/each}
                 </select>
-            {/if}
+
                 <div class="input-icon"><i class="fas fa-university"></i></div>
             </div>
         </div>
@@ -106,7 +126,18 @@
         </div>
         <div class="row">
             <h4>Interested programs</h4>
+            <div class="input-group">
+                {#each programs1 as program}
 
+                    <input type="checkbox" id="{program.id}" name="interested1" on:change={handleChange}
+                           on:blur={handleChange}
+                           bind:group={interested1}
+                           value={program}
+                    />
+                    <label for="{program.id}">{program.name}</label>
+
+                {/each}
+            </div>
         </div>
         <div class="row">
             <h4>Terms and Conditions</h4>
@@ -158,6 +189,10 @@
     color: #f0a500;
   }
 
+  .input-error {
+    border-color: #cc0000;
+  }
+
   input,
   input[type="radio"] + label,
   input[type="checkbox"] + label:before,
@@ -175,6 +210,7 @@
     transition: 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
   }
+
 
   input:focus {
     outline: 0;
@@ -366,9 +402,10 @@
     clear: both;
   }
 
-  .col-full{
+  .col-full {
     width: 100%;
   }
+
   .col-half {
     padding-right: 10px;
     float: left;
