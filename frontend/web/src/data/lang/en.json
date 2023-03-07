@@ -85,6 +85,8 @@
   "form.common.neptun": "Neptun code",
   "form.common.email": "Email",
   "form.common.mobile": "Phone Number",
+  "form.common.required": "This field is required",
+  "form.common.mismatch": "Neptun code mismatch",
   "form.common.programs": "I am interested in the following programs: ",
   "form.common.programs.plenary": "Plenary Session",
   "form.common.programs.section1": "Professional Presentations Session I.",

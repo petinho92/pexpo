@@ -87,6 +87,8 @@
   "form.common.neptun": "Neptun kód",
   "form.common.email": "Email cím",
   "form.common.mobile": "Telefonszám",
+  "form.common.required": "Ez a mező kötelező",
+  "form.common.mismatch": "Neptunkódok nem egyeznek meg",
   "form.common.programs": "Az alábbi programok érdekelnek: ",
   "form.common.programs.plenary": "Plenáris előadás",
   "form.common.programs.section1": "Szakmai előadások szekció I.",
