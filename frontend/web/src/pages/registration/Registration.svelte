@@ -5,18 +5,24 @@
     import {programs1, programs2} from "src/pages/registration/data/getPrograms.ts";
     import {_, locale} from "svelte-i18n";
 
-    let interested1 = []
+    let terms;
 
     const {form, errors, state, handleChange, handleSubmit} = createForm({
         initialValues: {
             name: "",
             email: "",
-            interested1: interested1
+            major: "",
+            semester: "",
+            neptun: "",
+            neptun2: "",
+            gender: "",
+            interested1: [],
+            interested2: [],
+            terms: false
         },
         validationSchema: yup.object().shape({
             major: yup
                 .string()
-                .oneOf([])
                 .required(),
             semester: yup
                 .number().min(1).max(20).required(),
@@ -28,14 +34,22 @@
                 function (item) {
                     return this.parent.neptun === this.parent.neptun2
                 }),
-            gender: yup.string().required(),
+            // gender: yup.string().required(),
             email: yup.string().email().required(),
-            interested1: yup.array().required()
+            interested1: yup.array().min(1).required(),
+            // interested2: yup.array().required()
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values));
+            console.log("onSubmit");
+            console.log(values);
         }
     });
+    $:console.log(state)
+    $: console.log($errors)
+    $:console.log($form)
+
+    //TODO: have to  checkbox outlook, add lang for POST design the submit button, test validators
+
 </script>
 
 <div class="container">
@@ -87,7 +101,7 @@
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                <select class="col-full" id="major_hu" name="major" on:change={handleChange}
+                <select class="col-full" id="major" name="major" on:change={handleChange}
                         on:blur={handleChange}
                         bind:value={$form.major}>
                     {#each majors as major}
@@ -107,45 +121,69 @@
             <div class="col-half">
                 <h4>Semester</h4>
                 <div class="input-group">
-                    <select>
+                    <select bind:value={$form.semester}>
                         {#each Array(20) as _, i}
                             <option value={i+1}>{i + 1}. semester</option>
                         {/each}
                     </select>
                 </div>
             </div>
-            <div class="col-half">
-                <h4>Gender</h4>
-                <div class="input-group">
-                    <input id="gender-male" type="radio" name="gender" value="male"/>
-                    <label for="gender-male">Male</label>
-                    <input id="gender-female" type="radio" name="gender" value="female"/>
-                    <label for="gender-female">Female</label>
-                </div>
+            <!--            <div class="col-half">-->
+            <!--                <h4>Gender</h4>-->
+            <!--                <div class="input-group">-->
+            <!--                    <input id="gender-male" type="radio" name="gender" value="male"/>-->
+            <!--                    <label for="gender-male">Male</label>-->
+            <!--                    <input id="gender-female" type="radio" name="gender" value="female"/>-->
+            <!--                    <label for="gender-female">Female</label>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+        <div class="row">
+            <h4>Interested programs 1st day</h4>
+            <div class="input-group">
+                {#each programs1 as program}
+                    <label>
+                        <input
+                                type="checkbox"
+                                name="interested1"
+                                value={program.id}
+                                bind:group={$form.interested1}
+                        />
+                        {program.name}
+                    </label><br>
+
+                {/each}
+
             </div>
         </div>
         <div class="row">
-            <h4>Interested programs</h4>
+            <h4>Interested programs 2nd day</h4>
             <div class="input-group">
-                {#each programs1 as program}
-
-                    <input type="checkbox" id="{program.id}" name="interested1" on:change={handleChange}
-                           on:blur={handleChange}
-                           bind:group={interested1}
-                           value={program}
-                    />
-                    <label for="{program.id}">{program.name}</label>
+                {#each programs2 as program}
+                    <label>
+                        <input
+                                type="checkbox"
+                                name="interested1"
+                                value={program.id}
+                                bind:group={$form.interested2}
+                        />
+                        {program.name}
+                    </label><br>
 
                 {/each}
+
             </div>
         </div>
         <div class="row">
             <h4>Terms and Conditions</h4>
             <div class="input-group">
-                <input id="terms" type="checkbox"/>
+                <input id="terms" type="checkbox" bind:checked={$form.terms}/>
                 <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm
                     I have read the privacy policy.</label>
             </div>
+        </div>
+        <div class="row has-text-centered">
+            <button type="submit" class="button" disabled={!$form.terms}>Send</button>
         </div>
     </form>
 </div>
