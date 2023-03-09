@@ -20,26 +20,35 @@ class StudentService
         $query = Config::search()->select(Config::registration)->value();
         $encoded = json_decode($query, true);
         $startDate = new \DateTime($encoded["start_date"]);
+        debug($startDate->format($timeFormat));
+
         $endDate = new \DateTime($encoded["end_date"]);
         $activeRegistraton = $encoded['active'];
 
         if ($activeRegistraton && $startDate->format($timeFormat) < $now->format($timeFormat) && $endDate->format($timeFormat) > $now->format($timeFormat)) {
             $student = Student::create();
-            $student->name = $input['_name'];
+            $student->name = $input['name'];
 
-            $email = strtolower($input['_email']);
+            debug($input);
+            $email = strtolower($input['email']);
             $emailS = filter_var($email, FILTER_SANITIZE_EMAIL);
             if (filter_var($emailS, FILTER_VALIDATE_EMAIL) === false || $emailS != $email){
             }else{
                 $student->email = $emailS;
             }
-            $student->neptun = strtoupper($input['_neptun']);
-            $student->major = $input['_major'];
-            $student->semester = $input['_semester'];
-            if (count($input['_programs']) > 1) {
-                $student->programs = $input['_programs'];
-            }
-            $student->lang = $input['_lang'];
+            $student->neptun = strtoupper($input['neptun']);
+            $student->major = $input['major'];
+            $student->semester = $input['semester'];
+            $student->lang = $input['lang'];
+            $interested1 = $input['interested1'];
+            $interested2 = $input['interested2'];
+            debug($interested1);
+            debug($interested2);
+            $student->programs = array_merge($interested1, $interested2);
+//            if (count($input['programs']) > 1) {
+//                $student->programs = $input['programs'];
+//            }
+//            $student->lang = $input['lang'];
             $student->save();
             return $student;
 
