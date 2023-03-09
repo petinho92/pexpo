@@ -4,6 +4,7 @@
     import {majors} from "src/pages/registration/data/getMajor";
     import {programs1, programs2} from "src/pages/registration/data/getPrograms.ts";
     import {_, locale} from "svelte-i18n";
+    import handleFetch from "src/services/handle-fetch";
 
     let terms;
 
@@ -18,14 +19,15 @@
             gender: "",
             interested1: [],
             interested2: [],
-            terms: false
+            terms: false,
+            lang: $locale
         },
         validationSchema: yup.object().shape({
             major: yup
                 .string()
                 .required(),
             semester: yup
-                .number().min(1).max(20).required(),
+                .number().required(),
             name: yup.string().required(),
             neptun: yup.string().required(),
             neptun2: yup.string().required().test(
@@ -37,14 +39,20 @@
             // gender: yup.string().required(),
             email: yup.string().email().required(),
             interested1: yup.array().min(1).required(),
-            // interested2: yup.array().required()
+            interested2: yup.array().min(1).required()
         }),
         onSubmit: values => {
             console.log("onSubmit");
+            fetch("student/save",
+                {
+                    method: "POST",
+                    body: JSON.stringify(values)
+                })
+                .then(handleFetch)
+
             console.log(values);
         }
     });
-    $:console.log(state)
     $: console.log($errors)
     $:console.log($form)
 
@@ -55,9 +63,9 @@
 <div class="container">
     <form on:submit={handleSubmit}>
         <div class="row">
-            <h4>Personal information</h4>
+            <h4>{$_('form.student.personal')}</h4>
             <div class="input-group input-group-icon">
-                <input class:input-error={$errors.name} id="name" name="name" type="text" placeholder="Full Name"
+                <input class:input-error={$errors.name} id="name" name="name" type="text" placeholder="{$_('form.common.name')}"
                        on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.name}/>
@@ -67,7 +75,7 @@
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                <input class:input-error={$errors.email} id="email" name="email" type="email" placeholder="Email Adress"
+                <input class:input-error={$errors.email} id="email" name="email" type="email" placeholder="{$_('form.common.email')}"
                        on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.email}/>
@@ -78,7 +86,7 @@
             </div>
             <div class="input-group input-group-icon">
                 <input class:input-error={$errors.neptun} id="neptun" name="neptun" type="text"
-                       placeholder="Neptun code" on:change={handleChange}
+                       placeholder="{$_('form.common.neptun')}" on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.neptun}/>
                 <div class="input-icon"><i class="fas fa-id-badge"></i></div>
@@ -89,7 +97,7 @@
             </div>
             <div class="input-group input-group-icon">
                 <input class:input-error={$errors.neptun2} id="neptun2" name="neptun2" type="text"
-                       placeholder="Neptun code confirm" on:change={handleChange}
+                       placeholder="{$_('form.common.neptun.confirm')}" on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.neptun2}/>
                 <div class="input-icon"><i class="fas fa-id-badge"></i></div>
@@ -100,10 +108,13 @@
                     <small>{$_('form.common.mismatch')}</small>
                 {/if}
             </div>
+            <h4>{$_('form.student.major')}</h4>
             <div class="input-group input-group-icon">
                 <select class="col-full" id="major" name="major" on:change={handleChange}
                         on:blur={handleChange}
-                        bind:value={$form.major}>
+                        bind:value={$form.major}
+                        class:input-error={$errors.major}
+                >
                     {#each majors as major}
                         {#if $locale === 'hu'}
                             <option>{major.name_hu}</option>
@@ -115,19 +126,25 @@
                 </select>
 
                 <div class="input-icon"><i class="fas fa-university"></i></div>
+                {#if $errors.major}
+                    <small>{$_('form.common.required.select')}</small>
+                {/if}
             </div>
+
         </div>
         <div class="row">
-            <div class="col-half">
-                <h4>Semester</h4>
-                <div class="input-group">
-                    <select bind:value={$form.semester}>
-                        {#each Array(20) as _, i}
-                            <option value={i+1}>{i + 1}. semester</option>
-                        {/each}
-                    </select>
-                </div>
+            <h4>{$_('form.student.semester')}</h4>
+            <div class="input-group">
+                <select class="col-third" bind:value={$form.semester} class:input-error={$errors.semester}>
+                    {#each Array(20) as _, i}
+                        <option value={i+1}>{i + 1}. semester</option>
+                    {/each}
+                </select>
             </div>
+            {#if $errors.semester}
+                <small>{$_('form.common.required.select')}</small>
+            {/if}
+
             <!--            <div class="col-half">-->
             <!--                <h4>Gender</h4>-->
             <!--                <div class="input-group">-->
@@ -139,51 +156,55 @@
             <!--            </div>-->
         </div>
         <div class="row">
-            <h4>Interested programs 1st day</h4>
+            <h4>{$_('form.common.programs.label.first')}</h4>
             <div class="input-group">
                 {#each programs1 as program}
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="interested1"
-                                value={program.id}
-                                bind:group={$form.interested1}
-                        />
-                        {program.name}
-                    </label><br>
+                    <input
+                            type="checkbox"
+                            id="{program.id}"
+                            name="interested1"
+                            value={program.id}
+                            bind:group={$form.interested1}
+
+                    />
+                    <label for="{program.id}">{program.name}</label>
 
                 {/each}
-
+                {#if $errors.interested1.length !== 0}
+                    <small>{$_('form.common.required.select')}</small>
+                {/if}
             </div>
         </div>
         <div class="row">
-            <h4>Interested programs 2nd day</h4>
+            <h4>{$_('form.common.programs.label.second')}</h4>
             <div class="input-group">
-                {#each programs2 as program}
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="interested1"
-                                value={program.id}
-                                bind:group={$form.interested2}
-                        />
-                        {program.name}
-                    </label><br>
+                {#each programs2 as program2}
+                    <input
+                            type="checkbox"
+                            id="{program2.id}"
+                            name="interested2"
+                            value={program2.id}
+                            bind:group={$form.interested2}
+
+                    />
+                    <label for="{program2.id}">{program2.name}</label>
 
                 {/each}
-
+                {#if $errors.interested2.length !== 0}
+                    <small>{$_('form.common.required.select')}</small>
+                {/if}
             </div>
+
         </div>
         <div class="row">
-            <h4>Terms and Conditions</h4>
+            <h4>{$_('form.common.dividers.termsofuse')}</h4>
             <div class="input-group">
                 <input id="terms" type="checkbox" bind:checked={$form.terms}/>
-                <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm
-                    I have read the privacy policy.</label>
+                <label for="terms">{@html $_('form.common.label.privacy_policy.student')}</label>
             </div>
         </div>
         <div class="row has-text-centered">
-            <button type="submit" class="button" disabled={!$form.terms}>Send</button>
+            <button type="submit" class="button" disabled={!$form.terms}>{$_('form.register')}</button>
         </div>
     </form>
 </div>
@@ -206,6 +227,7 @@
     font-size: 12px;
     color: var(--red);
     margin-top: 10px;
+    margin-left: 10px;
   }
 
   /* 64ac15 */
@@ -238,7 +260,7 @@
   select {
     width: 100%;
     padding: 1em;
-    line-height: 1.4;
+    line-height: 1.7;
     background-color: #f9f9f9;
     border: 1px solid #e5e5e5;
     border-radius: 3px;
@@ -322,8 +344,6 @@
 
   input[type="checkbox"] + label:after {
     position: absolute;
-    top: 0.45em;
-    left: 0.2em;
     font-size: 0.8em;
     color: #fff;
     opacity: 0;
@@ -336,7 +356,7 @@
   }
 
   select {
-    height: 3.4em;
+    height: 4em;
     line-height: 2;
   }
 
