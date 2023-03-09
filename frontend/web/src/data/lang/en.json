@@ -18,18 +18,14 @@
   "menu.lang.en": "English",
   "menu.sitemap": "Sitemap",
   "menu.contact": "Contact",
-  "menu.attendencerules" : "Attendence Rules",
+  "menu.attendencerules": "Attendence Rules",
   "menu.stands": "Stands",
-
-  "gallery.button.previous" : "Prev",
-  "gallery.button.next" : "Next",
+  "gallery.button.previous": "Prev",
+  "gallery.button.next": "Next",
   "gallery.title.presentation": "Presentation",
   "gallery.title.exhibition": "Exhibition",
-
-  "sponsors.title" : "Sponsors",
-  "sponsors.button" : "Check",
-
-
+  "sponsors.title": "Sponsors",
+  "sponsors.button": "Check",
   "countdown.text": "Time remaining until the opening ceremony",
   "countdown.year": "Years",
   "countdown.month": "Months",
@@ -37,12 +33,10 @@
   "countdown.hour": "Hours",
   "countdown.minute": "Minutes",
   "countdown.second": "Seconds",
-  "countdown.end" : "Pollack Expo is over!",
-
+  "countdown.end": "Pollack Expo is over!",
   "programguide.button": "Check(HU)",
   "programguide.button_en": "Check(EN)",
   "programguide.button_stand": "Stands",
-
   "accommodations.label.description": "Description: ",
   "accommodations.label.services": "Services: ",
   "accommodations.label.moreinformation": "More informations: ",
@@ -51,31 +45,26 @@
   "accommodations.label.place": "Place: ",
   "accommodations.label.website": "Website: ",
   "accommodations.label.maps": "Maps: ",
-  "accommodations.label.discount" : "Discount",
-
-  "cookie.text" : "This site uses cookies to improve your user experience.",
-  "cookie.button" : "I understand",
-
-  "contact.type.epitesz" : "BUILDER, ARCHITECT SECTION",
-  "contact.type.gepesz" : "BUILDING SERVICES, MECHANICAL ENGINEERING/GENERAL ENGINEERING SECTIONÓ",
-  "contact.type.labor" : "LABORATORY TECHNIQUES SECTION ",
-  "contact.type.korny" : "CIVIL ENGINEERING AND ENVIRONMENT SECTION ",
-  "contact.type.villinf" : "ELECTRICAL AND TECHNICAL INFORMATICS SECTION ",
-
+  "accommodations.label.discount": "Discount",
+  "cookie.text": "This site uses cookies to improve your user experience.",
+  "cookie.button": "I understand",
+  "contact.type.epitesz": "BUILDER, ARCHITECT SECTION",
+  "contact.type.gepesz": "BUILDING SERVICES, MECHANICAL ENGINEERING/GENERAL ENGINEERING SECTIONÓ",
+  "contact.type.labor": "LABORATORY TECHNIQUES SECTION ",
+  "contact.type.korny": "CIVIL ENGINEERING AND ENVIRONMENT SECTION ",
+  "contact.type.villinf": "ELECTRICAL AND TECHNICAL INFORMATICS SECTION ",
   "error.nodata": "Sorry, there is no data to this page",
-
   "expo.card.title": "What is POLLACK EXPO?",
   "expo.card.description": "<p>An annual trade exhibition? <b>More than that!</b></p><p>A venue for international and national conferences? <b>More than that!</b></p><p>Networking and training opportunity for engineers? <b>More than that!</b></p><p>Job fair for university students? <b>More than that!</b></p><p>The most prestigious event of an engineering faculty <b>More than that!</b></p>",
   "expo.card.foottitle": "POLLACK EXPO is the meeting place for university, industry and engineers. - TRADITION, INNOVATION, COOPERATION - POLLACK EXPO",
-
   "footer_sign": "UNIVERSITY OF PÉCS Faculty of Engineering and Information Technology - All rights reserved!",
   "footer_pr_text": "<b>POLLACK EXPO</b> - the meeting place for university, industry and engineers. <br><br>TRADITION, INNOVATION, COOPERATION - POLLACK EXPO",
   "footer_address": "Boszorkány street 2. <br> 7624, Pécs<br> Hungary <br>",
-
   "cookie.descriptionText": "We use cookies to improve your browsing experience on our website.",
   "cookie.allowButtonText": "I agree",
 
-
+  "form.register": "Register",
+  "form.student.personal": "Personal information",
   "form.student.major": "Major",
   "form.student.semester": "Semester",
   "form.chamber.chamber": "Chamber",
@@ -83,9 +72,11 @@
   "form.common.address": "Address",
   "form.common.name": "Name",
   "form.common.neptun": "Neptun code",
+  "form.common.neptun.confirm": "Neptun code confirmation",
   "form.common.email": "Email",
   "form.common.mobile": "Phone Number",
   "form.common.required": "This field is required",
+  "form.common.required.select": "You have to choose",
   "form.common.mismatch": "Neptun code mismatch",
   "form.common.programs": "I am interested in the following programs: ",
   "form.common.programs.plenary": "Plenary Session",
@@ -140,8 +131,7 @@
   "partners_desc_ul_li2": " <ul>\n                <li>- megismerje a legújabb kutatásokat, a karon folyó munkát, és</li>\n                <li>- új",
   "chamber_desc_ul_li1": "<ul>\n                <li>- if you want to collect credit points;</li>\n                <li>- to learn new information and approaches at professional presentations related to your field.</li>\n            </ul>",
   "chamber_desc_text": "The event provides an excellent opportunity to expand your knowledge in your field and to get an overview of the latest technologies and developments in one day.",
-
   "qr_text": "Use the QR code below to participate in the event: ",
   "qr_error": "An error occurred!",
-  "qr_error1" : "QR Code not found!"
+  "qr_error1": "QR Code not found!"
 }
