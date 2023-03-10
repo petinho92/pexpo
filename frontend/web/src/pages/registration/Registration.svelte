@@ -64,16 +64,24 @@
         }
     });
 
+    $: console.log($errors)
+
     //TODO: have to  checkbox outlook, add lang for POST design the submit button, test validators
 
-    onDestroy(()=>{$modal = null;})
+    onDestroy(() => {
+        $modal = null;
+    })
 
 </script>
-<Modal show={$modal}  closeButton={false} closeOnOuterClick={false} closeOnEsc={false}/>
+<Modal show={$modal} closeButton={false} closeOnOuterClick={false} closeOnEsc={false}/>
 
 
-<div class="container">
+<div class="container my-5">
     <form on:submit={handleSubmit}>
+        <div class="row has-text-centered has-text-weight-bold mb-5">
+            <h2 class="is-size-3">{$_('form.student.title')}</h2>
+        </div>
+        <hr>
         <div class="row">
             <h4>{$_('form.student.personal')}</h4>
             <div class="input-group input-group-icon">
@@ -94,8 +102,11 @@
                        on:blur={handleChange}
                        bind:value={$form.email}/>
                 <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                {#if $errors.email}
+                {#if $errors.email && !$errors.email.includes('valid')}
                     <small>{$_('form.common.required')}</small>
+                {/if}
+                {#if $errors.email.includes('valid')}
+                    <small>{$_('form.common.email_invalid')}</small>
                 {/if}
             </div>
             <div class="input-group input-group-icon">
@@ -122,6 +133,8 @@
                     <small>{$_('form.common.mismatch')}</small>
                 {/if}
             </div>
+        </div>
+        <div>
             <h4>{$_('form.student.major')}</h4>
             <div class="input-group input-group-icon">
                 <select class="col-full" id="major" name="major" on:change={handleChange}
@@ -161,13 +174,11 @@
                     {/if}
                 </div>
                 <div class="col-half">
-                    <h4>Gender</h4>
-                    <div>
-                        <input id="gender-male" type="radio" name="gender" bind:group={$form.gender} value="male"/>
-                        <label for="gender-male">Male</label>
-                        <input id="gender-female" type="radio" name="gender" bind:group={$form.gender} value="female"/>
-                        <label for="gender-female">Female</label>
-                    </div>
+                    <h4>{$_('form.common.gender')}</h4>
+                    <input id="gender-male" type="radio" name="gender" bind:group={$form.gender} value="férfi"/>
+                    <label class:gender-error={$errors.gender} for="gender-male">{$_('form.common.gender.male')}</label>
+                    <input id="gender-female" type="radio" name="gender" bind:group={$form.gender} value="nő"/>
+                    <label class:gender-error={$errors.gender} for="gender-female">{$_('form.common.gender.female')}</label>
 
                     {#if $errors.gender}
                         <small>{$_('form.common.required.select')}</small>
@@ -267,10 +278,29 @@
 
   h4 {
     color: #f0a500;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    color: #f0a500;
   }
 
   .input-error {
     border-color: #cc0000;
+  }
+
+  input[type="radio"] + .gender-error  {
+    width: 50%;
+    padding: 1em;
+    line-height: 1.7;
+    background-color: #f9f9f9;
+    border: 1px solid #cc0000;
+    border-radius: 3px;
+    -webkit-transition: 0.35s ease-in-out;
+    -moz-transition: 0.35s ease-in-out;
+    -o-transition: 0.35s ease-in-out;
+    transition: 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
   }
 
   input,
@@ -474,6 +504,7 @@
 
   .row {
     zoom: 1;
+    margin-bottom: 1.2em;
   }
 
   .row:before,
