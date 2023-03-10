@@ -40,6 +40,7 @@ class StudentService
             $student->major = $input['major'];
             $student->semester = $input['semester'];
             $student->lang = $input['lang'];
+            $student->gender = $input['gender'];
             $interested1 = $input['interested1'];
             $interested2 = $input['interested2'];
             debug($interested1);
