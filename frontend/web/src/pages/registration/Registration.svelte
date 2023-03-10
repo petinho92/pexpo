@@ -5,7 +5,12 @@
     import {programs1, programs2} from "src/pages/registration/data/getPrograms.ts";
     import {_, locale} from "svelte-i18n";
     import handleFetch from "src/services/handle-fetch";
+    import Modal from './components/popup/Modal.svelte';
+    import {modal} from "./components/popup/stores.ts";
+    import Popup from "./components/popup/Popup.svelte";
+    import {onDestroy} from "svelte";
 
+    let open;
     let terms;
 
     const {form, errors, state, handleChange, handleSubmit} = createForm({
@@ -36,7 +41,7 @@
                 function (item) {
                     return this.parent.neptun === this.parent.neptun2
                 }),
-            // gender: yup.string().required(),
+            gender: yup.string().required(),
             email: yup.string().email().required(),
             interested1: yup.array().min(1).required(),
             interested2: yup.array().min(1).required()
@@ -49,23 +54,31 @@
                     body: JSON.stringify(values)
                 })
                 .then(handleFetch)
+                .then(resp => {
+                    if (resp.statusCode === 200) {
 
-            console.log(values);
+                        modal.set(Popup);
+                    }
+                })
+
         }
     });
-    $: console.log($errors)
-    $:console.log($form)
 
     //TODO: have to  checkbox outlook, add lang for POST design the submit button, test validators
 
+    onDestroy(()=>{$modal = null;})
+
 </script>
+<Modal show={$modal}  closeButton={false} closeOnOuterClick={false} closeOnEsc={false}/>
+
 
 <div class="container">
     <form on:submit={handleSubmit}>
         <div class="row">
             <h4>{$_('form.student.personal')}</h4>
             <div class="input-group input-group-icon">
-                <input class:input-error={$errors.name} id="name" name="name" type="text" placeholder="{$_('form.common.name')}"
+                <input class:input-error={$errors.name} id="name" name="name" type="text"
+                       placeholder="{$_('form.common.name')}"
                        on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.name}/>
@@ -75,7 +88,8 @@
                 {/if}
             </div>
             <div class="input-group input-group-icon">
-                <input class:input-error={$errors.email} id="email" name="email" type="email" placeholder="{$_('form.common.email')}"
+                <input class:input-error={$errors.email} id="email" name="email" type="email"
+                       placeholder="{$_('form.common.email')}"
                        on:change={handleChange}
                        on:blur={handleChange}
                        bind:value={$form.email}/>
@@ -133,27 +147,33 @@
 
         </div>
         <div class="row">
-            <h4>{$_('form.student.semester')}</h4>
             <div class="input-group">
-                <select class="col-third" bind:value={$form.semester} class:input-error={$errors.semester}>
-                    {#each Array(20) as _, i}
-                        <option value={i+1}>{i + 1}. semester</option>
-                    {/each}
-                </select>
-            </div>
-            {#if $errors.semester}
-                <small>{$_('form.common.required.select')}</small>
-            {/if}
 
-            <!--            <div class="col-half">-->
-            <!--                <h4>Gender</h4>-->
-            <!--                <div class="input-group">-->
-            <!--                    <input id="gender-male" type="radio" name="gender" value="male"/>-->
-            <!--                    <label for="gender-male">Male</label>-->
-            <!--                    <input id="gender-female" type="radio" name="gender" value="female"/>-->
-            <!--                    <label for="gender-female">Female</label>-->
-            <!--                </div>-->
-            <!--            </div>-->
+                <div class="col-half">
+                    <h4>{$_('form.student.semester')}</h4>
+                    <select bind:value={$form.semester} class:input-error={$errors.semester}>
+                        {#each Array(20) as _, i}
+                            <option value={i+1}>{i + 1}. semester</option>
+                        {/each}
+                    </select>
+                    {#if $errors.semester}
+                        <small>{$_('form.common.required.select')}</small>
+                    {/if}
+                </div>
+                <div class="col-half">
+                    <h4>Gender</h4>
+                    <div>
+                        <input id="gender-male" type="radio" name="gender" bind:group={$form.gender} value="male"/>
+                        <label for="gender-male">Male</label>
+                        <input id="gender-female" type="radio" name="gender" bind:group={$form.gender} value="female"/>
+                        <label for="gender-female">Female</label>
+                    </div>
+
+                    {#if $errors.gender}
+                        <small>{$_('form.common.required.select')}</small>
+                    {/if}
+                </div>
+            </div>
         </div>
         <div class="row">
             <h4>{$_('form.common.programs.label.first')}</h4>
@@ -289,12 +309,18 @@
     display: none;
   }
 
-  input[type="radio"] + label,
+  input[type="radio"] + label {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    border-radius: 0;
+  }
+
   select {
     display: inline-block;
     width: 50%;
     text-align: center;
-    float: left;
     border-radius: 0;
   }
 
@@ -476,7 +502,7 @@
 
   .col-third {
     padding-right: 10px;
-    float: left;
+    //float: left;
     width: 33.33333333%;
   }
 
