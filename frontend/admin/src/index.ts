@@ -17,6 +17,8 @@ import SponsorList from "src/ui/sponsor/sponsor-list";
 import ProgramguideList from "src/ui/programguide/programguide-list";
 import TimelineList from "src/ui/timeline/timeline-list";
 import ConfigPage from "src/ui/config/config-page";
+import ParticipantsPage from "src/ui/participants/participants-page";
+import ScannerPage from "src/ui/scanner/scanner-page";
 
 window.addEventListener('load', () => {
 
@@ -51,6 +53,14 @@ window.addEventListener('load', () => {
                         listManager.add(new TimelineList())
                     },"webmaster")
                 ], "marketing"),
+                new MenuItem("Registration", FaIcon.s("users"), [
+                    new MenuItem("Participants", FaIcon.s("users"), () => {
+                        pageManager.add(new ParticipantsPage())
+                    }, "scanner"),
+                    new MenuItem("QR Scanner", FaIcon.s("barcode"), () => {
+                        pageManager.add(new ScannerPage())
+                    }, "scanner"),
+                ],"scanner"),
                 new MenuItem("Settings", FaIcon.s("cogs"), [
                     new MenuItem("Users", FaIcon.s("users"), () => {
                         listManager.add(new UserList())
