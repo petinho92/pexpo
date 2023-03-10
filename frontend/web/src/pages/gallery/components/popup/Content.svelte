@@ -70,7 +70,8 @@
 
             {/each}
         {:else if $loading}
-            <h1>Loading...</h1>
+
+            <h1><a class="button is-loading is-borderless">Loading...</a>Loading...</h1>
         {/if}
         {#if !$loading && $data.length === 0}
             <div class="has-text-centered is-size-5">
@@ -87,6 +88,9 @@
     padding-top: 3rem;
     background: #F5F5F5;
 
+  }
+  .is-borderless{
+    border: none;
   }
 
   .bg {

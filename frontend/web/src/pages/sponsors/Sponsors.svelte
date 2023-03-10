@@ -41,7 +41,8 @@
         </div>
     {:else if $loading}
         <div class="has-text-centered is-size-5">
-            <h1>Loading...</h1>
+
+            <h1><a class="button is-loading is-borderless">Loading...</a>Loading...</h1>
         </div>
     {/if}
     {#if !$loading && $partners.length === 0}
@@ -65,6 +66,9 @@
         grid-gap: 0.5em;
     }
 
+    .is-borderless {
+        border: none;
+    }
 
     .card-button {
         display: flex;

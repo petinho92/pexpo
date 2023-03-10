@@ -83,7 +83,8 @@
         </div>
     {:else if $loading}
         <div class="has-text-centered is-size-5">
-            <h1>Loading...</h1>
+
+            <h1><a class="button is-loading is-borderless">Loading...</a>Loading...</h1>
         </div>
     {/if}
     {#if !$loading && $hotels.length === 0}
@@ -103,6 +104,10 @@
         width: 95px;
         height: 95px;
         text-align: right;
+    }
+
+    .is-borderless {
+        border: none;
     }
 
     .discount span {

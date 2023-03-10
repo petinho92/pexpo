@@ -63,7 +63,8 @@
         </div>
     {:else if $loading}
         <div class="has-text-centered is-size-5">
-            <h1>Loading...</h1>
+
+            <h1><a class="button is-loading is-borderless">Loading...</a>Loading...</h1>
         </div>
     {/if}
     {#if !$loading && $programguide.length === 0}
@@ -79,6 +80,9 @@
         min-height: 30em;
         background: #F5F5F5;
 
+    }
+    .is-borderless {
+        border: none;
     }
 
     .container {
