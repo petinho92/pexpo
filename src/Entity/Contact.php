@@ -17,8 +17,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Validator("lastname", NotBlank::class)]
 #[Validator("firstname", NotBlank::class)]
 #[Validator("email", NotBlank::class)]
-#[Validator("major_hu", NotBlank::class)]
-#[Validator("major_en", NotBlank::class)]
+#[Validator("section_hu", NotBlank::class)]
+#[Validator("section_en", NotBlank::class)]
 #[Modelify(\Application\Database\DefaultConnection::class, 'contact', true)]
 class Contact extends _Contact{
 

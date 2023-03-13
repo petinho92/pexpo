@@ -7,13 +7,25 @@ use function Atomino\debug;
 
 class ContactApi extends Api{
 
-    #[Route(self::GET, '/category')]
-    public function getCategory(){
+    #[Route(self::GET, '/category/hu')]
+    public function getCategoryHU(){
         $tmp = Contact::search(Filter::where(Contact::active(true)))->collect();
         $array = [];
         foreach ($tmp as $item){
             if(!in_array($item->section_hu, $array, true)){
-                $array[] = ['hu_cat' => $item->section_hu, 'en_cat' => $item->section_en];
+                $array[] = $item->section_hu;
+            }
+        }
+        sort($array);
+        return $array;
+    }
+    #[Route(self::GET, '/category/en')]
+    public function getCategoryEN(){
+        $tmp = Contact::search(Filter::where(Contact::active(true)))->collect();
+        $array = [];
+        foreach ($tmp as $item){
+            if(!in_array($item->section_en, $array, true)){
+                $array[] = $item->section_en;
             }
         }
         sort($array);

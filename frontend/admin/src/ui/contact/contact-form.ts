@@ -7,8 +7,8 @@ import type Entity from "gold-admin/entity-type";
 
 let majorhu:Array<string> = ["építész", "építőmérnök", "épületgépész", "gépész", "informatika", "környezetvédelem", "labortechnika", "villamos"];
 let majoren:Array<string> = ["építész", "építőmérnök", "épületgépész", "gépész", "informatika", "környezetvédelem", "labortechnika", "villamos"];
-let sectionhu:Array<string> = ["Főszervezők", "Épületgépészet szakterület", "Általános gépészet szakterület", "Villamos szakterület", "Informatika szakterület", "Építész - Belsőépítész - Bútortervezés - Design - Építéskivitelezés szakterület", "Építőmérnök szakterület", "Környezetvédelem szakterület", "Labortechnika szakterület"];
-let sectionen:Array<string> = [""];
+let sectionhu:Array<string> = ["Plenáris ülés, hallgató/diák csoportok koordinálása", "Regisztráció", "Épületgépész szakterület", "Általános gépészet szakterület", "Villamos szakterület", "Informatika szakterület", "Építész - Építéskivitelezés szakterület", "Építőmérnök szakterület", "Környezetvédelem – Labortechnika szakterület", "Pénzügy - számlázás"];
+let sectionen:Array<string> = ["Plenáris ülés, hallgató/diák csoportok koordinálása", "Regisztráció", "Épületgépész szakterület", "Általános gépészet szakterület", "Villamos szakterület", "Informatika szakterület", "Építész - Építéskivitelezés szakterület", "Építőmérnök szakterület", "Környezetvédelem – Labortechnika szakterület", "Pénzügy - számlázás"];
 
 
 
@@ -45,9 +45,9 @@ export default class ContactForm extends Form{
         this.addSection("Category properties", FaIcon.s("fa-university"))
             .addControl(controls.select("section_hu", "kategória").setOptions(sectionhu))
             .addControl(controls.select("section_en", "category").setOptions(sectionen))
-        this.addSection("Major properties", FaIcon.s("fa-university"))
-            .addControl(controls.checkboxes("major_hu", "szak").setOptions(majorhu).setHint("row"))
-            .addControl(controls.checkboxes("major_en", "specialisation").setOptions(majoren))
+        // this.addSection("Major properties", FaIcon.s("fa-university"))
+        //     .addControl(controls.checkboxes("major_hu", "szak").setOptions(majorhu).setHint("row"))
+        //     .addControl(controls.checkboxes("major_en", "specialisation").setOptions(majoren))
         this.addSection("Settings", FaIcon.s("fa-user-cog"))
             .addControl(controls.switch("active", "active"))
     }

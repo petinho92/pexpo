@@ -3,103 +3,101 @@
     import {locale} from "svelte-i18n";
 
     const contacturl = 'contact/';
-    const sectionurl = 'contact/category';
+    const sectionurlhu = 'contact/category/hu';
+    const sectionurlen = 'contact/category/en';
 
     const [data, loading, error, get] = asyncGet(contacturl);
-    const [category, loading2, error2, get2] = asyncGet(sectionurl);
+    const [category_hu, loading2, error2, get2] = asyncGet(sectionurlhu);
+    const [category_en, loading3, error3, get3] = asyncGet(sectionurlen);
 </script>
 
 <section>
-
     {#if $data !== null && $data !== undefined}
-        {#each $category as category}
-            <div class="card-header mb-3 ">
-                <div class="card-header-title is-centered my-3">
-                    {#if $locale === 'hu'}
-                        <span class="year-font">{category.hu_cat}</span>
-                    {/if}
-                    {#if $locale === 'en'}
-                        <span class="year-font">{category.en_cat}</span>
-                    {/if}
+        {#if $locale === 'hu'}
+            {#each $category_hu as category}
+                <div class="card-header mb-3 ">
+                    <div class="card-header-title is-centered my-3">
+                        <span class="year-font">{category}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="container-component">
-                <ul class="cards-component">
-                    {#each $data as person}
-                        {#if $locale === 'hu' && category.hu_cat === person.hu_section}
-                            <li>
-                                {#if person.thumbnail === null}
-                                    <img src="/~web/images/profile.jpg"/>
-                                {:else}
-                                    <img src={person.thumbnail}/>
-                                {/if}
-                                <div class="details-component">
-                                    <span class="name-label"><i class="fas fa-user"></i> {person.hu_name}</span>
-                                    <span class="title-label"><i class="fas fa-list-alt"></i> {person.hu_major}</span>
-                                    <a class="email-label" href="mailto:{person.email}">
-                                        <i class="fas fa-envelope"></i> {person.email}</a>
-                                    {#if person.telephone !== null|undefined|""}
-                                        <a class="phone-label" href="tel:{person.telephone}">
-                                            <i class="fas fa-phone-square-alt"></i>
-                                            {person.telephone}
-                                        </a>
+                <div class="container-component">
+                    <ul class="cards-component">
+                        {#each $data as person}
+                            {#if category === person.hu_section}
+                                <li>
+                                    {#if person.thumbnail === null}
+                                        <img src="/~web/images/profile.jpg"/>
+                                    {:else}
+                                        <img src={person.thumbnail}/>
                                     {/if}
-                                    {#if person.mobile !== null|undefined|""}
-                                        <a class="phone-label" href="tel:{person.mobile}">
-                                            <i class="fas fa-mobile"></i>
-                                            {person.mobile}
-                                        </a>
+                                    <div class="details-component">
+                                        <span class="name-label"><i class="fas fa-user"></i> {person.hu_name}</span>
+<!--                                        <span class="title-label"><i-->
+<!--                                                class="fas fa-list-alt"></i> {person.hu_major}</span>-->
+                                        <a class="email-label" href="mailto:{person.email}">
+                                            <i class="fas fa-envelope"></i> {person.email}</a>
+                                        {#if person.telephone !== null | undefined | ""}
+                                            <a class="phone-label" href="tel:{person.telephone}">
+                                                <i class="fas fa-phone-square-alt"></i>
+                                                {person.telephone}
+                                            </a>
+                                        {/if}
+                                        {#if person.mobile !== null | undefined | ""}
+                                            <a class="phone-label" href="tel:{person.mobile}">
+                                                <i class="fas fa-mobile"></i>
+                                                {person.mobile}
+                                            </a>
+                                        {/if}
+                                    </div>
+                                </li>
+                            {/if}
+                        {/each}
+                    </ul>
+                </div>
+            {/each}
+        {:else if $locale === 'en'}
+            {#each $category_en as category}
+                <div class="card-header mb-3 ">
+                    <div class="card-header-title is-centered my-3">
+                        <span class="year-font">{category}</span>
+                    </div>
+                </div>
+                <div class="container-component">
+                    <ul class="cards-component">
+                        {#each $data as person}
+                            {#if category === person.en_section}
+                                <li>
+                                    {#if person.thumbnail === null}
+                                        <img src="/~web/images/profile.jpg"/>
+                                    {:else}
+                                        <img src={person.thumbnail}/>
                                     {/if}
-
-                                </div>
-                            </li>
-                        {/if}
-                        {#if $locale === 'en' && category.en_cat === person.en_section}
-                            <li>
-                                {#if person.thumbnail === null}
-                                    <img src="/~web/images/profile.jpg"/>
-                                {:else}
-                                    <img src={person.thumbnail}/>
-                                {/if}
-                                <div class="details-component">
-                                    <span class="name-label"><i class="fas fa-user"></i> {person.en_name}</span>
-                                    <span class="title-label"><i class="fas fa-list-alt"></i> {person.en_major}</span>
-                                    <a class="email-label" href="mailto:{person.email}">
-                                        <i class="fas fa-envelope"></i> {person.email}</a>
-                                    {#if person.telephone !== null|undefined|""}
-                                        <a class="phone-label" href="tel:{person.telephone}">
-                                            <i class="fas fa-phone-square-alt"></i>
-                                            {person.telephone}
-                                        </a>
-                                    {/if}
-                                    {#if person.mobile !== null|undefined|""}
-                                        <a class="phone-label" href="tel:{person.mobile}">
-                                            <i class="fas fa-mobile"></i>
-                                            {person.mobile}
-                                        </a>
-                                    {/if}
-
-                                </div>
-                            </li>
-                        {/if}
-
-                    {/each}
-                </ul>
-            </div>
-            <!--                <div class="card-content">-->
-            <!--                    <div class="columns is-multiline is-flex-mobile is-centered mb-6">-->
-            <!--                        {#each $data as person}-->
-            <!--                            {#if $locale === 'hu' && category.hu_cat === person.hu_section}-->
-            <!--                                Név: {person.hu_name}-->
-            <!--                            {/if}-->
-            <!--                            {#if $locale === 'en' && category.en_cat === person.en_section}-->
-            <!--                                Név: {person.en_name}-->
-            <!--                            {/if}-->
-            <!--                        {/each}-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-        {/each}
+                                    <div class="details-component">
+                                        <span class="name-label"><i class="fas fa-user"></i> {person.en_name}</span>
+<!--                                        <span class="title-label"><i-->
+<!--                                                class="fas fa-list-alt"></i> {person.en_major}</span>-->
+                                        <a class="email-label" href="mailto:{person.email}">
+                                            <i class="fas fa-envelope"></i> {person.email}</a>
+                                        {#if person.telephone !== null | undefined | ""}
+                                            <a class="phone-label" href="tel:{person.telephone}">
+                                                <i class="fas fa-phone-square-alt"></i>
+                                                {person.telephone}
+                                            </a>
+                                        {/if}
+                                        {#if person.mobile !== null | undefined | ""}
+                                            <a class="phone-label" href="tel:{person.mobile}">
+                                                <i class="fas fa-mobile"></i>
+                                                {person.mobile}
+                                            </a>
+                                        {/if}
+                                    </div>
+                                </li>
+                            {/if}
+                        {/each}
+                    </ul>
+                </div>
+            {/each}
+        {/if}
     {/if}
 </section>
 
@@ -165,6 +163,7 @@
         font-size: 0.9em;
         transition: all 0.2s ease-in-out;
         text-align: center;
+        min-width: 455px;
     }
 
     .cards-component li:after,
@@ -190,8 +189,13 @@
         text-align: left;
         transition: all 0.5s ease-in-out;
         text-shadow: 1px 1px rgba(0, 0, 0, 0);
-        min-width: 250px;
+        min-width: 280px;
     }
+
+    .cards-component li .details-component > span:first-child{
+        margin-top: 10px;
+    }
+
 
     .cards-component li .details-component > span:nth-child(2),
     .cards-component li .details-component > a:nth-child(2) {
@@ -255,7 +259,8 @@
         .cards-component li {
             display: block;
             width: auto;
-            max-width: 200px;
+            /*max-width: 200px;*/
+            min-width: 150px;
             margin: 30px auto;
         }
 
