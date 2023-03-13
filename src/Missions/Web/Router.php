@@ -7,7 +7,7 @@ use Application\Missions\Web\Api\ContentApi;
 use Application\Missions\Web\Api\GalleryApi;
 use Application\Missions\Web\Api\ProgramguideApi;
 
-use Application\Missions\Web\Api\QRCodeApi;
+use Application\Missions\Web\Api\registration\QRCodeApi;
 use Application\Missions\Web\Api\registration\RegistrationApi;
 use Application\Missions\Web\Api\SponsorApi;
 use Application\Missions\Web\Api\TimelineApi;

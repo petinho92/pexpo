@@ -1,4 +1,4 @@
-<?php namespace Application\Missions\Web\Api;
+<?php namespace Application\Missions\Web\Api\registration;
 
 use Application\Missions\Web\Services\QRService;
 use Atomino\Mercury\Responder\Api\Api;

@@ -20,7 +20,6 @@ class StudentService
         $query = Config::search()->select(Config::registration)->value();
         $encoded = json_decode($query, true);
         $startDate = new \DateTime($encoded["start_date"]);
-        debug($startDate->format($timeFormat));
 
         $endDate = new \DateTime($encoded["end_date"]);
         $activeRegistraton = $encoded['active'];
@@ -29,7 +28,6 @@ class StudentService
             $student = Student::create();
             $student->name = $input['name'];
 
-            debug($input);
             $email = strtolower($input['email']);
             $emailS = filter_var($email, FILTER_SANITIZE_EMAIL);
             if (filter_var($emailS, FILTER_VALIDATE_EMAIL) === false || $emailS != $email){
@@ -43,8 +41,6 @@ class StudentService
             $student->gender = $input['gender'];
             $interested1 = $input['interested1'];
             $interested2 = $input['interested2'];
-            debug($interested1);
-            debug($interested2);
             $student->programs = array_merge($interested1, $interested2);
 //            if (count($input['programs']) > 1) {
 //                $student->programs = $input['programs'];
@@ -64,7 +60,7 @@ class StudentService
     {
         $student = Student::pick($id);
         if($student){
-            if($hash === md5($student->neptun)){
+            if($hash === md5($student->guid)){
                 return true;
             }
         }
