@@ -7,6 +7,7 @@ use Application\Missions\Web\Api\ContentApi;
 use Application\Missions\Web\Api\GalleryApi;
 use Application\Missions\Web\Api\ProgramguideApi;
 
+use Application\Missions\Web\Api\QRCodeApi;
 use Application\Missions\Web\Api\registration\RegistrationApi;
 use Application\Missions\Web\Api\SponsorApi;
 use Application\Missions\Web\Api\TimelineApi;
@@ -28,6 +29,8 @@ class Router extends \Atomino\Mercury\Router\Router {
         $this(method: 'GET', path: '/config/**')?->pipe(Cache::class)->pipe(ConfigApi::class);
         $this(method: 'POST', path: '/student/**')?->pipe(Cache::class)->pipe(RegistrationApi::class);
         $this(method: 'GET', path: '/contact/**')?->pipe(Cache::class)->pipe(ContactApi::class);
+        $this(method: 'GET', path: '/get/**')?->pipe(Cache::class)->pipe(QRCodeApi::class);
+
 		$this()?->pipe(Page\Error404::class);
 	}
 

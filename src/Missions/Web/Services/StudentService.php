@@ -60,4 +60,24 @@ class StudentService
         }
     }
 
+    public function checkByHash($id, $hash)
+    {
+        $student = Student::pick($id);
+        if($student){
+            if($hash === md5($student->neptun)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function getStudentNameByID($id)
+    {
+        if(Student::pick($id)){
+            $student = Student::pick($id);
+            return $student->name;
+        }
+        return false;
+    }
+
 }
