@@ -19,6 +19,7 @@ import TimelineList from "src/ui/timeline/timeline-list";
 import ConfigPage from "src/ui/config/config-page";
 import ParticipantsPage from "src/ui/participants/participants-page";
 import ScannerPage from "src/ui/scanner/scanner-page";
+import ContactList from "src/ui/contact/contact-list";
 
 window.addEventListener('load', () => {
 
@@ -51,6 +52,9 @@ window.addEventListener('load', () => {
                     },"webmaster"),
                     new MenuItem("Timeline", FaIcon.s("stream"), () => {
                         listManager.add(new TimelineList())
+                    },"webmaster"),
+                    new MenuItem("Contact", FaIcon.s("fa-address-card"), () => {
+                        listManager.add(new ContactList())
                     },"webmaster")
                 ], "marketing"),
                 new MenuItem("Registration", FaIcon.s("users"), [

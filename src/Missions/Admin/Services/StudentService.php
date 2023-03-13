@@ -27,7 +27,7 @@ class StudentService{
     public function checkByHash($id, $hash){
         $student = Student::pick($id);
         if($student){
-            if($hash === md5($student->neptun)){
+            if($hash === md5($student->guid)){
                 return true;
             }
         }return false;

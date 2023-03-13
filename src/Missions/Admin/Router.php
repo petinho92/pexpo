@@ -3,11 +3,13 @@
 
 use Application\Missions\Admin\Api\AuthApi;
 use Application\Missions\Admin\Api\ConfigApi;
+use Application\Missions\Admin\Api\ContactApi;
 use Application\Missions\Admin\Api\ContentApi;
 use Application\Missions\Admin\Api\DashboardApi;
 use Application\Missions\Admin\Api\GalleryApi;
 use Application\Missions\Admin\Api\HotelApi;
 use Application\Missions\Admin\Api\ProgramGuideApi;
+use Application\Missions\Admin\Api\scanner\ScannerApi;
 use Application\Missions\Admin\Api\SponsorApi;
 use Application\Missions\Admin\Api\student\ParticipantsApi;
 use Application\Missions\Admin\Api\TimelineApi;
@@ -32,6 +34,8 @@ class Router extends \Atomino\Mercury\Router\Router {
         $this(path: '/api/programguide/**')?->pipe(ProgramGuideApi::class);
         $this(path: '/api/timeline/**')?->pipe(TimelineApi::class);
         $this(path: '/api/registration/**')?->pipe(ParticipantsApi::class);
+        $this(path: '/api/scanner/**')?->pipe(ScannerApi::class);
+        $this(path: '/api/contact/**')?->pipe(ContactApi::class);
 
 	}
 

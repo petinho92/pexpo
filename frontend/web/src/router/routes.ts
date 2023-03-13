@@ -9,6 +9,7 @@ import Services from "src/pages/services/Services.svelte";
 import {wrap} from "svelte-spa-router/wrap";
 import {_} from "svelte-i18n";
 import Registration from "src/pages/registration/Registration.svelte";
+import Contact from "src/pages/contact/Contact.svelte";
 
 
 //
@@ -59,6 +60,10 @@ routes.set('/student', wrap({
 routes.set('/asd', wrap({
     component: Registration,
     userData: {hu: 'Hallgatóknak', en: 'Student', active:true}
+}));
+routes.set('/contact', wrap( {
+    component: Contact,
+    userData: {hu: 'Kapcsolat', en: 'Contact', active: true}
 }));
 
 export default routes;

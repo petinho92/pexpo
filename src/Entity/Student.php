@@ -22,6 +22,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 #[Modelify(\Application\Database\DefaultConnection::class, 'student', true)]
 class Student extends _Student{
     public function getQRCode(){
-        return "MIK51-PE-student-".$this->id.'-'.md5($this->neptun);
+        return "MIK51-PE-student-".$this->id.'-'.md5($this->guid);
     }
 }

@@ -2,6 +2,8 @@
 
 use Application\Entity\Eventlog;
 use Atomino\Carbon\ValidationError;
+use Symfony\Component\Validator\Constraints\Date;
+use function Atomino\debug;
 
 class QRService
 {
@@ -11,7 +13,7 @@ class QRService
 
     public function checkByHash($code)
     {
-        //"MIK51-PE-student-".$this->id.'-'.md5($this->neptun);
+        //MIK51-PE-student-1-b2ef9c7b10eb0985365f913420ccb84a
         if (preg_match('(MIK51-PE-[s][a-z]*-[0-9]+-[0-9a-zA-Z]*)', $code)) {
             $data = explode("-", $code);
             if ($data[2] === 'student') {
@@ -26,12 +28,13 @@ class QRService
     /**
      * @throws ValidationError
      */
-    public function createEventLog(array $input)
+    public function createEventLog(array $input): Eventlog
     {
         $event = Eventlog::create();
-        $event->date = $input['_date'];
-        $event->room = $input['_room'];
-        $event->phase = $input['_phase'];
+        $event->event = "PollackExpo 2023";
+        $event->date = $input['date'];
+        $event->room = $input['room'];
+        $event->phase = $input['phase'];
         $event->qrcode = $input['qrcode'];
         $event->save();
         return $event;
