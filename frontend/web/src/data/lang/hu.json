@@ -78,6 +78,7 @@
   "cookie.descriptionText": "Az oldal sütiket alkalmaz, hogy javítsa a böngészési élményét.",
   "cookie.allowButtonText": "Elfogadom",
 
+  "form.register.inactive": "A regisztráció nem aktív",
   "form.register": "Regisztrálok",
   "form.student.title": "Regisztráció",
   "form.student.personal": "Személyes információ",

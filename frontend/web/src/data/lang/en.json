@@ -63,6 +63,7 @@
   "cookie.descriptionText": "We use cookies to improve your browsing experience on our website.",
   "cookie.allowButtonText": "I agree",
 
+  "form.register.inactive": "Registration is not active",
   "form.register": "Register",
   "form.student.title": "Registration",
   "form.student.personal": "Personal information",
