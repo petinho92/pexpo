@@ -1,5 +1,5 @@
 <script>
-    import QRCodeStyling from '../../../application/services/qr-code-styling.js';
+    import QRCodeStyling from './qr-code-styling.js';
     import {onMount} from "svelte";
     export let text;
     export let qrCode = new QRCodeStyling({

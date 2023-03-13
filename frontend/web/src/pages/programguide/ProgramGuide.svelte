@@ -62,9 +62,9 @@
             {/each}
         </div>
     {:else if $loading}
-        <div class="has-text-centered is-size-5">
-
-            <h1><a class="button is-loading is-borderless">Loading...</a>Loading...</h1>
+        <div class="has-text-centered">
+            <a class="button is-loading is-size-1 is-info is-outlined is-borderless"></a>
+            <h1>Loading...</h1>
         </div>
     {/if}
     {#if !$loading && $programguide.length === 0}

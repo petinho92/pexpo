@@ -12,6 +12,7 @@
 
     let open;
     let terms;
+    let response;
 
     const {form, errors, state, handleChange, handleSubmit} = createForm({
         initialValues: {
@@ -33,7 +34,7 @@
                 .required(),
             semester: yup
                 .number().required(),
-            name: yup.string().required(),
+            // name: yup.string().required(),
             neptun: yup.string().required(),
             neptun2: yup.string().required().test(
                 'neptunsNotMatch',
@@ -47,7 +48,6 @@
             interested2: yup.array().min(1).required()
         }),
         onSubmit: values => {
-            console.log("onSubmit");
             fetch("student/save",
                 {
                     method: "POST",
@@ -64,7 +64,6 @@
         }
     });
 
-    $: console.log($errors)
 
     //TODO: have to  checkbox outlook, add lang for POST design the submit button, test validators
 
