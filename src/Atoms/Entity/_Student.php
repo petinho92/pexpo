@@ -14,6 +14,7 @@ use Atomino\Carbon\Attributes\RequiredField;
  * @method static \Atomino\Carbon\Database\Finder\Comparison created($isin = null)
  * @property-read \DateTime|null $created
  * @method static \Atomino\Carbon\Database\Finder\Comparison email($isin = null)
+ * @method static \Atomino\Carbon\Database\Finder\Comparison gender($isin = null)
  * @method static \Atomino\Carbon\Database\Finder\Comparison guid($isin = null)
  * @property-read string|null $guid
  * @method static \Atomino\Carbon\Database\Finder\Comparison id($isin = null)
@@ -36,6 +37,8 @@ use Atomino\Carbon\Attributes\RequiredField;
 #[Field("created", \Atomino\Carbon\Field\DateTimeField::class)]
 #[Validator("email", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>150])]
 #[Field("email", \Atomino\Carbon\Field\StringField::class)]
+#[Validator("gender", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>5])]
+#[Field("gender", \Atomino\Carbon\Field\StringField::class)]
 #[Validator("guid", \Symfony\Component\Validator\Constraints\Length::class, ['max'=>36])]
 #[Field("guid", \Atomino\Carbon\Field\StringField::class)]
 #[Field("id", \Atomino\Carbon\Field\IntField::class)]
@@ -60,6 +63,8 @@ abstract class _Student extends Entity {
 	protected function getCreated():\DateTime|null{ return $this->created;}
 	const email = 'email';
 	public string|null $email = null;
+	const gender = 'gender';
+	public string|null $gender = null;
 	const guid = 'guid';
 	protected string|null $guid = null;
 	protected function getGuid():string|null{ return $this->guid;}
