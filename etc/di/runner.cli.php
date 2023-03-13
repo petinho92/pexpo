@@ -11,5 +11,6 @@ return [
 	CliRunnerInterface::class => get(CliRunner::class),
 	CliRunner::class          => decorate(fn(CliRunner $runner, Container $c) => $runner
 		->addCliModule($c->get(Common::class))
+        ->addCliModule($c->get(\Application\Missions\Cli\EmailSender::class))
 	),
 ];
