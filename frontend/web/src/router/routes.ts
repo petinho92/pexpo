@@ -10,6 +10,7 @@ import {wrap} from "svelte-spa-router/wrap";
 import {_} from "svelte-i18n";
 import Registration from "src/pages/registration/Registration.svelte";
 import Contact from "src/pages/contact/Contact.svelte";
+import GetQRCode from "src/pages/qrcode/GetQRCode.svelte";
 
 
 //
@@ -64,6 +65,10 @@ routes.set('/asd', wrap({
 routes.set('/contact', wrap( {
     component: Contact,
     userData: {hu: 'Kapcsolat', en: 'Contact', active: true}
+}));
+routes.set('/qr/:code', wrap( {
+    component: GetQRCode,
+    userData: {hu: 'QR kód', en: 'QC code', active: false}
 }));
 
 export default routes;
