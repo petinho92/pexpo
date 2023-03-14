@@ -8,7 +8,7 @@ import type Entity from "gold-admin/entity-type";
 let majorhu:Array<string> = ["építész", "építőmérnök", "épületgépész", "gépész", "informatika", "környezetvédelem", "labortechnika", "villamos"];
 let majoren:Array<string> = ["építész", "építőmérnök", "épületgépész", "gépész", "informatika", "környezetvédelem", "labortechnika", "villamos"];
 let sectionhu:Array<string> = ["Plenáris ülés, hallgató/diák csoportok koordinálása", "Regisztráció", "Épületgépész szakterület", "Általános gépészet szakterület", "Villamos szakterület", "Informatika szakterület", "Építész - Építéskivitelezés szakterület", "Építőmérnök szakterület", "Környezetvédelem – Labortechnika szakterület", "Pénzügy - számlázás"];
-let sectionen:Array<string> = ["Plenáris ülés, hallgató/diák csoportok koordinálása", "Regisztráció", "Épületgépész szakterület", "Általános gépészet szakterület", "Villamos szakterület", "Informatika szakterület", "Építész - Építéskivitelezés szakterület", "Építőmérnök szakterület", "Környezetvédelem – Labortechnika szakterület", "Pénzügy - számlázás"];
+let sectionen:Array<string> = ["Plenary session, coordination of student/pupil groups", "Registration", "Building Services Engineering", "Mechanical Engineering", "Electrical Engineering", "Information Technology", "Architecture and Building Construction", "Civil Engineering", "Environment – Laboratory Technology", "Finances, invoicing"];
 
 
 
