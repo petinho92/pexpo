@@ -63,7 +63,7 @@
                      onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
                      class:is-active={active} on:click={()=>active = !active}
                 >
-                    <a class="pte navbar-content ml-6 is-hidden-touch" href="https://pte.hu" target="_blank">
+                    <a class="pte navbar-content ml-6 is-hidden-touch inter-hide" href="https://pte.hu" target="_blank">
                         <img src="/~web/images/pte.png"
                              class="pte"/>
                     </a>
@@ -111,7 +111,7 @@
                     {/each}
 
 
-                    <div class="navbar-content">
+                    <div class="navbar-content inter-hide">
 
                     </div>
 
@@ -215,14 +215,7 @@
             color: #F4F3EA;
         }
 
-        .highlighted {
-            color: #d91d1d;
-        }
 
-        .highlighted:hover {
-            color: #D3AC2B;
-            transition: color 1s;
-        }
 
         .nbi:hover {
             color: #D3AC2B;
@@ -239,14 +232,12 @@
         }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1023px) {
         .nbi {
             color: black;
         }
 
-        .highlighted a {
-            color: #d91d1d;
-        }
+
     }
 
     .nbburger {
@@ -260,10 +251,11 @@
 
 
 
-    @media screen and (max-width: 1200px) {
-        .pte-logo {
+    @media screen and (max-width: 1300px) {
+        .inter-hide {
             display: none;
         }
+
     }
 
 
