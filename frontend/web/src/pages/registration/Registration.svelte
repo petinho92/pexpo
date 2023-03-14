@@ -80,7 +80,7 @@
         <Modal show={$modal} closeButton={false} closeOnOuterClick={false} closeOnEsc={false}/>
 
 
-        <div class="container my-5">
+        <div class="container">
             <form on:submit={handleSubmit}>
                 <div class="row has-text-centered has-text-weight-bold mb-5">
                     <h2 class="is-size-3">{$_('form.student.title')}</h2>
@@ -260,6 +260,7 @@
 
   section {
     padding-top: 3rem;
+    padding-bottom: 3rem;
     min-height: 30em;
     background: #F5F5F5;
 
@@ -522,7 +523,8 @@
   .container {
     max-width: 38em;
     padding: 1em 3em 2em 3em;
-    margin: 0em auto;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #fff;
     border-radius: 4.2px;
     box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
