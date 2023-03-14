@@ -38,7 +38,7 @@
                                         {#if year === album.year && album.imgs[0] !== undefined}
                                             <div class="column is-8-mobile is-3-tablet max-column-size is-narrow">
                                                 <a on:click={()=>open(Popup,{ images: album.imgs})}>
-                                                    <div class="card card-hover">
+                                                    <div class="card card-hover card-max">
 
                                                         <div class="card-header bg card-header-size">
                                                             <div class="card-header-title is-centered">
@@ -127,6 +127,10 @@
   .card-bg {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .card-max {
+    max-width: 15em;
   }
 
   .card-header-size {
