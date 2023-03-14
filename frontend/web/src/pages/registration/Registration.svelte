@@ -576,4 +576,16 @@
     }
   }
 
+  @media screen and (max-width: 1023px){
+    section {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .container {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+    }
+  }
+
 </style>
