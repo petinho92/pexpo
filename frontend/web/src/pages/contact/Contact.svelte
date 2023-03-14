@@ -268,11 +268,11 @@
         transition: color 0.5s ease-in-out;
     }
 
-    .cards-component li .details-component a:hover,
-    .cards-component li .details-component a:focus {
-        color: #312c1b;
-        transition: color 0.5s ease-in-out;
-    }
+    /*.cards-component li .details-component a:hover,*/
+    /*.cards-component li .details-component a:focus {*/
+    /*    color: #312c1b;*/
+    /*    transition: color 0.5s ease-in-out;*/
+    /*}*/
 
     .cards-component li:hover {
         background: rgba(62, 74, 98, 0.2);
