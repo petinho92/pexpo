@@ -54,13 +54,13 @@ routes.set('/accommodation', wrap({
     userData: {hu: 'Szálláslehetőségek', en: 'Accommodation', active:true}
 
 }));
+// routes.set('/student', wrap({
+//     component: StudentRegistration,
+//     userData: {hu: 'Hallgatóknak', en: 'Student', active:false}
+// }));
 routes.set('/student', wrap({
-    component: StudentRegistration,
-    userData: {hu: 'Hallgatóknak', en: 'Student', active:false}
-}));
-routes.set('/asd', wrap({
     component: Registration,
-    userData: {hu: 'Hallgatóknak', en: 'Student', active:true}
+    userData: {hu: 'Hallgatóknak', en: 'Student', active:false}
 }));
 routes.set('/contact', wrap( {
     component: Contact,
